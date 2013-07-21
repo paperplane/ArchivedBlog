@@ -6,7 +6,7 @@ categories: ['Puppet']
 tags: ['Puppet','DevOps']
 ---
 
-##Puppet Internals##
+##Puppet内部原理##
 
 本文档目标是描述Puppet的 manifest在系统上是如何工作。此过程相当复杂，但是一般也不需要了解其中太多的细节。整理此文档也正是为了那些想了解更多关于Puppet内部机制人更方便更直接理解。
 

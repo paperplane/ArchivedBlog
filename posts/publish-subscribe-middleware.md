@@ -1,9 +1,9 @@
 ---
-title: Mcollective系列之发布订阅中间
+title: Publish Subscribe Middleware
 date: '2013-01-16'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 
 在概述中已经提到，MCollective的设计采用了摒弃SSH循环、去中心化结构，汲取现代化工具发布订阅中间件和现代化理念使用目标数据实时发现网络资源。这部分就是关于发布订阅中间件的背景介绍。

@@ -2,7 +2,7 @@
 title: Remote Interaction
 date: '2013-03-17'
 description:
-categories: ['Fabric','OPS']
+categories: ['Fabric','DevOps']
 tags: ['Fabric']
 ---
 

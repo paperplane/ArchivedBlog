@@ -1,9 +1,9 @@
 ---
-title: Mcollective系列之使用SubCollectives进行网络分区
+title: Use SubCollective
 date: '2013-01-16'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 
 分区既是为了解决单一广播域问题，也是对安全的一种考虑。

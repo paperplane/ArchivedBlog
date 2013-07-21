@@ -2,8 +2,8 @@
 title: ActiveMQ Middleware
 date: '2013-03-16'
 description:
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','ActiveMQ']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','ActiveMQ']
 
 ---
 

@@ -2,8 +2,8 @@
 title: Node Report
 date: '2013-03-15'
 description:
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','Report']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','Report']
 ---
 
 ##自定义节点报告##

@@ -1,9 +1,9 @@
 ---
-title: Mcollective系列之消息流与消息格式
+title: 
 date: '2013-01-16'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 
 ###消息流###

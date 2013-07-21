@@ -1,9 +1,9 @@
 ---
-title: Mcollective系列之安全概述
+title: Introduction To MCollective Security
 date: '2013-01-16'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 
 由于mcollective采用广播范式分发请求，安全是一个复杂的主题。

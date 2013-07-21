@@ -1,11 +1,32 @@
 ---
-title: Home
+title: 紙飛機的博客
+tagline: 專注是一種態度
 description:
 ---
+<h2>Hello, World!</h2>
+<p> 内容导航</p>
+<pre>
+Linux内核
+自动化运维
+Python相关
+文档整理
+编程语言
+程序设计
+那些讲座
+随想笔记
+</pre>
+
+<div class="progress progress-striped">
+      <div class="bar" style="width: 20%;"></div>
+</div>
+
+<p><strong>持续更新中......</strong></p>
+<hr>
+<h2>Latest Posts</h2>
 
 {{# posts.paginator }}
 <div class="post">
-  <h3 class="title"><a href="{{url}}">{{title}}</a> <span class="date">{{ date }}</span></h3>
+  <h2 class="title"><a href="{{url}}">{{title}}</a> <span class="date pull-right">{{ date }}</span></h2>
 
   {{{ summary }}}
 

@@ -2,8 +2,8 @@
 title: Write SimpleRPC Agent
 date: '2013-03-15'
 description: 
-categories: ['MCollective','OPS']
-tags: ['Mcollective','SimpleRPC']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','SimpleRPC']
 ---
 ##编写SimpleRPC代理##
 

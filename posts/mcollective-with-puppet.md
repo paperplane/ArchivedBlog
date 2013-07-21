@@ -1,9 +1,9 @@
 ---
-title: Mcollective With Puppet
+title: MCollective With Puppet
 date: '2013-03-16'
 description:
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','Puppet']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','Puppet']
 ---
 ##MCollective结合Puppet##
 

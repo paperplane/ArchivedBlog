@@ -2,8 +2,8 @@
 title: Write SimpleRPC Client
 date: '2013-03-15'
 description: 
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','SimpleRPC']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','SimpleRPC']
 ---
 
 ##编写SimpleRPC客户端##

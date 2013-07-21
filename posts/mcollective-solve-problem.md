@@ -1,9 +1,9 @@
 ---
-title: Mcollective系列之解决问题及使用原因
+title: 
 date: '2013-01-16'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 
 这部分集中概括MCollective所解决问题及选择MCollective的原因，并比较MCollective与SSH循环的优势所在。并简单讨论MCollective给Puppet带来的改变。

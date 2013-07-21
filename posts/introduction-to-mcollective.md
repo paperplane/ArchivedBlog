@@ -1,9 +1,9 @@
 ---
-title: 'Mcollective系列之简介'
+title: 'Introduction To MCollective'
 date: '2012-11-08'
 description: 
-categories: ['Mcollective','OPS']
-tags: 'Mcollective'
+categories: ['MCollective','DevOps']
+tags: 'MCollective'
 ---
 ###简介###
 

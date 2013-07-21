@@ -2,8 +2,8 @@
 title: Common Plugin
 date: '2013-03-16'
 description: 
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','Plugin']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','Plugin']
 ---
 
 ##常见插件类型##

@@ -1,32 +1,23 @@
 ---
-title: ActiveMQ Config For Mcollective
+title: ActiveMQ Config For MCollective
 date: '2013-04-22'
 description:
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','ActiveMQ']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','ActiveMQ']
 ---
+##ActiveMQ 基本配置##
 
-<html>
-    <head>
-        <title>Evernote Export</title>
-        <basefont face="Tahoma" size="2" />
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <meta name="exporter-version" content="Evernote Windows/268644 (zh-CN); Windows/6.1.7601 Service Pack 1;"/>
-        <style>
-            body, td {
-                font-family: Tahoma;
-                font-size: 10pt;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
-                <a href="{{urls.media}}/pdf/activemq-config-for-mcollective.pdf">
-                    <img src="{{urls.media}}/pdf/activemq-for-mcollective.png" alt="activemq-config-for-mcollective.pdf">
-                </a>
-            </div>
-        </div>
-    </body>
-</html>
+***
 
+<div>
+    <ul>
+        <p>Apache ActiveMQ 是 MCollective 官方推荐的中间件产品。这是一个很好的软件，但
+        是它的 XML 配置文件庞大且笨拙，在一个复杂的 MCollective 部署中可能需要编辑很
+        多区段。这里试图描述与 MCollective 相关的所有重要 ActiveMQ 设置。</p>
+    </ul>
+    <hr>
+    <ul>
+        <li><a href="{{urls.media}}/pdf/activemq-config-for-mcollective.pdf"}}"><img src="{{urls.media}}/pdf/attach.png">请点击查看文档详细内容
+        </a></li>
+    </ul>
+</div>

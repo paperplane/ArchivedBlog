@@ -15,15 +15,16 @@ description:
                 <hr>
                 <li><p>概述部分</p>
                 <ul>
-                    <li><a href="#">总体介绍</a></li>
+                    <li><a href="/puppet/introduction-to-puppet">总体介绍</a></li>
                     <li><a href="#">概念术语</a></li>
                 </ul>
                 </li>
 
                 <li><p>原理部分</p>
                 <ul>
-                    <li><a href="/puppet/puppet-internals.md">内部原理</a></li>
-                    <li><a href="/puppet/puppet-ca.md">认证过程</a></li>
+                    <li><a href="/puppet/puppet-internals">内部原理</a></li>
+                    <li><a href="/puppet/puppet-ca">认证过程</a></li>
+                    <li><a href="#">数据流程</a></li>
                 </ul>
                 </li>
 
@@ -37,6 +38,8 @@ description:
 
                 <li><p>外围产品</p>
                 <ul>
+                    <li><a href="#">DashBoard</a></li>
+                    <li><a href="#">Foreman</a></li>
                     <li><a href="#">PuppetDB</a></li>
                     <li><a href="#">MCollective</a></li>
                     <li><a href="#">Hiera</a></li>
@@ -48,17 +51,17 @@ description:
             <ul class="nav nav-list">
                 <p>Fabric 既是一个 python(2.5+)类库也是一个基于 SSH 的应用程序部署和系统管理任务的命令行工具。它提供整套本地和远程执行 shell 命令、上传下载文件操作，以及一些辅助功能比如提示和执行用户输入，放弃执行之类。</p>
                 <hr>
-                <li><a href="/fabric/intro-to-fabric.md">简介</a></li>
-                <li><a href="/fabric/fabric-env.md">环境字典</a></li>
-                <li><a href="/fabric/host-list.md">主机列表</a></li>
-                <li><a href="/fabric/task-list.md">任务列表</a></li>
-                <li><a href="/fabric/execution-mode.md">执行模式</a></li>
-                <li><a href="/fabric/fab-command.md">工具命令</a></li>
-                <li><a href="/fabric/fabfile-fabricrc.md">两个文件</a></li>
-                <li><a href="/fabric/remote-interaction.md">远程交互</a></li>
-                <li><a href="/fabric/use-fabric-library.md">使用类库</a></li>
-                <li><a href="/fabric/ssh-behavior.md">SSH行为</a></li></li>
-                <li><a href="/fabric/fabric-api.md">API列表</a></li></li>
+                <li><a href="/fabric/introduction-to-fabric">简介</a></li>
+                <li><a href="/fabric/fabric-env">环境字典</a></li>
+                <li><a href="/fabric/host-list">主机列表</a></li>
+                <li><a href="/fabric/task-list">任务列表</a></li>
+                <li><a href="/fabric/execution-mode">执行模式</a></li>
+                <li><a href="/fabric/fab-cli">工具命令</a></li>
+                <li><a href="/fabric/fabfile-and-fabricrc">两个文件</a></li>
+                <li><a href="/fabric/remote-interaction">远程交互</a></li>
+                <li><a href="/fabric/use-fabric-library">使用类库</a></li>
+                <li><a href="/fabric/ssh-behavior">SSH行为</a></li></li>
+                <li><a href="/fabric/fabric-api">API列表</a></li></li>
             </ul>
         </div>
         <div class="tab-pane" id="MCollective">
@@ -67,56 +70,57 @@ description:
                 <hr>
                 <li><p>概述篇</p>
                 <ul>
-                    <li><a href="/mcollective/introduction-to-mcollective.md">MCollective 简介</a></li>
-                    <li><a href="/mcollective/mcollective-solve-problem.md">解决问题及使用原因(What &amp;&amp; why)</a></li>
-                    <li><a href="/mcollective/mcollective-terminology.md">常用术语</a></li>
-                    <li><a href="/mcollective/introduction-to-mcollective-doc.md">文档综述</a></li>
+                    <li><a href="/mcollective/introduction-to-mcollective">MCollective 简介</a></li>
+                    <li><a href="/mcollective/mcollective-solve-problem">解决问题及使用原因(What &amp;&amp; why)</a></li>
+                    <li><a href="/mcollective/mcollective-terminology">常用术语</a></li>
+                    <li><a href="/mcollective/introduction-to-mcollective-doc">文档综述</a></li>
                 </ul>
                 </li>
                 <li><p>原理篇</p>
                 <ul>
-                    <li><a href="/mcollective/publish-subscribe-middleware.md">发布订阅中间件</a></li>
-                    <li><a href="/mcollective/mcollective-message.md">消息流和消息格式</a></li>
-                    <li><a href="/mcollective/use-submcollective.md">使用SubCollectives进行网络分区</a></li>
-                    <li><a href="/mcollective/introduction-to-mcollective-security.md">安全概述</a></li>
+                    <li><a href="/mcollective/publish-subscribe-middleware">发布订阅中间件</a></li>
+                    <li><a href="/mcollective/mcollective-message">消息流和消息格式</a></li>
+                    <li><a href="/mcollective/use-subcollective">使用SubCollectives进行网络分区</a></li>
+                    <li><a href="/mcollective/introduction-to-mcollective-security">安全概述</a></li>
                 </ul>
                 </li>
                 <li><p><strong>配置篇</strong> <font color="#33CC00">最新完成</font></p>
                 <ul>
-                    <li><a href="/mcollective/activemq-config-for-mcollective.md">ActiveMQ Config For MCollective Use</a></li>
-                    <li><a href="/mcollective/mcollective-security.md">MCollective Security</a></li>
-                    <li><a href="/mcollective/deploy-mcollective-in-production-environment.md">A Way To Deploy MCollective in Production Environment</a></li>
+                    <li><a href="/mcollective/activemq-config-for-mcollective">ActiveMQ中间件配置</a></li>
+                    <li><a href="/mcollective/mcollective-server-config">MCollective基本配置</a></li>
+                    <li><a href="/mcollective/mcollective-security">MCollective安全配置</a></li>
+                    <li><a href="/mcollective/deploy-mcollective-in-production-environment">MCollective生产环境部署</a></li>
                 </ul>
                 </li>
                 <li><p>使用篇</p>
                 <ul>
-                    <li><a href="/mcollective/use-mcollective-cli.md">使用MCollective命令行应用程序</a></li>
-                    <li><a href="/mcollective/node-report.md">自定义报告</a></li>
-                    <li><a href="/mcollective/control-deamon.md">控制守护进程</a></li>
-                    <li><a href="/mcollective/use-filter.md">使用过滤器</a></li>
+                    <li><a href="/mcollectiveollective/use-mcollective-cli">使用MCollective命令行应用程序</a></li>
+                    <li><a href="/mcollective/node-report">自定义报告</a></li>
+                    <li><a href="/mcollective/control-daemon">控制守护进程</a></li>
+                    <li><a href="/mcollective/use-filter">使用过滤器</a></li>
                 </ul>
                 </li>
                 <li><p>编程篇</p>
                 <ul>
-                    <li><a href="/mcollective/introduction-to-simplerpc.md">SimpleRPC简介</a></li>
-                    <li><a href="/mcollective/write-simplerpc-agent.md">编写SimpleRPC代理</a></li>
-                    <li><a href="/mcollective/write-simplerpc-client.md">编写SimplRPC客户端</a></li>
-                    <li><a href="/mcollective/simplerpc-auth.md">SimpleRPC授权</a></li>
-                    <li><a href="/mcollective/simplerpc-adulit.md">SimpleRPC审计</a></li>
-                    <li><a href="/mcollective/ddl.md">DDL数据定义语言</a></li>
-                    <li><a href="/mcollective/mco-and-fabric-when-exec-command.md">MCollective/Fabric执行任务比较</a></li>
+                    <li><a href="/mcollective/introduction-to-simplerpc">SimpleRPC简介</a></li>
+                    <li><a href="/mcollective/write-simplerpc-agent">编写SimpleRPC代理</a></li>
+                    <li><a href="/mcollective/write-simplerpc-client">编写SimplRPC客户端</a></li>
+                    <li><a href="/mcollective/simplerpc-authorization">SimpleRPC授权</a></li>
+                    <li><a href="/mcollective/simplerpc-audit">SimpleRPC审计</a></li>
+                    <li><a href="/mcollective/ddl">DDL数据定义语言</a></li>
+                    <li><a href="/mcollective/mcollective-fabric-exec-commands">MCollective/Fabric执行任务比较</a></li>
                 </ul>
                 </li>
                 <li><p>集成篇</p>
                 <ul>
-                    <li><a href="/mcollective/mcollective-with-puppet.md">MCollective结合Puppet</a></li>
-                    <li><a href="/mcollective/activemq-middleware.md">ActiveMQ中间件</a></li>
+                    <li><a href="/mcollective/mcollective-with-puppet">MCollective结合Puppet</a></li>
+                    <li><a href="/mcollective/activemq-middleware">ActiveMQ中间件</a></li>
                 </ul>
                 </li>
                 <li><p>插件篇</p>
                 <ul>
-                    <li><a href="/mcollective/common-plugin.md">常见插件类型</a></li>
-                    <li>常见插件举例</li>
+                    <li><a href="/mcollective/common-plugin">常见插件类型</a></li>
+                    <li><a href="/mcollective/puppet-commander">常见插件举例</a></li>
                 </ul>
                 </li>
             </ul>
@@ -129,7 +133,7 @@ description:
                 <li><a href="#">高可用</a></li>
                 <li><a href="#">高性能</a></li>
                 <li><a href="#">自动化</a></li>
-                <li><a href="/zabbix/intro-to-zabbix-api.md">API使用</a></li>
+                <li><a href="/zabbix/introduction-to-zabbix-api">API使用</a></li>
                 <li><a href="#">SDK构建</a></li>
                 <li><a href="#">Tool编写</a></li>
                 <li><a href="#">远程交互</a></li>

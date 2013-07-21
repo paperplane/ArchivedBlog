@@ -1,8 +1,8 @@
 ---
-title: 'Fabric系列之主机列表'
+title: 'Host List'
 date: '2012-11-08'
 description:
-categories: ['Fabric','OPS']
+categories: ['Fabric','DevOps']
 tags: ['Fabric']
 ---
 

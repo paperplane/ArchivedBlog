@@ -2,7 +2,7 @@
 title: Execution Mode
 date: '2013-03-16'
 description:
-categories: ['Fabric','OPS']
+categories: ['Fabric','DevOps']
 tags: ['Fabric']
 ---
 

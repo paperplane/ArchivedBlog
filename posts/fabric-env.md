@@ -1,8 +1,8 @@
 ---
-title: 'Fabric系列之环境字典'
+title: 'Fabric Env'
 date: '2012-10-08'
 description:
-categories: ['Fabric','OPS']
+categories: ['Fabric','DevOps']
 tags: ['Fabric']
 ---
 

@@ -1,8 +1,9 @@
 ---
-title: Using Filter
+title: Use Filter
 date: '2013-03-15'
 description:
-categories:
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 ##使用过滤器##
 

@@ -2,8 +2,8 @@
 title: Introduction To SimpleRPC
 date: '2013-03-16'
 description:
-categories: ['Mcollective','OPS']
-tags: ['Mcollective','SimpleRPC']
+categories: ['MCollective','DevOps']
+tags: ['MCollective','SimpleRPC']
 ---
 ##SimpleRPC简介##
 

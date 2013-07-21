@@ -1,14 +1,14 @@
 ---
-title: Deploy Mcollective in Production Environment
+title: Deploy MCollective in Production Environment
 date: '2013-03-24'
 description:
-categories: Mcollective
-tags: Mcollective
+categories: MCollective
+tags: MCollective
 ---
 
 ##MCollective生产环境安装部署思路##
 
-Mcollective(后面简称mco)生产环境安装需要考虑到单个client/server节点的安装、ActiveMQ集群、Subcollectives的划分和实际环境等问题，需要分阶段分内容安装部署。这里我把需要安装的节点简单分为三类，具体表示请见图。
+MCollective(后面简称mco)生产环境安装需要考虑到单个client/server节点的安装、ActiveMQ集群、Subcollectives的划分和实际环境等问题，需要分阶段分内容安装部署。这里我把需要安装的节点简单分为三类，具体表示请见图。
  
 ![图片]({{urls.media}}/mcollective/mco-deploy.png)
 

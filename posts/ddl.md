@@ -2,8 +2,8 @@
 title: DDL
 date: '2013-03-15'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 
 ##DDL数据定义语言##
@@ -15,15 +15,10 @@ tags: Mcollective
 DDL在以下场景使用：
 
     作为用户帮助页面来使用
-
     作为自动生成用户接口的方式
-
     RPC客户端在等待回复时自动配置合理的超时时间
-
     在发送之前验证网络输入以避免向远程节点发送不必要数据
-
     模块仓库可以使用元数据来展示可用模块的标准视图帮助用户选择合适模块
-
     server将在发送给代理之前验证传入的请求
 
 ***

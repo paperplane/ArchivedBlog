@@ -1,9 +1,9 @@
 ---
-title: Use Mcollective CLI
+title: Use MCollective CLI
 date: '2013-03-15'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 ##使用MCollective命令行应用程序##
 
@@ -211,7 +211,7 @@ RPC程序能够一个接一个链接。下面的例子展示使用package代理�
     % mco rpc package status package=mcollective -j| 
     jgrep "data.properties.ensure=2.0.0-6.el6" |mco rpc puppetd runonce
 
-Mcollective的结果能够通过使用开源工具gem,jgrep来过滤。MCollective输出与jgrep完全兼容。
+MCollective的结果能够通过使用开源工具gem,jgrep来过滤。MCollective输出与jgrep完全兼容。
 
 #####查看原始数据#####
 

@@ -1,9 +1,9 @@
 ---
-title: Mcollective系列之常用术语
+title: MCollective Terminology
 date: '2013-01-16'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: MCollective
 ---
 这一部分主要包括了后面经常会用到的MCollective术语。
 

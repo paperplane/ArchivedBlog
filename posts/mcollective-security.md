@@ -1,31 +1,24 @@
 ---
-title: Mcollective Security
+title: MCollective Security Config
 date: '2013-04-22'
 description:
-categories: ['Mcollective','OPS']
-tags: Mcollective
+categories: ['MCollective','DevOps']
+tags: ['MCollective','ActiveMQ']
 ---
+##MCollective安全配置##
 
-<html>
-    <head>
-        <title>Evernote Export</title>
-        <basefont face="Tahoma" size="2" />
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <meta name="exporter-version" content="Evernote Windows/268644 (zh-CN); Windows/6.1.7601 Service Pack 1;"/>
-        <style>
-            body, td {
-                font-family: Tahoma;
-                font-size: 10pt;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <div style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;">
-                <a href="{{urls.media}}/pdf/mcollective-security.pdf">
-                    <img src="{{urls.media}}/pdf/mco-sec.png" alt="mcollective-security.pdf">
-                </a>
-            </div>
-        </div>
-    </body>
-</html>
+***
+
+<div>
+    <ul>
+        <p>作为 MCollective 重要部分就是考虑安全。默认情况下允许所有的代理和所有节点所有代理
+        进行通信。问题是通过这种方法如果在某个节点有一个不受信任的用户他就能够安装一个客户
+        端应用程序来从 server 配置文件中读取用户名/密码从而控制整个体系结构。本部分分析在
+        MCollective 使用过程中的安全问题，并提供几种安全方案。</p>
+    </ul>
+    <hr>
+    <ul>
+        <li><a href="{{urls.media}}/pdf/mcollective-security.pdf"}}"><img src="{{urls.media}}/pdf/attach.png">请点击查看文档详细内容
+        </a></li>
+    </ul>
+</div>
