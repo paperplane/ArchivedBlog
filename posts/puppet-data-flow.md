@@ -100,6 +100,7 @@ Facts很方便定义这些静态属性，对于动态属性，Puppet生态系统
 + 节点信息存储在外部节点分类器或LDAP等，从Dashboard中可以获取节点信息
 
 + Master在执行manifeasts前会同步插件（这里的插件包括facts ,types, provides 如果你写过这些自定义插件那么执行前会显式出来 ）以及 Fact Code
+![puppet数据流]({{urls.media}}/puppet/plugins.png)
 
 + 客户端会在本地计算这些Facts 值 ，然后将这些信息发送给Master并要求Catalog
 
