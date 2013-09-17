@@ -5,7 +5,9 @@ categories: Python
 tags: ['Python','decorator']
 ---
 
-##Python装饰器和函数式编程##
+##Python装饰器和函数式编程[译文]##
+
+[原文参考](http://www.brianholdefehr.com/decorators-and-functional-python)
 
 装饰器是Python重要特性之一。它不仅是语言的固有有用特性，也教会了我们以一种有趣的方式--函数式方式来思考。
 
