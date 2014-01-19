@@ -74,7 +74,7 @@ widgets :
   analytics :
     use : google
     # -- config for google --
-    tracking_id : 'UA-123-12'
+    tracking_id : 'UA-44115336-1'
 
     # -- config for getclicky  --
     # site_id :
