@@ -7,7 +7,7 @@ tags: ['Deploy']
 ---
 
 这部分的文章主要聊聊部署，作为交付的重要环节，自动化部署一直是持续交付的核心。
-S
+
 ##Part I: Brief Introduction To Deploy
 
 ###部署的常见方式
