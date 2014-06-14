@@ -33,7 +33,7 @@
 
   <body>
 
-    <div class="navbar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-narrow">
           <a class="brand" href="{{urls.base_path}}">{{ data.title }}</a>
@@ -41,12 +41,13 @@
             {{# data.navigation?to__root }}
               {{> pages_list }}
             {{/ data.navigation?to__root }}
+            <ul class="nav pull-right"><li><a href="http://wiki.junqili.com">WIKI</a></li></li></ul>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="container-narrow">
+    <div style="margin-top: 70px;" class="container-narrow">
 
       <div class="content">
         {{{ content }}}
