@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+                <li class="active"><a href="/tools" class="active">Tools</a></li>
+              
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>Tools  <small>工具能够带来行为的改变并最终改变文化</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p><a href="/devops/infrastructure-as-code">DevOps不仅仅是工具</a>，它是一系列思想，概念以及最佳实践等。但是实现这些理念的却是通过工具来完成。</p>
+
+<hr>
+<div>
+    <ul class="nav nav-tabs nav-tabs-google">
+        <li class="active"><a href="#Puppet" data-toggle="tab">Puppet</a></li>
+        <li><a href="#MCollective" data-toggle="tab">MCollective</a></li>
+        <li><a href="#Fabric" data-toggle="tab">Fabric</a></li>
+        <li><a href="#Zabbix" data-toggle="tab">Zabbix</a></li>
+    </ul>
+    <div class="tab-content row">
+        <div class="tab-pane active" id="Puppet">
+            <ul class="nav nav-list">
+                <p>Puppet是一个采用Ruby编写的开源IT管理工具,作为数据中心自动化和服务器管理工具使用。Puppet是一个C/S架构的配置管理工具，使用它简单的自定义语言来完成机器配置。它不仅仅是一个应用程序更是一个框架。</p>
+                <hr>
+                <li><p>概述部分</p>
+                <ul>
+                    <li><a href="/puppet/introduction-to-puppet">总体介绍</a></li>
+                    <li><herf="#">概念术语</a></li>
+                    <li><herf="#">编程语言</a></li>
+                </ul>
+                </li>
+
+                <li><p>原理部分</p>
+                <ul>
+                    <li><a href="/puppet/puppet-internals">内部原理</a></li>
+                    <li><a href="/puppet/puppet-ca">认证过程</a></li>
+                    <li><a href="/puppet/puppet-data-flow">数据流程</a></li>
+                </ul>
+                </li>
+
+                <li><p>Master相关</p>
+                <ul>
+                    <li><herf="#">无Master模式</a></li>
+                    <li><herf="#">单Master扩展</a></li>
+                    <li><herf="#">多Master扩展</a></li>
+                </ul>
+
+                <li><p>使用部分</p>
+                <ul>
+                    <li><herf="#">代码数据分离</a></li>
+                    <li><herf="#">使用多环境</a></li>
+                    <li><herf="#">构建交付流程</a></li>
+                </ul>
+                </li>
+
+                <li><p>外围产品</p>
+                <ul>
+                    <li><herf="#">DashBoard</a></li>
+                    <li><herf="#">Foreman</a></li>
+                    <li><herf="#">PuppetDB</a></li>
+                    <li><herf="#">MCollective</a></li>
+                    <li><herf="#">Hiera</a></li>
+                </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane" id="Fabric">
+            <ul class="nav nav-list">
+                <p>Fabric 既是一个 python(2.5+)类库也是一个基于 SSH 的应用程序部署和系统管理任务的命令行工具。它提供整套本地和远程执行 shell 命令、上传下载文件操作，以及一些辅助功能比如提示和执行用户输入，放弃执行之类。</p>
+                <hr>
+                <li><a href="/fabric/introduction-to-fabric"><font color="#33CC00">简介</font></a></li>
+                <li><a href="/fabric/fabric-env"><font color="#33CC00">环境字典</font></a></li>
+                <li><a href="/fabric/host-list"><font color="#33CC00">主机列表</font></a></li>
+                <li><a href="/fabric/task-list"><font color="#33CC00">任务列表</font></a></li>
+                <li><a href="/fabric/execution-mode"><font color="#33CC00">执行模式</font></a></li>
+                <li><a href="/fabric/fab-cli"><font color="#33CC00">工具命令</font></a></li>
+                <li><a href="/fabric/fabfile-and-fabricrc"><font color="#33CC00">两个文件</font></a></li>
+                <li><a href="/fabric/remote-interaction"><font color="#33CC00">远程交互</font></a></li>
+                <li><a href="/fabric/use-fabric-library"><font color="#33CC00">使用类库</font></a></li>
+                <li><a href="/fabric/ssh-behavior"><font color="#33CC00">SSH行为</font></a></li></li>
+                <li><a href="/fabric/fabric-api"><font color="#33CC00">API列表</font></a></li></li>
+            </ul>
+        </div>
+        <div class="tab-pane" id="MCollective">
+            <ul class="nav nav-list">
+                <p>MCollective是一个构建服务器编排和并行工作执行系统的框架。首先，MCollective是一种针对服务器集群进行可编程控制的系统管理解决方案；其次它也提供了一个可扩展的而且迅速的并行执行环境，不再依赖SSH。</p>
+                <hr>
+                <li><p>概述篇</p>
+                <ul>
+                    <li><a href="/mcollective/introduction-to-mcollective">MCollective 简介</a></li>
+                    <li><a href="/mcollective/mcollective-solve-problem">解决问题及使用原因(What &amp;&amp; why)</a></li>
+                    <li><a href="/mcollective/mcollective-terminology">常用术语</a></li>
+                    <li><a href="/mcollective/introduction-to-mcollective-doc">文档综述</a></li>
+                </ul>
+                </li>
+                <li><p>原理篇</p>
+                <ul>
+                    <li><a href="/mcollective/publish-subscribe-middleware">发布订阅中间件</a></li>
+                    <li><a href="/mcollective/mcollective-message">消息流和消息格式</a></li>
+                    <li><a href="/mcollective/use-subcollective">使用SubCollectives进行网络分区</a></li>
+                    <li><a href="/mcollective/introduction-to-mcollective-security">安全概述</a></li>
+                </ul>
+                </li>
+                <li><p><strong>配置篇</strong> <font color="#33CC00">最新完成</font></p>
+                <ul>
+                    <li><a href="/mcollective/activemq-config-for-mcollective">ActiveMQ中间件配置</a></li>
+                    <li><a href="/mcollective/mcollective-server-config">MCollective基本配置</a></li>
+                    <li><a href="/mcollective/mcollective-security">MCollective安全配置</a></li>
+                    <li><a href="/mcollective/deploy-mcollective-in-production-environment">MCollective生产环境部署</a></li>
+                </ul>
+                </li>
+                <li><p>使用篇</p>
+                <ul>
+                    <li><a href="/mcollectiveollective/use-mcollective-cli">使用MCollective命令行应用程序</a></li>
+                    <li><a href="/mcollective/node-report">自定义报告</a></li>
+                    <li><a href="/mcollective/control-daemon">控制守护进程</a></li>
+                    <li><a href="/mcollective/use-filter">使用过滤器</a></li>
+                </ul>
+                </li>
+                <li><p>编程篇</p>
+                <ul>
+                    <li><a href="/mcollective/introduction-to-simplerpc">SimpleRPC简介</a></li>
+                    <li><a href="/mcollective/write-simplerpc-agent">编写SimpleRPC代理</a></li>
+                    <li><a href="/mcollective/write-simplerpc-client">编写SimplRPC客户端</a></li>
+                    <li><a href="/mcollective/simplerpc-authorization">SimpleRPC授权</a></li>
+                    <li><a href="/mcollective/simplerpc-audit">SimpleRPC审计</a></li>
+                    <li><a href="/mcollective/ddl">DDL数据定义语言</a></li>
+                    <li><a href="/mcollective/mcollective-fabric-exec-commands">MCollective/Fabric执行任务比较</a></li>
+                </ul>
+                </li>
+                <li><p>集成篇</p>
+                <ul>
+                    <li><a href="/mcollective/mcollective-with-puppet">MCollective结合Puppet</a></li>
+                    <li><a href="/mcollective/activemq-middleware">ActiveMQ中间件</a></li>
+                </ul>
+                </li>
+                <li><p>插件篇</p>
+                <ul>
+                    <li><a href="/mcollective/common-plugin">常见插件类型</a></li>
+                    <li><a href="/mcollective/puppet-commander">常见插件举例</a></li>
+                </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane" id="Zabbix">
+            <ul class="nav nav-list">
+                <p>Zabbix是一个基于WEB界面的提供分布式系统监视以及网络监视功能的企业级的开源解决方案。Zabbix能监视各种网络参数，保证服务器系统的安全运营;并提供柔软的通知机制以让系统管理员快速定位/解决存在的各种问题。</p>
+                <hr>
+                <li><herf="#">原理架构</a></li>
+                <li><herf="#">高可用</a></li>
+                <li><a href="/zabbix/zabbix-performance-tunning"><font color="#33CC00">高性能</font></a></li>
+                <li><herf="#">自动化</a></li>
+                <li><a href="/zabbix/introduction-to-zabbix-api"><font color="#33CC00">API使用</font></a></li>
+                <li><herf="#">SDK构建</a></li>
+                <li><herf="#">Tool编写</a></li>
+                <li><herf="#">远程交互</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+  </div>
+</div>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

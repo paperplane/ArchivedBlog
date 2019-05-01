@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MCollective/Fabric Exec Commands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>MCollective/Fabric Exec Commands </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">MCollective/Fabric执行任务比较</h2>
+
+<h4 id="toc_1">定义主机</h4>
+
+<p><strong>发现主机</strong>
+MCollective有丰富的策略来发现主机，目前支持的有通过主机标识（identity，一般为主名）、puppet class、facts、安装的插件以及自定义数据源和自定义发现策略，很灵活。</p>
+
+<p>Fabric仅仅使用主机名来定义主机，使用传统的SSH循环，关于这点比较在最开始已经提到过。</p>
+
+<p>关键一点：MCollective对于需要执行任务的主机采用的主动发现的方式，而Fabric则是“被动”指出。</p>
+
+<p><strong>定义主机</strong></p>
+
+<p>Fabric有Host和Role关键字来指定，既可以单独制定某一台，也可以是某一个类别。</p>
+
+<p>MCollective没有Role的概念，但是可以通过多种手段实现Role的功能：通过class分类、直接在fact中添加role=&gt;puppet这样。而且方式更灵活。与Puppet结合后能够查询Puppet资源，这可以为指定在哪些主机上提供参考。</p>
+
+<hr>
+
+<h4 id="toc_2">指定列表</h4>
+
+<p>Fabric可以通过Host和Role相结合以多种方式来指定主机。并且会对这些列表中重复主机自动合并和排除其中某个或某些特定主机。</p>
+
+<p>MCollective在制定列表时使用内建的过滤机制，即通过发现主机的策略来过滤主机。现在在过滤过程中已支持很丰富的过滤方法，包括对正则表达式、多种逻辑运算符和算数运算符的支持。它的一个“缺陷”是没有排除主机的关键字，必须通过改变过滤内容来实现，只是做法需要换一种策略。</p>
+
+<hr>
+
+<h4 id="toc_3">定义任务</h4>
+
+<p>对于Fabric定义任务，本身执行shell命令很简单，只需调用Fabric相应API来执行就是，但是Fabric定义任务时需要考虑很多，包括执行策略、执行方式这些都影响任务定义。在 Fabric中有API local/run/sudo,这些命令调用的本质都是Subprocess模块。</p>
+
+<p>对于MCollective执行Shell命令，也是调用Shell类的相应接口，在Shell类中有runcommand函数用于执行命令，该函数本质上是调用systemu, 这个ruby库的特点就是很好的处理标准输出与标准错误和子进程僵死问题。如果是用MCollective定义任务不用判断是本地还是远程连接（一般都是远程），默认就是并行执行。MCollective支持对任务的“封装”“重用”，比如安装程序可以定义一个代理就负责安装，在安装不同软件时可以重用这个代理，只是传入的安装程序参数不同。</p>
+
+<p>根据需求，在定义任务时需要制定任务黑名单列表。在使用Fabric时这个就完全交给应用程序自身处理，完全是python逻辑处理，不需要由Fabric这边判断，它只是对判断可以执行的命令进行执行。对于MCollective，可用输入验证来做，目前验证支持类型验证（即基本ruby数据类型），正则表达式验证，或者不设验证。</p>
+
+<p>Fabric在远程交互时需要解决两个很重要的问题，一个涉及到合并和分开输出错误流，一个涉及到什么时候激活prompts等待用户输入。MCollective输出错误已由systemu模块处理，由于采用中间件连接没有密码这类提示问题。</p>
+
+<hr>
+
+<h4 id="toc_4">并行执行</h4>
+
+<p><strong>执行方式</strong></p>
+
+<p>Fabric默认执行方式是但任务单主机串行方式，MCollective原生支持但任务多主机并行执行方式。二者的并行本质上都是单任务多主机的并行执行，但是任务的定义都很灵活，即任务内容可以很丰富。</p>
+
+<p><strong>执行效果</strong></p>
+
+<p>这个效果需要做测试。从建立连接来看，Fabric采用原始SSH连接，MCollective采用中间件和消息队列，抛弃SSH 的For循环。关于与SSH循环的比较开始有详细比较。优势简单说就是异步/事件驱动，自动发现主机，模块化插件等。但是这对发现系统的依赖很大，受网络影响也很大，如果发现过程延迟很大，会直接导致未发现任何节点信息。</p>
+
+<hr>
+
+<h4 id="toc_5">输出比较</h4>
+
+<p>MCollective 在输出上花费了很大心血，既有针对每次执行每个主机单个的输出，又有对整体执行情况统计的输出。而且这个输出可以很好地制作统计表格图像和web接口。Fabric输出针对串行执行时是一个个任务一个个主机输出，而在并行执行时，针对一个任务，多个主机则是并行输出，虽然每行输出之前都会显示这是哪个主机的输出，但是看起来仍然很乱。</p>
+
+<p>对于返回的内容，Fabric提供七种内容：标准输出、标准错误、警告消息、放弃消息、状态消息、执行信息、用户信息。对于这些内容，Fabric可设置输出哪些隐藏哪些。MCollective返回一个结果对象，在内容上也能很好满足输出要求。在输出格式上可以做很多自定义设置。</p>
+
+<hr>
+
+<h4 id="toc_6">其他比较</h4>
+
+<p><strong>语言差异</strong></p>
+
+<p>Fabric基于Python，也是python类库。MCollective基于Ruby。</p>
+
+<p><strong>难易程度</strong></p>
+
+<p>无论是部署还是使用，Fabric都远远比简单MCollective简单。MCollective更多是提供了一种框架，一种解决方案，需要很多自定义来选择。当然这也是说明了它具有很好的可扩展性。在部署上尤其是考虑到节点过多，网络复杂，延迟问题时，需要使用SubCollectives。这也增加了中间件及其他的部署复杂程度。</p>
+
+<p>MCollective执行命令简单示例</p>
+
+<p><strong>代理程序</strong></p>
+
+<pre><code>module MCollective
+    module Agent
+        class Helloworld&lt;RPC::Agent
+            metadata :name        =&gt; &quot;SimpleRPC Sample Agent&quot;,
+                     :description =&gt; &quot;Echo service for MCollective&quot;,
+                     :author      =&gt; &quot;R.I.Pienaar&quot;,
+                     :license     =&gt; &quot;GPLv2&quot;,
+                     :version     =&gt; &quot;1.1&quot;,
+                     :url         =&gt; &quot;http://projects.puppetlabs.com/projects/mcollective-plugins/wiki&quot;,
+                     :timeout     =&gt; 60
+            # Basic echo server
+            action &quot;echo&quot; do
+                validate :msg, String
+                reply[:msg] = request[:msg]
+                reply[:status] = run(request[:msg], :cwd=&gt;&quot;/home&quot;, :stdout =&gt; :out, :stderr =&gt; :err)
+            end
+        end
+    end
+end
+</code></pre>
+
+<p><strong>客户端程序</strong></p>
+
+<pre><code>class MCollective::Application::Echo&lt;MCollective::Application
+   description &quot;Reports on usage for a specific fact&quot;
+
+   option :message,
+          :description    =&gt; &quot;Message to send&quot;,
+          :arguments      =&gt; [&quot;-m&quot;, &quot;--message MESSAGE&quot;],
+          :validation     =&gt; &#39;^[\w[\s]\w]+$&#39;
+
+   def main
+      mc = rpcclient(&quot;helloworld&quot;)
+
+      printrpc mc.echo(:msg =&gt; configuration[:message], :options =&gt; options)
+
+      printrpcstats
+   end
+end
+</code></pre>
+
+<p><strong>执行结果</strong></p>
+
+<pre><code>[root@master agent]# mco echo -m date -v
+Determining the amount of hosts matching filter for 2 seconds .... 2
+ * [ ============================================================&gt; ] 2 / 2
+
+
+puppet.example.com                      : OK
+    {:status=&gt;0, :msg=&gt;&quot;date&quot;, :out=&gt;&quot;Fri Jul 27 14:49:34 UTC 2012\n&quot;, :err=&gt;&quot;&quot;}
+
+master.example.com                      : OK
+    {:status=&gt;0, :msg=&gt;&quot;date&quot;, :out=&gt;&quot;Fri Jul 27 15:05:01 EDT 2012\n&quot;, :err=&gt;&quot;&quot;}
+
+
+
+---- rpc stats ----
+           Nodes: 2 / 2
+     Pass / Fail: 2 / 0
+      Start Time: Fri Jul 27 15:05:01 -0400 2012
+  Discovery Time: 2004.03ms
+      Agent Time: 122.94ms
+      Total Time: 2126.97ms
+</code></pre>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/ssh-behavior" title="SSH behavior">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/fabric/manage-output" title="Manage Output">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

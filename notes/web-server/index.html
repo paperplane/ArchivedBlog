@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Web Server </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-10</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Notes-ref">Notes <span>17</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#HTTP-ref">HTTP <span>17</span></a>
+      </li>
+      <li>
+        <a href="/tags#Note-ref">Note <span>17</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <p>WEB服务器部分主要包括三部分内容：</p>
+
+<pre><code>常见WEB服务器类型
+编写简单WEB服务器
+WEB服务器工作步骤
+</code></pre>
+
+<p>本部分介绍的内容都是概括性、总结性的内容，后面的内容会对本部分提到的很多东西进行深入挖掘。
+<img src="/assets/media/http/webserver.jpeg" alt="图片"></p>
+
+<hr>
+
+<h3 id="toc_0">WEB服务器市场概况</h3>
+
+<p>主要来看下Netcraft的最新市场调研结果</p>
+
+<p><img src="/assets/media/http/webserver1.png" alt="图片"></p>
+
+<p><img src="/assets/media/http/webserver2.png" alt="图片"></p>
+
+<p><img src="/assets/media/http/webserver3.png" alt="图片"></p>
+
+<p>不难看到，这次调研中已经有超过6亿的网站有HTTP响应。就最近几个季度数据整体来看，Apache，微软等的市场份额都有一定的下降，唯有Nginx，一直涨幅明显。在大型商业站点，Apache仍是一枝独秀，而Nginx则直追微软，可谓是WEB服务器中的黑马，战斗机。</p>
+
+<p>详细信息： <a href="http://news.netcraft.com/archives/2013/03/01/march-2013-web-server-survey.html">netcraft</a></p>
+
+<hr>
+
+<h3 id="toc_1">Nginx VS Apache</h3>
+
+<h5 id="toc_2">Nginx和Apache简介</h5>
+
+<p>Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”， 是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发的，它已经在该站点运行超过两年半了。Igor Sysoev在建立的项目时,使用基于BSD许可。</p>
+
+<p>Apache是世界排名第一的web服务器.1995年4月, 最早的apache(0.6.2版)由apache group公布发行. apache group 是一个完全通过internet进行运作的非盈利机构, 由它来决定apache web服务器的标准发行版中应该包含哪些内容. 准许任何人修改隐错, 提供新的特征和将它移植到新的平台上, 以及其它的工作. 当新的代码被提交给apache group时, 该团体审核它的具体内容, 进行测试, 如果认为满意, 该代码就会被集成到apache的主要发行版中. </p>
+
+<p>Nginx作为&quot;年轻一代&quot;,在许多方面都比竞争对手更高效。</p>
+
+<p>1 速度：利用异步套接字，接到请求时，不会派生出与请求一样多的子进程。考虑减轻CPU负载和内存消耗，每个核一个进程足以处理数千个连接。</p>
+
+<p>2 易用：与Apache等相比，配置文件的读取和调整都十分容易，只需几行就可以建立一个完整的虚拟主机。</p>
+
+<p>3 模块性：自带强大插件系统--&quot;模块&quot;，原始发布归档文件与第三方包含丰富模块可供下载。</p>
+
+<p>Nginx集速度、效率和能力于一体，是迄今为止，相对于Apache来说最好的选择。</p>
+
+<h5 id="toc_3">Nginx基本入门指导----从安装到配置</h5>
+
+<pre><code>/usr/sbin/groupadd www -g 48
+/usr/sbin/useradd -u 48 -g www -s /sbin/nologin www
+
+wget http://nginx.org/download/nginx-1.1.15.tar.gz
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.8.tar.bz2
+
+cd /usr/local/
+tar jxvf /home/lijunqi/pcre-7.8.tar.bz2 
+cd pcre-7.8/
+./configure 
+make &amp;&amp; make install
+
+cd ..
+tar zxvf /home/lijunqi/nginx-1.1.15.tar.gz
+cd nginx-1.1.15/
+./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module
+make &amp;&amp; make install
+cd ..
+/usr/local/nginx/sbin/nginx
+</code></pre>
+
+<hr>
+
+<h3 id="toc_4">编写简单WEB服务器</h3>
+
+<h5 id="toc_5">Python实现</h5>
+
+<pre><code>最简单的方式：
+
+python -m SimpleHTTServer
+
+简单服务器：
+
+import socket
+
+# Create TCP/IP Socket
+sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+# Bind the Socket To the Port
+server_address = (&#39;localhost&#39;, 2048)
+sock.bind(server_address)
+
+# Listen for Incoming Connetions
+sock.listen(5)
+
+while True:
+    # Wait for Connection
+    connection, client_address = sock.accept()
+
+    try:
+        # receive data and retransmit it
+        while True:
+            data = connection.recv(16)
+            if data:
+                connection.sendall(data)
+            else:
+                break
+    finally:
+        # Clean up the connection
+        connection.close()
+</code></pre>
+
+<hr>
+
+<h3 id="toc_6">WEB服务器工作流程</h3>
+
+<h5 id="toc_7">基本流程及处理问题</h5>
+
+<p>这些步骤很多内容都会在后面分别讲到，这里只是简单概括性总结。</p>
+
+<p>建立连接--接受客户端连接，或者不希望与该客户端建立连接，就将其关闭</p>
+
+<p>接收请求--从网络中读取一条HTTP请求报文</p>
+
+<p>处理请求--对请求报文进行解释，并采取行动</p>
+
+<p>访问资源--访问报文中指定的资源</p>
+
+<p>构建响应--创建带有正确首部的HTTP响应报文</p>
+
+<p>发送响应--将响应回送给客户端</p>
+
+<p>记录日志--记录事务处理过程，将与已完成事务相关的内容记录在日志文件中</p>
+
+<hr>
+
+<ul>
+<li>参考资料</li>
+<li><a href="http://book.douban.com/subject/10746113/">HTTP权威指南</a></li>
+<li><a href="http://news.netcraft.com/">Netcraft</a></li>
+</ul>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/notes/https" title="Https">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/devops/infrastructure-as-code" title="Infrastructure As Code">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

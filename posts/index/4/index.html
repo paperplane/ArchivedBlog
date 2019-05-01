@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        <div class="row-fluid">
+  <div class="span12">
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/node-report">Node Report</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#33258;&#23450;&#20041;&#33410;&#28857;&#25253;&#21578;</h2>
+
+<p>&#27491;&#22914;&#22312;&#27010;&#36848;&#20013;&#20171;&#32461;&#19968;&#26679;&#65292;MCollective&#21487;&#20197;&#29992;&#26469;&#25776;&#20889;&#33258;&#23450;&#20041;&#35774;&#26045;&#25253;&#21578;&#12290;&#26082;&#28982;&#25105;&#20204;&#26377;&#33410;&#28857;&#30340;facts,classes&#21644;agents&#36825;&#20123;&#20449;&#24687;&#65292;&#23427;&#20204;&#37117;&#21487;&#20197;&#29992;&#26469;&#25776;&#20889;&#33258;&#23450;&#20041;&#25253;&#21578;&#12290;mco inventory&#26159;&#19968;&#20010;&#36890;&#29992;&#30340;&#33410;&#28857;&#21644;&#32593;&#32476;&#25253;&#21578;&#24037;&#20855;&#65292;&#23427;&#36824;&#25317;&#26377;&#22522;&#26412;&#30340;&#33050;&#26412;&#25191;&#34892;&#21151;&#33021;&#12290;&#36825;&#26159;&#19968;&#39033;&#26032;&#20852;&#30340;&#21151;&#33021;&#65292;&#33050;&#26412;&#35821;&#35328;&#21487;&#33021;&#20250;&#21464;&#12290;</p>
+
+<hr>
+<h4 id="toc_1">&#33410;&#28857;&#39044;&#35272;</h4>
+
+<p>&#23545;&#20110;&#32473;&#23450;&#33410;&#28857;&#21487;&#20197;&#36816;&#34892;mco inventory&#26469;&#33719;&#21462;&#23436;&#20840;&#20449;&#24687;&#12290;&#22914;&#19979;&#65306;</p>
+
+<pre><code>[root@master mcollective]# mco inventory master.example.com
+Inventory for master.example.com:
+   Server Statistics:
+                      Version: 2.0.0
+                   Start Time: Tue Jul 24 16:04:31 -0400 2012
+                  Config File: /etc/mcollective/server.cfg
+                  Collectives: mcollective, puppet, local
+              Main Collective: mcollective
+                   Process ID: 6822
+               Total Messages: 11
+      Messages Passed Filters: 11
+            Messages Filtered: 0
+             Expired Messages: 0
+                 Replies Sent: 10
+         Total Processor Time: 0.48 seconds
+                  System Time: 0.13 seconds
+   Agents:
+      discovery       helloworld      package        
+      process         rpcutil         service        
+   Configuration Management Classes:
+      default                        settings                      
+   Facts:
+      architecture =&gt; i386
+      augeasversion =&gt; 0.10.0
+      boardmanufacturer =&gt; LENOVO
+      boardproductname =&gt; 284255C
+  boardserialnumber =&gt; 1ZG6Y9AT0GJ
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/node-report" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/write-simplerpc-client">Write SimpleRPC Client</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#32534;&#20889;SimpleRPC&#23458;&#25143;&#31471;</h2>
+
+<p>&#27491;&#22914;&#22312;SimpleRPC&#20013;&#25152;&#25351;&#20986;&#19968;&#26679;&#65292;&#21487;&#20197;&#20351;&#29992;mco rpc&#21629;&#20196;&#34892;&#24037;&#20855;&#26469;&#35843;&#29992;&#20195;&#29702;&#24182;&#35753;&#23427;&#20204;&#23613;&#21147;&#20197;&#21512;&#29702;&#26041;&#24335;&#26174;&#31034;&#32467;&#26524;&#12290;&#22914;&#26524;&#36825;&#20123;&#19981;&#22815;&#21487;&#20197;&#20889;&#33258;&#24049;&#30340;&#20195;&#29702;&#12290;</p>
+
+<p>&#22914;&#26524;&#20320;&#33021;&#22362;&#25345;SimpleRPC&#30340;&#35268;&#21017;&#65292;SimpleRPC&#23458;&#25143;&#31471;&#33021;&#22815;&#20570;&#27491;&#24120;&#23458;&#25143;&#31471;&#25152;&#20570;&#30340;&#22823;&#22810;&#25968;&#20107;&#24773;&#24182;&#33021;&#20351;&#20854;&#21464;&#24471;&#24456;&#31616;&#21333;&#12290;</p>
+
+<hr>
+<h4 id="toc_1">&#22522;&#26412;&#23458;&#25143;&#31471;</h4>
+
+<p>&#23458;&#25143;&#31471;&#22823;&#22810;&#25968;&#37117;&#26159;&#19968;&#20010;&#22312;&#20195;&#30721;&#20013;&#37319;&#29992;Ruby Mixin&#30340;&#24110;&#21161;&#20989;&#25968;&#30340;&#20998;&#25903;&#65292;&#23427;&#25552;&#20379;&#20197;&#19979;&#65306;</p>
+
+<pre><code>&#20934;&#21629;&#20196;&#34892;&#36873;&#39033;&#26469;&#35299;&#26512;&#24110;&#21161;&#36755;&#20986;
+&#33021;&#22815;&#28155;&#21152;&#21629;&#20196;&#34892;&#36873;&#39033;
+&#33021;&#22815;&#35775;&#38382;&#21040;&#20195;&#29702;&#21644;&#23427;&#30340;&#21160;&#20316;
+&#24110;&#21161;&#36755;&#20986;&#32467;&#26524;&#30340;&#24037;&#20855;
+&#36755;&#20986;&#32479;&#35745;&#30340;&#24037;&#20855;
+&#26500;&#24314;&#33258;&#24049;&#30340;&#36807;&#28388;&#22120;&#30340;&#24037;&#20855;
+&#22312;&#20445;&#30041;MCollective::Client&#21151;&#33021;&#30340;&#21069;&#25552;&#19979;&#38468;&#21152;&#20854;&#20182;&#21151;&#33021;
+&#33021;&#22815;&#24456;&#31616;&#21333;&#20063;&#33021;&#24456;&#22797;&#26434;
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/write-simplerpc-client" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/simplerpc-audit">SimpleRPC Audit</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">SimpleRPC&#23457;&#35745;</h2>
+
+<p>&#20316;&#20026;SimpleRPC&#26694;&#26550;&#30340;&#19968;&#37096;&#20998;&#65292;&#23457;&#35745;&#31995;&#32479;&#29992;&#26469;&#23558;&#25509;&#25910;&#21040;&#30340;&#25152;&#26377;&#35831;&#27714;&#35760;&#24405;&#26085;&#24535;&#65288;&#22312;&#19968;&#20010;&#25991;&#20214;&#20013;&#65289;&#25110;&#32773;&#23558;&#36825;&#20123;&#26085;&#24535;&#21457;&#36865;&#21040;&#19968;&#20010;&#20013;&#24515;&#23457;&#35745;&#31995;&#32479;&#12290;&#23457;&#35745;&#25968;&#25454;&#21516;&#26679;&#21487;&#25554;&#20214;&#21270;&#32780;&#19988;&#21487;&#20197;&#26681;&#25454;&#33258;&#36523;&#38656;&#27714;&#26469;&#25552;&#20379;&#30456;&#24212;&#25554;&#20214;&#12290;</p>
+
+<p>&#21516;&#25480;&#26435;&#19968;&#26679;&#65292;&#23458;&#25143;&#31471;&#22312;&#35831;&#27714;&#20013;&#20250;&#21253;&#25324;&#36816;&#34892;&#23458;&#25143;&#31471;&#24211;&#30340;&#36827;&#31243;&#30340;UID&#65292;&#32780;&#23457;&#35745;&#20989;&#25968;&#33021;&#22815;&#33719;&#21462;&#35831;&#27714;&#30340;&#35775;&#38382;&#26435;&#38480;&#12290;</p>
+
+<hr>
+<h4 id="toc_1">&#37197;&#32622;</h4>
+
+<p>&#21551;&#29992;&#26085;&#24535;&#21151;&#33021;&#38656;&#35201;&#35774;&#32622;&#30456;&#24212;&#36873;&#39033;&#26469;&#21551;&#29992;&#21644;&#20351;&#29992;&#20160;&#20040;&#25554;&#20214;&#65306;</p>
+
+<pre><code>rpcaudit = 1
+rpcauditprovider = Logfile
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/simplerpc-audit" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/ddl">DDL</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">DDL&#25968;&#25454;&#23450;&#20041;&#35821;&#35328;</h2>
+
+<p>&#21516;&#20854;&#20182;&#36828;&#31243;&#36807;&#31243;&#35843;&#29992;&#31995;&#32479;&#65292;MCollective&#26377;&#19968;&#20010;DDL&#26469;&#23450;&#20041;&#21487;&#29992;&#36828;&#31243;&#26041;&#27861;&#20197;&#21450;&#38656;&#35201;&#30340;&#36755;&#20837;&#21644;&#20135;&#29983;&#30340;&#36755;&#20986;&#12290;</p>
+
+<p>&#38500;&#20102;&#36825;&#20123;&#36807;&#31243;&#23450;&#20041;&#21516;&#26679;&#25552;&#20379;&#20851;&#20110;&#20316;&#32773;&#65292;&#29256;&#26412;&#31561;&#20854;&#20182;&#20851;&#38190;&#25968;&#25454;&#28857;&#30340;&#20803;&#25968;&#25454;&#12290;</p>
+
+<p>DDL&#22312;&#20197;&#19979;&#22330;&#26223;&#20351;&#29992;&#65306;</p>
+
+<pre><code>&#20316;&#20026;&#29992;&#25143;&#24110;&#21161;&#39029;&#38754;&#26469;&#20351;&#29992;
+&#20316;&#20026;&#33258;&#21160;&#29983;&#25104;&#29992;&#25143;&#25509;&#21475;&#30340;&#26041;&#24335;
+RPC&#23458;&#25143;&#31471;&#22312;&#31561;&#24453;&#22238;&#22797;&#26102;&#33258;&#21160;&#37197;&#32622;&#21512;&#29702;&#30340;&#36229;&#26102;&#26102;&#38388;
+&#22312;&#21457;&#36865;&#20043;&#21069;&#39564;&#35777;&#32593;&#32476;&#36755;&#20837;&#20197;&#36991;&#20813;&#21521;&#36828;&#31243;&#33410;&#28857;&#21457;&#36865;&#19981;&#24517;&#35201;&#25968;&#25454;
+&#27169;&#22359;&#20179;&#24211;&#21487;&#20197;&#20351;&#29992;&#20803;&#25968;&#25454;&#26469;&#23637;&#31034;&#21487;&#29992;&#27169;&#22359;&#30340;&#26631;&#20934;&#35270;&#22270;&#24110;&#21161;&#29992;&#25143;&#36873;&#25321;&#21512;&#36866;&#27169;&#22359;
+server&#23558;&#22312;&#21457;&#36865;&#32473;&#20195;&#29702;&#20043;&#21069;&#39564;&#35777;&#20256;&#20837;&#30340;&#35831;&#27714;
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/ddl" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/use-mcollective-cli">Use MCollective CLI</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#20351;&#29992;MCollective&#21629;&#20196;&#34892;&#24212;&#29992;&#31243;&#24207;</h2>
+
+<p>&#21629;&#20196;&#34892;&#25509;&#21475;&#26159;MCollective&#26368;&#26089;&#20063;&#26159;&#26368;&#37325;&#35201;&#30340;&#35774;&#35745;&#12290;&#22823;&#22810;&#25968;&#24773;&#20917;&#19979;&#37117;&#26159;&#21644;&#36825;&#20010;&#31216;&#20026;MCO&#30340;&#21487;&#25191;&#34892;&#21629;&#20196;&#20132;&#20114;&#65292;&#23427;&#26377;&#24456;&#22810;&#23376;&#21629;&#20196;&#65292;&#21442;&#25968;&#21644;&#26631;&#24535;&#20540;&#12290;</p>
+
+<hr>
+<h4 id="toc_1">MCO&#21629;&#20196;&#22522;&#26412;&#29992;&#27861;</h4>
+
+<p>&#23433;&#35013;&#37197;&#32622;&#23436;MCollective&#20043;&#21518;&#65292;&#21487;&#20197;&#29992;&#19968;&#20010;&#31616;&#21333;&#30340;&#21629;&#20196;&#26469;&#20570;&#27979;&#35797;&#65306;mco ping</p>
+
+<pre><code>[root@master ~]# mco ping
+master.example.com                       time=50.93 ms
+web.example.com                          time=91.21 ms
+puppet.example.com                       time=92.17 ms
+
+---- ping statistics ----
+3 replies max: 92.17 min: 50.93 avg: 78.10
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/use-mcollective-cli" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/control-daemon">Control Daemon</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#25511;&#21046;&#23432;&#25252;&#36827;&#31243;</h2>
+
+<p>&#22312;&#27599;&#20010;&#33410;&#28857;&#36816;&#34892;&#30340;&#23432;&#25252;&#36827;&#31243;&#20445;&#25345;&#30528;&#20869;&#37096;&#29366;&#24577;&#24182;&#19988;&#25903;&#25345;&#37325;&#26032;&#21152;&#36733;&#25152;&#26377;&#30340;&#20195;&#29702;&#65292;&#36825;&#20123;&#21151;&#33021;&#30001;&#24037;&#20855;mco controller&#25552;&#20379;&#12290;&#23427;&#36127;&#36131;&#22312;&#23458;&#25143;&#31471;&#19982;&#20219;&#24847;&#36816;&#34892;&#30340;&#23432;&#25252;&#36827;&#31243;&#20132;&#20114;&#12290;</p>
+
+<p>&#22914;&#26524;&#24819;&#37325;&#26032;&#21152;&#36733;&#25152;&#26377;&#20195;&#29702;&#32780;&#19981;&#37325;&#21551;&#23432;&#25252;&#36827;&#31243;&#65292;&#21487;&#20197;&#21521;&#35813;&#36827;&#31243;&#21457;&#36865;USR1&#20449;&#21495;&#12290;</p>
+
+<p>&#20063;&#21487;&#20197;&#21457;&#36865;USR2&#20449;&#21495;&#26469;&#24490;&#29615;&#26085;&#24535;&#32423;&#21035;&#30340;DEBUG&#21040;TATAL&#65292;&#20165;&#20165;&#19981;&#20572;&#21457;&#36865;&#20449;&#21495;&#28982;&#21518;&#26597;&#30475;&#26085;&#24535;&#12290;</p>
+
+<h4 id="toc_1">&#32479;&#35745;</h4>
+
+<p>&#36825;&#21487;&#20197;&#26174;&#31034;&#23432;&#25252;&#36827;&#31243;&#30340;&#22522;&#26412;&#32479;&#35745;&#25968;&#25454;</p>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/control-daemon" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/write-simplerpc-agent">Write SimpleRPC Agent</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#32534;&#20889;SimpleRPC&#20195;&#29702;</h2>
+
+<p>SimpleRPC&#33021;&#22815;&#24037;&#20316;&#26159;&#22240;&#20026;&#23427;&#20551;&#35774;&#20102;&#22914;&#20309;&#26469;&#20889;Agents&#12290;&#19979;&#38754;&#36890;&#36807;&#23436;&#25972;&#30340;HelloWorld&#20195;&#29702;&#26469;&#28436;&#31034;&#12290;&#39318;&#20808;&#38656;&#35201;&#26126;&#30333;&#23458;&#25143;&#31471;&#21457;&#36865;&#25968;&#25454;&#26684;&#24335;&#65292;&#26126;&#30333;&#25968;&#25454;&#25509;&#25910;&#35268;&#21017;&#12290;</p>
+
+<hr>
+<h4 id="toc_1">&#25509;&#25910;&#25968;&#25454;&#35268;&#21017;</h4>
+
+<p>&#23458;&#25143;&#31471;&#21457;&#36865;&#35831;&#27714;&#22914;&#19979;&#26684;&#24335;&#65306;</p>
+
+<pre><code>mc.echo(:msg =&gt; "Welcome to MCollective Simple RPC")
+</code></pre>
+
+</div>
+
+        <div class="more">
+          <a href="/mcollective/write-simplerpc-agent" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/use-filter">Use Filter</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#20351;&#29992;&#36807;&#28388;&#22120;</h2>
+
+<p>&#20351;&#29992;&#36807;&#28388;&#22120;&#26469;&#25511;&#21046;&#21457;&#29616;&#21644;&#23547;&#22336;&#26159;MCollective&#20013;&#20851;&#38190;&#27010;&#24565;&#20043;&#19968;&#12290;&#21487;&#20197;&#20351;&#29992;facts,classes,agents&#21644;server identity&#20316;&#20026;&#36807;&#28388;&#22120;&#25110;&#32773;&#23427;&#20204;&#30340;&#32452;&#21512;&#26469;&#20943;&#23569;&#33021;&#22815;&#24433;&#21709;&#30340;&#20027;&#26426;&#33539;&#22260;&#12290;</p>
+
+<p>&#21487;&#20197;&#36890;&#36807;mco rpc --help&#26469;&#26597;&#30475;&#23458;&#25143;&#31471;&#25903;&#25345;&#30340;&#25152;&#26377;&#36807;&#28388;&#22120;&#12290;</p>
+
+<pre><code>Host Filters
+    -W, --with FILTER                Combined classes and facts filter
+    -S, --select FILTER              Compound filter combining facts and classes
+    -F, --wf, --with-fact fact=val   Match hosts with a certain fact
+    -C, --wc, --with-class CLASS     Match hosts with a certain config management class
+    -A, --wa, --with-agent AGENT     Match hosts with a certain agent
+    -I, --wi, --with-identity IDENT  Match hosts with a certain configured identity
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/use-filter" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/mcollective/simplerpc-authorization">SimpleRPC Authorization</a> <span class="date pull-right">2013-03-15</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">SimpleRPC&#25480;&#26435;</h2>
+
+<p>&#20316;&#20026;SimpleRPC&#26694;&#26550;&#30340;&#19968;&#37096;&#20998;&#65292;&#25480;&#26435;&#31995;&#32479;&#20445;&#35777;&#20102;&#23545;&#20195;&#29702;&#21644;&#21160;&#20316;&#30340;&#32454;&#31890;&#24230;&#25511;&#21046;&#12290;&#32467;&#21512;&#36830;&#25509;&#23433;&#20840;&#24615;&#12289;&#38598;&#20013;&#21270;&#23457;&#35745;&#20197;&#21450;&#21152;&#23494;&#31614;&#21517;&#28040;&#24687;&#65292;&#36825;&#19968;&#31995;&#21015;&#37325;&#35201;&#30340;&#21151;&#33021;&#32452;&#21512;&#20801;&#35768;&#22823;&#20844;&#21496;&#23545;MCollective&#38598;&#32676;&#36827;&#34892;&#31934;&#30830;&#25511;&#21046;&#12290;</p>
+
+<p>&#23458;&#25143;&#31471;&#22312;&#35831;&#27714;&#20013;&#23558;&#20250;&#21253;&#25324;&#36816;&#34892;&#23458;&#25143;&#31471;&#36827;&#31243;&#30340;UID&#32780;&#25480;&#26435;&#20989;&#25968;&#33021;&#22815;&#33719;&#24471;&#36825;&#20010;&#35831;&#27714;&#30340;&#35775;&#38382;&#26435;&#38480;&#12290;</p>
+
+<hr>
+<h4 id="toc_1">&#32534;&#20889;&#25480;&#26435;&#25554;&#20214;</h4>
+
+<p>&#32534;&#20889;&#25480;&#26435;&#25554;&#20214;&#24456;&#23481;&#26131;&#65292;&#19979;&#38754;&#30340;&#20363;&#23376;&#20801;&#35768;&#23558;&#21482;&#20801;&#35768;RPC&#35843;&#29992;UID=500&#65292;&#36825;&#26159;&#19968;&#20010;&#31216;&#20026;Action Policy&#30340;&#31034;&#20363;&#25554;&#20214;&#12290;</p>
+
+<pre><code>module MCollective::Agent
+    class Service&lt;RPC::Agent
+        authorized_by :authorize_it
+
+        # ...
+    end
+end
+</code></pre>
+</div>
+
+        <div class="more">
+          <a href="/mcollective/simplerpc-authorization" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+      <div class="posts">
+        <h3 class="title"><a href="/devops/infrastructure-as-code">Infrastructure As Code</a> <span class="date pull-right">2013-03-11</span></h3>
+
+        <div class="summary ellipsis">
+<h2 id="toc_0">&#22522;&#30784;&#35774;&#26045;&#21363;&#20195;&#30721;</h2>
+
+<hr>
+<ul>
+<li><strong>DevOps&#19981;&#20165;&#20165;&#26159;&#24037;&#20855;</strong></li>
+</ul>
+<p>&#30830;&#23454;&#22914;&#27492;&#65292;&#21516;&#26679;&#25935;&#25463;&#20063;&#19981;&#20165;&#20165;&#26159;&#24037;&#20855;&#65292;&#23427;&#26159;&#19968;&#31995;&#21015;&#24605;&#24819;&#65292;&#27010;&#24565;&#20197;&#21450;&#26368;&#20339;&#23454;&#36341;&#31561;&#12290;</p>
+
+<p>&#36825;&#21548;&#36215;&#26469;&#24456;&#22909;&#65292;&#20294;&#26159;&#25105;&#35201;&#24590;&#26679;&#25104;&#21151;&#23454;&#29616;&#23427;&#21602;&#65311;</p>
+
+<pre><code>&#24037;&#20855;&#33021;&#22815;&#24102;&#26469;&#34892;&#20026;&#30340;&#25913;&#21464;&#24182;&#26368;&#32456;&#25913;&#21464;&#25991;&#21270;&#12304;Patrick Debois&#12305;
+</code></pre>
+
+<p>&#23601;&#20687;&#21476;&#30331;&#22561;&#25171;&#21360;&#26426;&#36825;&#20010;&#24037;&#20855;&#26368;&#32456;&#24341;&#36215;&#21360;&#21047;&#25991;&#21270;&#30340;&#21464;&#21270;&#65292;&#25935;&#25463;&#24320;&#21457;&#31163;&#24320;&#25345;&#32493;&#38598;&#25104;&#23558;&#21464;&#24471;&#19981;&#21487;&#33021;&#12290;DevOps&#20381;&#36182;&#19968;&#20123;&#24037;&#20855;&#26469;&#23454;&#29616;&#23427;&#30340;&#29702;&#24565;&#12290;</p>
+</div>
+
+        <div class="more">
+          <a href="/devops/infrastructure-as-code" class="btn btn-small">read more..</a>
+        </div>
+      </div>
+    
+    <div class="pagination">
+      <ul>
+          <li><a href="/">1</a></li>
+          <li><a href="/posts/index/2">2</a></li>
+          <li><a href="/posts/index/3">3</a></li>
+          <li class="active"><a href="/posts/index/4">4</a></li>
+          <li><a href="/posts/index/5">5</a></li>
+          <li><a href="/posts/index/6">6</a></li>
+          <li><a href="/posts/index/7">7</a></li>
+          <li><a href="/posts/index/8">8</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

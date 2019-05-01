@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Puppet Data Flow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Puppet Data Flow  <small>Puppet数据流程解析</small></h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-09-17</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Puppet-ref">Puppet <span>5</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Puppet-ref">Puppet <span>7</span></a>
+      </li>
+      <li>
+        <a href="/tags#DevOps-ref">DevOps <span>5</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">Puppet数据流程</h2>
+
+<p>前面的部分对Puppet进行了概述，并对Puppet内部实现原理和认证过程进行了介绍。本部分将主要围绕puppet数据流程进行介绍，详细描述puppet是如何管理单个节点的数据流程。这部分在之前的概述和内部原理都有所涉及，单独选出来作为一部分介绍希望对数据流程和流程涉及的组件进行更深的理解。</p>
+
+<hr>
+
+<p>首先回顾Puppet是如何工作：</p>
+
+<p><img src="/assets/media/puppet/internals.png" alt="puppet数据流"></p>
+
+<ul>
+<li><p>定义：采用Puppet的描述性语言，以可重用的模块形式来定义资源及资源间关系的图。这些模块定义基础设施的预期状态。</p></li>
+<li><p>模拟 : 有了这些资源及其关系图，Puppet能够模拟部署环境，让你在不影响基础设施的前提下测试你的改变。使用noop参数或者多环境等实现。</p></li>
+<li><p>执行 : puppet比较你的系统和定义的预期状态，然后自动地使你的系统符合定义的预期状态。这个过程是相对透明的过程。</p></li>
+<li><p>报告 : Puppet Dashboard展示收集到的组件关系和所有的改变，并提供安全和授权措施查看。此外Puppet也提供有开放API以结合第三方监控工具使用。</p></li>
+</ul>
+
+<p>由此我们可以看出 Puppet定义并维护一个节点的预期角色，同时Puppet能够管理配置改变。理解前者很重要，良好的Puppet 模块代表Agent 角色的分类，角色信息和facter信息等组成了此节点更为丰富的属性信息。</p>
+
+<hr>
+
+<p>看完这个过程可能最大的疑惑就是哪些是在客户端执行，哪些又在服务端执行，客户端和服务端是如何交互的。</p>
+
+<p>下面以以数据流程图为例详细描述Puppet如何管理单个节点数据流程。这幅图在之前已经描述过。</p>
+
+<p><img src="/assets/media/puppet/dataflow.png" alt="puppet数据流"></p>
+
+<ul>
+<li><p>Agent 进程收集关于运行此进程的主机信息(facts，也包括自定义的facts)，然后将这些信息传递给Master</p></li>
+<li><p>Master 使用这些系统信息和本地Puppet模块清单来编译针对特定主机的配置(Catalog),并将结果返回给Agent</p></li>
+<li><p>Agent 会比较配置与本机状态，并应用此配置，对于状态不同部分做出改变，并将结果(report)报告给服务器</p></li>
+<li><p>Puppet的开放API同样可以将这些数据(report)发送给第三方工具来进行分析，例如同Nagios这样的监控工具结合</p></li>
+</ul>
+
+<hr>
+
+<p>再看每个流程涉及到的组件：</p>
+
+<h4 id="toc_1">facts</h4>
+
+<pre><code>自动维护资产清单 这些清单包括但不限于：domain,ip,cpu,mem等信息。
+</code></pre>
+
+<p><img src="/assets/media/puppet/facts.png" alt="puppet数据流"></p>
+
+<p>当然Puppet还可以是自定义Facts：</p>
+
+<p>$modulename/lib/facter/certname.rb
+<img src="/assets/media/puppet/fact-custom.png" alt="puppet数据流"></p>
+
+<p>Facts很方便定义这些静态属性，对于动态属性，Puppet生态系统同样提供了相应工具---Hiera是其中的新星。</p>
+
+<h4 id="toc_2">catalog</h4>
+
+<pre><code>可以理解为资源的列表解析
+</code></pre>
+
+<p>采用命令puppet catalog可以查看，puppet catalog find --render-as yaml offsum001.web.djt而且支持多种展现方式比如yaml，json等。</p>
+
+<p><img src="/assets/media/puppet/catalog.png" alt="puppet数据流"></p>
+
+<h4 id="toc_3">reporting</h4>
+
+<pre><code>每一个资源相关连的每一次改变
+</code></pre>
+
+<p><img src="/assets/media/puppet/reporting.png" alt="puppet数据流"></p>
+
+<p>目前支持四种预定义的报告处理器和自定义报告处理器</p>
+
+<pre><code>* HTTP/HTTPS
+* Log
+* Store
+* TagMail
+* Custom Processors
+    * irc
+    * twitter
+    * jabber
+    * growl 
+</code></pre>
+
+<p>还有一种值得关注的报告处理器就是PuppetDB，目前正在快速发展。简单来说，PuppetDB是一个puppet数据仓库，它能够检索平台生成的所有数据并管理这些数据的存储。它能够存储节点目录，facts和reports等。后面会继续介绍。</p>
+
+<hr>
+
+<p>下面换一种角度来看数据流程</p>
+
+<p><img src="/assets/media/puppet/data-flow-technical.png" alt="puppet数据流"></p>
+
+<ul>
+<li><p>节点信息存储在外部节点分类器或LDAP等，从Dashboard中可以获取节点信息</p></li>
+<li><p>Master在执行manifeasts前会同步插件（这里的插件包括facts ,types, provides 如果你写过这些自定义插件那么执行前会显式出来 ）以及 Fact Code</p></li>
+</ul>
+
+<p><img src="/assets/media/puppet/plugins.png" alt="puppet数据流"></p>
+
+<ul>
+<li><p>客户端会在本地计算这些Facts 值 ，然后将这些信息发送给Master并要求Catalog</p></li>
+<li><p>Master根据facts和Manifests生成符合特定节点的配置，这个配置是一种中间编译结果成为Catalog，然后Master将CataLog发送给客户端</p></li>
+<li><p>客户端根据CataLog定义的状态，对比自身状态，对于不同的部分作出改变。在应用配置期间，可能会需要请求文件等操作，这些还需要同Master进行交互，等到配置应用完毕，将执行结果以报告形式发送给Master。</p></li>
+</ul>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/zabbix/zabbix-performance-tunning" title="Zabbix Performance Tunning">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/linux/troubleshooting-5minutes" title="Troubleshooting 5minutes">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

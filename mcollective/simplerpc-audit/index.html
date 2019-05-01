@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SimpleRPC Audit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>SimpleRPC Audit </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-15</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+      <li>
+        <a href="/tags#SimpleRPC-ref">SimpleRPC <span>5</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">SimpleRPC审计</h2>
+
+<p>作为SimpleRPC框架的一部分，审计系统用来将接收到的所有请求记录日志（在一个文件中）或者将这些日志发送到一个中心审计系统。审计数据同样可插件化而且可以根据自身需求来提供相应插件。</p>
+
+<p>同授权一样，客户端在请求中会包括运行客户端库的进程的UID，而审计函数能够获取请求的访问权限。</p>
+
+<hr>
+
+<h4 id="toc_1">配置</h4>
+
+<p>启用日志功能需要设置相应选项来启用和使用什么插件：</p>
+
+<pre><code>rpcaudit = 1
+rpcauditprovider = Logfile
+</code></pre>
+
+<p>这将设置 MCollective::Audit::Logfile插件来记录事件日志。</p>
+
+<p>客户端将会内嵌一个主叫ID，即执行客户端程序或者SSL证书的UNIX UID，这能够在请求对象中找到。</p>
+
+<h4 id="toc_2">Logfile 插件</h4>
+
+<p>审计通过插件实现，将插件安装在正常插件目录mcollective/audit/下，下面是一个示例Logfile插件：</p>
+
+<pre><code>module MCollective
+    module RPC
+        class Logfile&lt;Audit
+         require &#39;pp&#39;
+
+            def audit_request(request, connection)
+                logfile = Config.instance.pluginconf[&quot;rpcaudit.logfile&quot;] || &quot;/var/log/mcollective-audit.log&quot;
+
+                now = Time.now
+                now_tz = tz = now.utc? ? &quot;Z&quot; : now.strftime(&quot;%z&quot;)
+                now_iso8601 = &quot;%s.%06d%s&quot; % [now.strftime(&quot;%Y-%m-%dT%H:%M:%S&quot;), now.tv_usec, now_tz]
+
+                File.open(logfile, &quot;w&quot;) do |f|
+                    f.puts(&quot;#{now_iso8601}: reqid=#{request.uniqid}: reqtime=#{request.time} caller=#{request.caller}@#{request.sender} agent=#{request.agent} action=#{request.action} data=#{request.data.pretty_print_inspect}&quot;)
+                end
+            end
+        end
+    end
+end
+</code></pre>
+
+<p>正如你看到的，只需要提供函数audit_request，可以获得MCollective::RPC::Request 对象的请求形式和建立中间件连接。</p>
+
+<p>此外需要做如下配置（在server.cfg）中：</p>
+
+<pre><code>plugin.rpcaudit.logfile = /var/log/mcollective-audit.log
+</code></pre>
+
+<p>最后结果类似下面：
+    2010-12-28T17:09:03.889113+0000: reqid=319719cc475f57fda3f734136a31e19b: reqtime=1293556143 caller=cert=nagios@monitor1 agent=nrpe action=runcommand data={:process<em>results=&gt;true, :command=&gt;&quot;check</em>mailq&quot;}</p>
+
+<p>社区中还提供有其他插件-中心化 RPC审计日志，这个插件将所有SimpleRPC审计事件发送到一个中心点来记录日志。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/ddl" title="DDL">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/write-simplerpc-client" title="Write SimpleRPC Client">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

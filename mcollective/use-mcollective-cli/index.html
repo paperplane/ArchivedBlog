@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Use MCollective CLI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Use MCollective CLI </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-15</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">使用MCollective命令行应用程序</h2>
+
+<p>命令行接口是MCollective最早也是最重要的设计。大多数情况下都是和这个称为MCO的可执行命令交互，它有很多子命令，参数和标志值。</p>
+
+<hr>
+
+<h4 id="toc_1">MCO命令基本用法</h4>
+
+<p>安装配置完MCollective之后，可以用一个简单的命令来做测试：mco ping</p>
+
+<pre><code>[root@master ~]# mco ping
+master.example.com                       time=50.93 ms
+web.example.com                          time=91.21 ms
+puppet.example.com                       time=92.17 ms
+
+---- ping statistics ----
+3 replies max: 92.17 min: 50.93 avg: 78.10
+</code></pre>
+
+<p>在上面的例子中ping的子命令对应的是一个应用程序。这些应用程序对应的就是在默认路径/usr/libexec/mcollective/mcollective/application中的ruby程序。如果需要查看所有命令列表，你可以通过命令mco help。下面显示的列表中除了默认安装的命令还有已经安装的代理。</p>
+
+<pre><code>[root@master ~]# mco help
+The Marionette Collective version 2.0.0
+  controller      Control the mcollective daemon
+  facts           Reports on usage for a specific fact
+  find            Find hosts matching criteria
+  help            Application list and help
+  inventory       General reporting tool for nodes, collectives and subcollectives
+  package         Install and uninstall software packages
+  ping            Ping all nodes
+  plugin          MCollective Plugin Application
+</code></pre>
+
+<p>对于某个命令（也就是应用程序）具体的用法可以使用mco help application这样的格式 或者mco application --help来查看帮助说明。下面示例rpc应用程序。</p>
+
+<pre><code>[root@master ~]# mco help rpc
+Generic RPC agent client application
+Usage: mco rpc [options] [filters] --agent &lt;agent&gt; --action &lt;action&gt; [--argument &lt;key=val&gt; --argument ...]
+Usage: mco rpc [options] [filters] &lt;agent&gt; &lt;action&gt; [&lt;key=val&gt; &lt;key=val&gt; ...]
+        --no-results, --nr           Do not process results, just send request
+    -a, --agent AGENT                Agent to call
+......
+</code></pre>
+
+<p>上面的帮助说明首先展示了基本的命令行语法，接着是对每个选项的具体说明。通过这些你可以看到在大都数应用程序中通用的选项和主机过滤器的使用方法。</p>
+
+<hr>
+
+<h4 id="toc_2">执行RPC请求</h4>
+
+<h5 id="toc_3">请求概述</h5>
+
+<p>应用程序rpc是一个主要的应用程序用于向所有的server发出请求。它能够与很多标准远程过程调用(RPC)代理交互。下面是一个在多台server机器上显示httpd服务start的例子。</p>
+
+<pre><code>[root@master ~]# mco rpc service start service=httpd
+Determining the amount of hosts matching filter for 2 seconds .... 3
+ * [ ============================================================&gt; ] 3 / 3
+puppet.example.com                       Request Aborted
+   Could not start Service[httpd]: Execution of &#39;/sbin/service httpd start&#39; returned 1:
+web.example.com                          Request Aborted
+   Could not start Service[httpd]: Execution of &#39;/sbin/service httpd start&#39; returned 1:
+
+Finished processing 3 / 3 hosts in 1736.54 ms
+</code></pre>
+
+<p>在这个过程中事件发生的顺序如下：</p>
+
+<pre><code>执行网络发现并找到多台servers
+
+发送请求并显示回复的进度条
+
+显示任何出现的结果，比如执行未成功之类
+
+显示执行的统计信息
+</code></pre>
+
+<p>MCollective客户端应用程序旨在提供最相关最重要的信息。在这种情况下，如果应用程序执行过程中出现个别失败的情况下，结果显示中就会说明在哪些机器上执行失败，而不会返回正确执行的信息。这很多情况下也取决于你的程序如何返回。下面的介绍默认你已经安装那些WIKI中提到的常用的代理。</p>
+
+<h5 id="toc_4">请求详细</h5>
+
+<p>MCollective代理被分解为一个个动作(action)和每个动作需要传入的参数(arguments)有时候有些动作也不需要参数。</p>
+
+<pre><code>% mco rpc service start service=httpd
+</code></pre>
+
+<p>上面显示了一个RPC命令的基本组成：</p>
+
+<p>使用应用程序rpc。这是一个通用的应用程序，可以和任何代理交互。</p>
+
+<p>请求会被发送到广播域中所有拥有service代理的机器。</p>
+
+<p>向service代理发送stop动作的请求</p>
+
+<p>在stop动作上应用参数值httpd。</p>
+
+<p>这条命令与下面这条完全等同：</p>
+
+<pre><code>% mco rpc --agent service --action start --argument service=httpd
+</code></pre>
+
+<h5 id="toc_5">发现可用代理</h5>
+
+<p>上面的命令展示了service代理的交互，对于你安装的所有代理可以通过MCollective系统自带的一个应用程序plugin来获取整个列表</p>
+
+<pre><code>[root@master ~]# mco plugin doc
+Please specify an agent. Available agents are:
+  helloworld      Echo service for MCollective
+  package         Install and uninstall software packages
+  process         Agent To Manage Processes
+  rpcutil         General helpful actions that expose stats and internals to SimpleRPC clients
+  service         Start and stop system services
+</code></pre>
+
+<p>列表显示计算机发现的所有代理，为了显示完全（即有第二列的内容），每个代理必须安装本地DDL文件。
+显示代理的所有动作（actions），输入（inputs）,输出（outputs）可以再次使用应用程序plugin：</p>
+
+<pre><code>[root@master ~]# mco plugin doc service
+service
+=======
+Start and stop system services
+
+      Author: R.I.Pienaar
+     Version: 2.1
+     License: ASL2
+     Timeout: 60
+   Home Page: https://github.com/puppetlabs/mcollective-plugins
+
+ACTIONS:
+========
+   restart, start, status, stop
+
+   restart action:
+   ---------------
+       Restart a service
+
+       INPUT:
+           service:
+              Description: The service to restart
+                   Prompt: Service Name
+                     Type: string
+               Validation: ^[a-zA-Z\.\-_\d]+$
+                   Length: 90
+
+
+       OUTPUT:
+           status:
+              Description: The status of the service after restarting
+               Display As: Service Status
+</code></pre>
+
+<p>这显示了service自动生成的帮助文档的一部分。首先是目标数据（metadata）部分，比如version,author和license之类信息。接着是整个可用动作（actions）列表。更详细就是关于每个动作，需要的输入参数和输出结果。比如status需要输入一个service,这是一个String,长度不能超过30。它的输出返回每台机器的服务状态。</p>
+
+<p>不同于之前说的，这里每个成功执行的结果都返回了，因为这个特定的动作是在检索信息，所以MCollective假设想知道全部的所有的数据，而不论成功还是失败。</p>
+
+<hr>
+
+<h4 id="toc_6">使用过滤器选择请目标</h4>
+
+<h5 id="toc_7">基本过滤器</h5>
+
+<p>MCollective一个关键性能就是快速发现网络资源。发现规则就是使用过滤器filters来写。</p>
+
+<pre><code>% mco rpc service status service=httpd -S &quot;environment=development or customer=acme&quot;
+</code></pre>
+
+<p>这指明了过滤器规则为：限制RPC请求目标执行主机或者是Puppet环境为development或者是属于Customer acme。</p>
+
+<p>filter可以基于facts，节点的配置管理类别（Configuration Management Class），节点的标识（identity）或者是安装的代理。</p>
+
+<p>下面是一些简单的例子和相应的描述。</p>
+
+<p><img src="/assets/media/mcollective/mco-cli.png" alt="图片"></p>
+
+<p>正如所看到的，filter可以使用agent，class和/或fact。可以在几乎所有地方使用正则表达式。可以在一个命令里组合filter使用这样所有的条件都必须匹配。</p>
+
+<pre><code>[root@master ~]# mco ping -W &quot;/default/ country=~^uk&quot;
+web.example.com                          time=58.80 ms
+
+---- ping statistics ----
+1 replies max: 58.80 min: 58.80 avg: 58.80
+</code></pre>
+
+<p>这里/default/匹配class, country=~^uk匹配facts</p>
+
+<h5 id="toc_8">复杂组合或者select查询</h5>
+
+<p>前面的例子都很简单，而且受限于组合使用。如果想使用更复杂的布尔逻辑就可以使用-S选项创建搜索。</p>
+
+<pre><code>[root@master ~]# mco ping -S &quot;default and not country=acme&quot;
+master.example.com                       time=50.93 ms
+web.example.com                          time=91.21 ms
+puppet.example.com                       time=92.17 ms
+
+---- ping statistics ----
+3 replies max: 92.17 min: 50.93 avg: 78.10
+</code></pre>
+
+<p>-S布尔操作符允许使用and/or/not(!)来建立搜索逻辑。这是组合之前哪些简单选项办不到的。</p>
+
+<h5 id="toc_9">使用数据插件（data plugin）来过滤</h5>
+
+<p>在2.1版本中，自定义的数据插件也能被用来创建复杂的过滤器filter:（现在还不是很成熟）</p>
+
+<pre><code>% mco ping -S &quot;fstat(&#39;/etc/hosts&#39;).md5=/baa37/ and environment=development&quot;
+</code></pre>
+
+<p>这个例子会搜索指定文件md5哈希值和development环境同时匹配。可以通过mco plugin doc查询可用数据插件。</p>
+
+<p>对于数据插件查看需要输入和提供输出时使用mco plugin doc fstat命令。目前，每个数据函数在匹配时可以仅仅接受一个输入而且限制每次调用输出单一字段。</p>
+
+<hr>
+
+<h4 id="toc_10">链接RPC请求</h4>
+
+<p>RPC程序能够一个接一个链接。下面的例子展示使用package代理来发现具有特定版本号的mcollective的机器然后调度这些机器运行Puppet。</p>
+
+<pre><code>% mco rpc package status package=mcollective -j| 
+jgrep &quot;data.properties.ensure=2.0.0-6.el6&quot; |mco rpc puppetd runonce
+</code></pre>
+
+<p>MCollective的结果能够通过使用开源工具gem,jgrep来过滤。MCollective输出与jgrep完全兼容。</p>
+
+<h5 id="toc_11">查看原始数据</h5>
+
+<p>RPC应用程序默认尽量显示读友好的数据。如果相查看真正原始输出数据，可以通过-v标识来停用显示帮助（diable display helper）。</p>
+
+<pre><code>[root@master mcollective]# mco rpc package status package=mcollective -v
+Determining the amount of hosts matching filter for 2 seconds .... 3
+ * [ ============================================================&gt; ] 3 / 3
+
+
+puppet.example.com                      : OK
+    {:provider=&gt;&quot;yum&quot;,     :release=&gt;&quot;1.el5&quot;,     :output=&gt;&quot;&quot;,     :version=&gt;&quot;2.0.0&quot;,     :arch=&gt;&quot;noarch&quot;,     :epoch=&gt;&quot;0&quot;,     :name=&gt;&quot;mcollective&quot;,     :ensure=&gt;&quot;2.0.0-1.el5&quot;}
+
+web.example.com                         : OK
+    {:provider=&gt;&quot;yum&quot;,     :release=&gt;&quot;1.el5&quot;,     :output=&gt;&quot;&quot;,     :version=&gt;&quot;2.0.0&quot;,     :arch=&gt;&quot;noarch&quot;,     :epoch=&gt;&quot;0&quot;,     :name=&gt;&quot;mcollective&quot;,     :ensure=&gt;&quot;2.0.0-1.el5&quot;}
+
+master.example.com                      : OK
+    {:provider=&gt;&quot;yum&quot;,     :release=&gt;&quot;1.el6&quot;,     :output=&gt;&quot;&quot;,     :version=&gt;&quot;2.0.0&quot;,     :arch=&gt;&quot;noarch&quot;,     :epoch=&gt;&quot;0&quot;,     :name=&gt;&quot;mcollective&quot;,     :ensure=&gt;&quot;2.0.0-1.el6&quot;}
+
+---- package#status call stats ----
+           Nodes: 3 / 3
+     Pass / Fail: 3 / 0
+      Start Time: Tue Jul 24 16:09:06 -0400 2012
+  Discovery Time: 2002.99ms
+      Agent Time: 195.06ms
+      Total Time: 2198.05ms
+</code></pre>
+
+<p>这个数据同样可以以JSON格式返回。</p>
+
+<pre><code>[root@master mcollective]# mco rpc package status package=mcollective -j
+[
+  {
+    &quot;action&quot;: &quot;status&quot;,
+    &quot;agent&quot;: &quot;package&quot;,
+    &quot;data&quot;: {
+      &quot;provider&quot;: &quot;yum&quot;,
+      &quot;release&quot;: &quot;1.el6&quot;,
+      &quot;output&quot;: &quot;&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;,
+      &quot;arch&quot;: &quot;noarch&quot;,
+      &quot;epoch&quot;: &quot;0&quot;,
+      &quot;name&quot;: &quot;mcollective&quot;,
+      &quot;ensure&quot;: &quot;2.0.0-1.el6&quot;
+    },
+    &quot;statuscode&quot;: 0,
+    &quot;statusmsg&quot;: &quot;OK&quot;,
+    &quot;sender&quot;: &quot;master.example.com&quot;
+  },
+  {
+    &quot;action&quot;: &quot;status&quot;,
+    &quot;agent&quot;: &quot;package&quot;,
+    &quot;data&quot;: {
+      &quot;provider&quot;: &quot;yum&quot;,
+      &quot;release&quot;: &quot;1.el5&quot;,
+      &quot;output&quot;: &quot;&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;,
+      &quot;arch&quot;: &quot;noarch&quot;,
+      &quot;epoch&quot;: &quot;0&quot;,
+      &quot;name&quot;: &quot;mcollective&quot;,
+      &quot;ensure&quot;: &quot;2.0.0-1.el5&quot;
+    },
+    &quot;statuscode&quot;: 0,
+    &quot;statusmsg&quot;: &quot;OK&quot;,
+    &quot;sender&quot;: &quot;puppet.example.com&quot;
+  },
+  {
+    &quot;action&quot;: &quot;status&quot;,
+    &quot;agent&quot;: &quot;package&quot;,
+    &quot;data&quot;: {
+      &quot;provider&quot;: &quot;yum&quot;,
+      &quot;release&quot;: &quot;1.el5&quot;,
+      &quot;output&quot;: &quot;&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;,
+      &quot;arch&quot;: &quot;noarch&quot;,
+      &quot;epoch&quot;: &quot;0&quot;,
+      &quot;name&quot;: &quot;mcollective&quot;,
+      &quot;ensure&quot;: &quot;2.0.0-1.el5&quot;
+    },
+    &quot;statuscode&quot;: 0,
+    &quot;statusmsg&quot;: &quot;OK&quot;,
+    &quot;sender&quot;: &quot;web.example.com&quot;
+  }
+]
+</code></pre>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/control-daemon" title="Control Daemon">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/ddl" title="DDL">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

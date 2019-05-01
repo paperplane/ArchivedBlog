@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction To Zabbix Api</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Introduction To Zabbix Api </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-01-19</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Zabbix-ref">Zabbix <span>2</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Zabbix-ref">Zabbix <span>2</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h3 id="toc_0">API简介</h3>
+
+<p>Zabbix API开始扮演着越来越重要的角色，尤其是在集成第三方软件和自动化日常任务时。很难想象管理数千台服务器而没有自动化是多么的困难。Zabbix API为批量操作、第三方软件集成以及其他作用提供可编程接口。</p>
+
+<p>Zabbix API是在1.8版本中开始引进并且已经被广泛应用。所有的Zabbix移动客户端都是基于API，甚至原生的WEB前端部分也是建立在它之上。Zabbix API 中间件使得架构更加模块化也避免直接对数据库进行操作。它允许你通过JSON RPC协议来创建、更新和获取Zabbix对象并且做任何你喜欢的操作【当然前提是你拥有认证账户】。</p>
+
+<p>Zabbix API提供两项主要功能：</p>
+
+<ul>
+<li><p>远程管理Zabbix配置</p></li>
+<li><p>远程检索配置和历史数据</p></li>
+</ul>
+
+<p><strong>使用JSON</strong></p>
+
+<p>API 采用JSON-RPC实现。这意味着调用任何函数，都需要发送POST请求，输入输出数据都是以JSON格式。大致工作流如下：</p>
+
+<ul>
+<li><p>准备JSON对象，它描述了你想要做什么（创建主机，获取图像，更新监控项等）。</p></li>
+<li><p>采用POST方法向<a href="http://example.com/zabbix/api_jsonrpc.php%E5%8F%91%E9%80%81%E6%AD%A4JSON%E5%AF%B9%E8%B1%A1">http://example.com/zabbix/api_jsonrpc.php发送此JSON对象</a>. <a href="http://example.com/zabbix/%E6%98%AFZabbix%E5%89%8D%E7%AB%AF%E5%9C%B0%E5%9D%80%E3%80%82api_jsonrpc.php%E6%98%AF%E8%B0%83%E7%94%A8API%E7%9A%84PHP%E8%84%9A%E6%9C%AC%E3%80%82%E5%8F%AF%E5%9C%A8%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96%E5%89%8D%E7%AB%AF%E7%9A%84%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0%E3%80%82">http://example.com/zabbix/是Zabbix前端地址。api_jsonrpc.php是调用API的PHP脚本。可在安装可视化前端的目录下找到。</a></p></li>
+<li><p>获取JSON格式响应。</p></li>
+<li><p>注：请求除了必须是POST方法之外，HTTP Header Content-Type必须为【application/jsonrequest，application/json-rpc，application/json】其中之一。</p></li>
+</ul>
+
+<p>可以采用脚本或者任何&quot;手动&quot;支持JSON RPC的工具来使用API。而首先需要了解的就是如何验证和如何使用验证ID来获取想要的信息。后面的演示会以Python脚本和基于Curl的例子来呈现API的基本使用。</p>
+
+<p><strong>基本请求格式</strong></p>
+
+<p>Zabbix API 简化的JSON请求如下：</p>
+
+<pre><code>{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;method&quot;: &quot;method.name&quot;, 
+    &quot;params&quot;: {
+        &quot;param_1_name&quot;: &quot;param_1_value&quot;,
+        &quot;param_2_name&quot;: &quot;param_2_value&quot; 
+    },
+    &quot;id&quot;: 1,
+    &quot;auth&quot;: &quot;159121b60d19a9b4b55d49e30cf12b81&quot;,
+}
+</code></pre>
+
+<p>下面一行一行来看：</p>
+
+<ul>
+<li><p>&quot;jsonrpc&quot;: &quot;2.0&quot;-这是标准的JSON RPC参数以标示协议版本。所有的请求都会保持不变。 </p></li>
+<li><p>&quot;method&quot;: &quot;method.name&quot;-这个参数定义了真实执行的操作。例如：host.create、item.update等等</p></li>
+<li><p>&quot;params&quot;-这里通过传递JSON对象来作为特定方法的参数。如果你希望创建监控项，&quot;name&quot;和&quot;key_&quot;参数是需要的，每个方法需要的参数在Zabbix API文档中都有描述。</p></li>
+<li><p>&quot;id&quot;: 1-这个字段用于绑定JSON请求和响应。响应会跟请求有相同的&quot;id&quot;。在一次性发送多个请求时很有用，这些也不需要唯一或者连续</p></li>
+<li><p>&quot;auth&quot;: &quot;159121b60d19a9b4b55d49e30cf12b81&quot;-这是一个认证令牌【authentication token】用以鉴别用户、访问API。这也是使用API进行相关操作的前提-获取认证ID。</p>
+
+<hr></li>
+</ul>
+
+<h3 id="toc_1">API 使用</h3>
+
+<ul>
+<li><strong>环境准备</strong></li>
+</ul>
+
+<p>Zabbix API是基于JSON-RPC 2.0规格，具体实现可以选择任何你喜欢的编程语言或者手动方式。这里我们采用的Python和基于Curl的方式来做示例。Python 2.7版本已经支持JSON，所以不再需要其他模块组件。当然可以采用Perl、Ruby、PHP之类的语言，使用前先确保相应JSON模块的安装。</p>
+
+<ul>
+<li><strong>身份验证</strong></li>
+</ul>
+
+<p>任何Zabbix API客户端在真正工作之前都需要验证它自身。在这里是采用User.login方法。这个方法接受一个用户名和密码作为参数并返回验证ID，一个安全哈希串用于持续的API调用（在使用User.logout之前该验证ID均有效）。具体Python代码auth.py如下：</p>
+
+<pre><code>#!/usr/bin/env python2.7
+#coding=utf-8
+
+import json
+import urllib2
+
+# based url and required header
+url = &quot;http://monitor.example.com/api_jsonrpc.php&quot;
+header = {&quot;Content-Type&quot;: &quot;application/json&quot;}
+
+# auth user and password
+data = json.dumps(
+{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;method&quot;: &quot;user.login&quot;,
+    &quot;params&quot;: {
+    &quot;user&quot;: &quot;Admin&quot;,
+    &quot;password&quot;: &quot;zabbix&quot;
+},
+&quot;id&quot;: 0
+})
+
+# create request object
+request = urllib2.Request(url,data)
+for key in header:
+    request.add_header(key,header[key])
+
+# auth and get authid
+try:
+    result = urllib2.urlopen(request)
+except URLError as e:
+    print &quot;Auth Failed, Please Check Your Name And Password:&quot;,e.code
+else:
+    response = json.loads(result.read())
+    result.close()
+    print &quot;Auth Successful. The Auth ID Is:&quot;,response[&#39;result&#39;]
+</code></pre>
+
+<p>这里需要确保URL中的用户名和密码匹配。下面是运行结果：</p>
+
+<p><img src="/assets/media/zabbix-1.png" alt="picture1"></p>
+
+<p>可以看到，auth.py成功连接并认证。现在有了验证ID，它能够在新的API调用中被重用。 </p>
+
+<p>下面再来看基于CURL的方式来进行验证是如何实现的：</p>
+
+<pre><code>curl -i -X POST -H &#39;Content-Type:application/json&#39; -d&#39;{&quot;jsonrpc&quot;: &quot;2.0&quot;,&quot;method&quot;:&quot;user.authenticate&quot;,&quot;params&quot;:{&quot;user&quot;:&quot;Admin&quot;,&quot;password&quot;:&quot;zabbix&quot;},&quot;auth&quot;: null,&quot;id&quot;:0}&#39; http://monitor.example.com/api_jsonrpc.php
+</code></pre>
+
+<p><img src="/assets/media/zabbix-2.png" alt="picture2"></p>
+
+<ul>
+<li><strong>一般操作</strong></li>
+</ul>
+
+<p>这里举例说明如何获取监控主机列表【host list】。这段脚本需要采用auth.py中获取的验证ID并执行host.get方法来获取主机列表。来看具体代码get_host.py:</p>
+
+<pre><code>#!/usr/bin/env python2.7
+#coding=utf-8
+
+import json
+import urllib2
+
+# based url and required header
+url = &quot;http://monitor.example.com/api_jsonrpc.php&quot;
+header = {&quot;Content-Type&quot;: &quot;application/json&quot;}
+
+# request json
+data = json.dumps(
+{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,
+    &quot;method&quot;:&quot;host.get&quot;,
+    &quot;params&quot;:{
+        &quot;output&quot;:[&quot;hostid&quot;,&quot;name&quot;],
+        &quot;filter&quot;:{&quot;host&quot;:&quot;&quot;}
+    },
+    &quot;auth&quot;:&quot;2ee379e516f386ca4c24da7fd9fd5bb4&quot;, # the auth id is what auth script returns, remeber it is string
+    &quot;id&quot;:1,
+})
+
+# create request object
+request = urllib2.Request(url,data)
+for key in header:
+    request.add_header(key,header[key])
+
+# get host list
+try:
+    result = urllib2.urlopen(request)
+except URLError as e:
+    if hasattr(e, &#39;reason&#39;):
+        print &#39;We failed to reach a server.&#39;
+        print &#39;Reason: &#39;, e.reason
+    elif hasattr(e, &#39;code&#39;):
+        print &#39;The server could not fulfill the request.&#39;
+        print &#39;Error code: &#39;, e.code
+else:
+    response = json.loads(result.read())
+    result.close()
+
+    print &quot;Number Of Hosts: &quot;, len(response[&#39;result&#39;])
+
+    for host in response[&#39;result&#39;]:
+        print &quot;Host ID:&quot;,host[&#39;hostid&#39;],&quot;Host Name:&quot;,host[&#39;name&#39;]
+</code></pre>
+
+<p>部分结果列表：</p>
+
+<p><img src="/assets/media/zabbix-3.png" alt="picture3"></p>
+
+<p>对比基于CURL的访问方式：
+    curl -i -X POST -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;host.get&quot;,&quot;params&quot;:{&quot;output&quot;:[&quot;hostid&quot;,&quot;name&quot;],&quot;filter&quot;:{&quot;host&quot;:&quot;&quot;}},&quot;auth&quot;:&quot;ecc543db662930c122b5fbedee60cc63&quot;,&quot;id&quot;:1}&#39; <a href="http://monitor.example.com/api_jsonrpc.php">http://monitor.example.com/api_jsonrpc.php</a>    </p>
+
+<p><img src="/assets/media/zabbix-4.png" alt="picture4"></p>
+
+<p>结果太多，未予显示。比较来看，采用脚本可以有更多的灵活性，而基于CURL的方式，对结果的处理不是很方便。原理则都是相通的。</p>
+
+<p>除了这些获取信息以外，采用API调用同样可以进行创建操作，更新操作和删除操作等等。这也很容易让我们联想起数据库操作，当然比较这些采用API调用获取结果的方式，也不能忘掉这种最直接而危险的方式。在开始讨论中已经提到，Zabbix现在自带的前端实现部分是采用数据库操作，部分是基于API调用。在API还不是很成熟的现在，具体采用哪种方式，需要根据业务需求再来确定。</p>
+
+<ul>
+<li><strong>数据流程</strong></li>
+</ul>
+
+<p>下面的流程图代表了Zabbix API 工作的典型工作流。验证（方法user.login）是获取验证ID的强制步骤。这个ID又允许我们调用API提供的任何权限允许的方法来进行操作。在之前的例子中没有提到user.logout方法，这也是一次验证ID能够重复使用的原因所在。使用user.logout方法后将会使验证ID失效，后面的操作将不能再使用此ID。</p>
+
+<p><img src="/assets/media/zabbix-5.png" alt="picture5"></p>
+
+<hr>
+
+<h3 id="toc_2">参考链接</h3>
+
+<ul>
+<li><a href="http://doc.bonfire-project.eu/R2/monitoring/monitoring_zabbix_API.html">http://doc.bonfire-project.eu/R2/monitoring/monitoring_zabbix_API.html</a> </li>
+<li><a href="https://www.zabbix.com/documentation/1.8/api/getting_started">https://www.zabbix.com/documentation/1.8/api/getting_started</a></li>
+<li><a href="http://blog.zabbix.com/getting-started-with-zabbix-api/1381/">http://blog.zabbix.com/getting-started-with-zabbix-api/1381/</a></li>
+</ul>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/use-subcollective" title="Use SubCollective">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/notes/%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1" title="主机托管">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

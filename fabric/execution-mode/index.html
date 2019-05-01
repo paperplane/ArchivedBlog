@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Execution Mode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Execution Mode </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">执行模式--Execution Mode</h2>
+
+<p>之前定义了主机列表和任务列表，fabric根据主机列表和任务列表就可以执行任务，下面就是分析其执行策略及其他相关细节。由fab传入相应的参数就可以实现之前的多个主机执行多个任务的目标。现在先来看默认执行策略是什么样的。</p>
+
+<hr>
+
+<h4 id="toc_1">执行策略</h4>
+
+<p>fabric函数默认是单个、顺序执行方式，当然它也提供并行执行。默认执行行为：</p>
+
+<p>1.创建一个任务列表，这些任务就是fab命令的参数，并且保持fab传参的顺序</p>
+
+<p>2.对于每个任务，会通过特定方式创建特定主机列表</p>
+
+<p>3.任务按照顺序执行，每个人物会在指定特定主机上执行一次</p>
+
+<p>4.对于没有指定主机的任务，默认是本地任务，仅执行一次</p>
+
+<pre><code>from fabric.api import run, env
+env.hosts = [&#39;host1&#39;, &#39;host2&#39;]
+def taskA():    
+     run(&#39;ls&#39;)
+def taskB():    
+     run(&#39;whoami&#39;)
+$ fab taskA taskB
+</code></pre>
+
+<p>执行顺序就会是：</p>
+
+<pre><code>taskA on host1
+taskA on host2
+taskB on host1
+taskB on host2
+</code></pre>
+
+<hr>
+
+<h4 id="toc_2">智能执行</h4>
+
+<p>在1.3版本之前，fabric只能针对特定任务指定特定主机列表，或者全局使用相同主机列表，若一个任务使用role1,而另一个任务使用role2，而定义了新的函数来执行这两个任务，role1，和role2不尽相同。则此时需要使用execute 来执行。</p>
+
+<p>举例如下：</p>
+
+<pre><code>from fabric.api import run, roles
+
+env.roledefs = {
+    &#39;db&#39;: [&#39;db1&#39;, &#39;db2&#39;],
+&#39;web&#39;: [&#39;web1&#39;, &#39;web2&#39;, &#39;web3&#39;]
+}
+@roles(&#39;db&#39;)
+def migrate():
+    pass
+@roles(&#39;web&#39;)
+def update():
+    pass
+</code></pre>
+
+<p>定义新函数实现在同一任务调用时用db来migrate,而用web来update</p>
+
+<pre><code>def deploy():
+    execute(migrate)
+    execute(update)
+</code></pre>
+
+<hr>
+
+<h4 id="toc_3">建立连接</h4>
+
+<p>fab 自身并不与远程主机建立实际连接。而是对于每一个需要执行的任务的主机列表的每一个主机，该任务的env 变量中 env.host<em>string 指定正确的值（主机）。env.host</em>string 指定当前host string,当需要网络的函数执行时 fabric 用来决定是建立连接还是在共享字典（映射 SSH 连接对象）里查找并重用。像run/put这样的操作使用env.host_string作为一个共享字典的查找表来映射host strings和ssh 连接对象。</p>
+
+<p>需要使用fabric作为类库来使用时需要手动设定须连接的对象 。这在类库使用部分有详细介绍几种使用方式。</p>
+
+<p>fabric 建立的连接是一种懒惰连接，任务相关，不到万不得已不会建立，而连接的释放并不会随着缓存的消失而关闭，直到任务执行结束或显示调用disconnect_all 去关闭连接。</p>
+
+<p>对于多连接中可能遇到的某些 bad hosts，可以显式设置env.skip<em>bad</em>hosts以及超时时间和连接次数等.</p>
+
+<pre><code>from fabric.api import *
+@hosts(&#39;host1&#39;)
+def clean_and_upload():
+    local(&#39;find assets/ -name &quot;*.DS_Store&quot; -exec rm &#39;{}&#39; \;&#39;)
+    local(&#39;tar czf /tmp/assets.tgz assets/&#39;)
+    put(&#39;/tmp/assets.tgz&#39;, &#39;/tmp/assets.tgz&#39;)
+    with cd(&#39;/var/www/myapp/&#39;):
+        run(&#39;tar xzf /tmp/assets.tgz&#39;)
+</code></pre>
+
+<ol>
+<li><p>两个local调用不会建立任何网络连接</p></li>
+<li><p>put向连接缓存中要求同host1建立连接</p></li>
+<li><p>连接缓存中没有该连接的host string,则SSH创建新的连接，返回给put</p></li>
+<li><p>put通过该连接上传文件</p></li>
+<li><p>最后，run询问连接缓存同样的host string,由于已经有了，则该连接被重用。</p></li>
+</ol>
+
+<p>这就是连接过程，直到执行完毕。</p>
+
+<hr>
+
+<h4 id="toc_4">密码管理</h4>
+
+<p>fabric在内存保留两层缓存来帮助记住login和sudo的密码，这避免了当多个系统密码相同时不断重复输入密码。</p>
+
+<p>第一层是默认简单的密码缓存，env.password。这个环境变量保存一个单一的当当前特定主机（host_string）需要密码时会尝试的密码。</p>
+
+<p>第二层env.passwords保存了最近输入的每一个不同的user/host/port组合的密码，它是一个per-user/per-host缓存。由于这个缓存，在同一个会话中连接多个不同user或者host每个只需要一个单一密码。</p>
+
+<p>根据你的配置和你的回话连接的主机数量，你也许会发现任一或全部env vars会比较有用。当然，fabric会自动填写相关值而不需要额外的设置。特别地，每一次密码prompt,用户敲入的密码都会被用来更新当前连接的host_string的两个缓存的值。</p>
+
+<hr>
+
+<h4 id="toc_5">并行执行</h4>
+
+<p>fabric默认的执行模式是串行执行，正如我们在前面所看到的一样。fabric同样提供并行执行功能，目前是通过python的multiprocessing模块来实现。它为每一个主机和任务组合创建一个线程，有选择地使用sliding window来阻止同时创建过多线程。</p>
+
+<p>对于之前串行的例子，如果执行</p>
+
+<pre><code>$ fab -P taskA taskB
+</code></pre>
+
+<p>执行结果就会是：</p>
+
+<pre><code>taskA on host1,host2
+taskB on host1,host2
+</code></pre>
+
+<p>怎样使用：</p>
+
+<p>装饰器：</p>
+
+<pre><code>@parallel(另@serial default值)
+</code></pre>
+
+<p>命令行：</p>
+
+<pre><code>-P（default为serial）
+
+from fabric.api import *
+@parallel
+def runs_in_parallel():
+    pass
+$fab run_in_parallel
+Bubble Size
+</code></pre>
+
+<p>对于大量的主机列表，如果执行太多并发fabric进程会容易使机器宕机。为此，使用pool<em>size来限制fabric并发活动进程数量。默认pool</em>size为1.</p>
+
+<p>使用方法:</p>
+
+<pre><code>from fabric.api import *
+@parallel(pool_size=5)
+def heavy_task():
+    # lots of heavy local lifting or lots of IO here
+</code></pre>
+
+<p>或者通过-z选项来指定：</p>
+
+<pre><code>$ fab -P -z 5 heavy_task
+</code></pre>
+
+<p>Linewise output</p>
+
+<p>fabric默认输出终端的方式是type<em>by</em>type,为了支持远程交互。这会导致在并行执行时糟糕的输出，因为多线程可能同时向终端标准输出流。所以在并行执行时，fabric默认是linewise output。这是并行和输出的折中，虽然fabric远程交互特点大打折扣，但是相对那些在并行时没有很好处理输出应经好很多。</p>
+
+<p>现在并行时虽然不同执行行与行之间交叉，但可以通过每行的host string前缀处理 。就是很多命令交叉着出现</p>
+
+<pre><code>[host1]out:xxx
+[host2]out:yyy
+[host3]run:zzz
+[host2]out:ppp
+</code></pre>
+
+<p>这样很乱，如果需要提取每一台主机返回的信息，需要进行字符串处理。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/use-fabric-library" title="Use Fabric Library">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/common-plugin" title="Common Plugin">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

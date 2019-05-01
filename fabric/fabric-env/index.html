@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fabric Env</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Fabric Env </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2012-10-08</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">环境字典</h2>
+
+<p>Fabric 的一个简单但是完整部分就是&quot;environment&quot;，我的理解就是类似于平时所说的环境变量：这是一个 python 字典的子类，用来作为组合设置的注册表或者是共享任务内部数据的命名空间。</p>
+
+<p>环境字典当前版本(1.4.3)是作为一个全局单例(global singleton)来实现,即fabric.state.env，被包括在 fabric.api 中。key-value 形式，其中的 keys 又称为 ENV变量(以后不加说明都称 ENV 变量)。一般用法有以下几种。</p>
+
+<h3 id="toc_1">ENV AS Configure</h3>
+
+<p>大多数fabric的行为可以通过改变ENV变量来控制,我们初始化Fabric相关的设置也就是初始化这些 ENV 变量。比如 ENV.HOSTS。其他常见的包括：
+    User：fabric 建立 ssh 连接时默认使用本地用户名，但是可以使用 env.user来覆盖该默认设置。还可以对 host 列表中每个 host 分别指定。
+    Password：在需要的时候用来显示指定默认连接或者 sudo 的密码，如果未设置，fabric 会在必要的时候提示输入。
+    Warn_only：这个设置是一个 boolean 值，用来决定 fabric 在远程主机执行任务时检测到错误时的行为：是放弃执行还是仅仅提示。</p>
+
+<h4 id="toc_2">作用域</h4>
+
+<p>这种设置既包括全局也包括局部的，很多时候我们只想暂时给某一个局部块改变其 ENV 变量值。这个时候就可以通过上下文管理器(Context Manager)中的settings，这个只会在它所包括的块中改变 ENV 变量的值。全局使用很简单，直接在定义函数之前设置或者通过 Fab 命令行初始化全局 ENV 变量值。比如在所有 函 数 定 义 之 前 指 定 ： 
+    env.hosts = [‘<a href="mailto:root@ns1.buaa.edu.cn">root@ns1.buaa.edu.cn</a>’,‘<a href="mailto:root@ns2.buaa.edu.cn">root@ns2.buaa.edu.cn</a>’]。
+局部作用域例子：
+    from fabric.api import settings, run</p>
+
+<pre><code>def exists(path):
+        with settings(warn_only=True, host_string=’host1’):
+                return run(&#39;test -e %s&#39; % path)
+</code></pre>
+
+<h3 id="toc_3">ENV as Shared State</h3>
+
+<p>Env 对象是一个简单的字典子类，因此在 Fabfile 代码中也可能存储相息。这样在很多时候当我们执行通过一次执行执行多个任务时就能共享一些任务间信息。典型的使用就是共享主机的信息。
+    from fabric.api import run,env</p>
+
+<pre><code>def set_hosts():
+        env.hosts = [&#39;host1&#39;,host2]        
+
+def test_task():
+        run(&#39;uname -a&#39;)
+
+$fab set_hosts test_task
+</code></pre>
+
+<h3 id="toc_4">Other Consideration</h3>
+
+<p>前面对 ENV 变量值的读写基于属性访问方式，但是 ENV 也是 python 字典的子类，ENV 变量的值还有字典模式的访问方式。</p>
+
+<pre><code>print(&quot;Executing on %s as %s&quot; % (env.host, env.user))
+print(&quot;Executing on %(host)s as %(user)s&quot; % env)
+</code></pre>
+
+<h4 id="toc_5">环境字典的历史</h4>
+
+<p>过去 fabric 还不是纯 python 的时候，ENV 变量不同任务（task）间交流共享信息的唯一途径。现在你可以直接调用其他任务或者子例程，甚至保存模块级共享状态。将来，fabric 也许会线程安全，这时 ENV 变量也许是唯一容易/安全的保存全局变量途径。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/lectures/mysql-backup-and-restore" title="MySQL Backup and Restore">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/fabric/introduction-to-fabric" title="Introduction To Fabric">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

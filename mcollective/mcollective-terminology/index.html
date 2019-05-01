@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MCollective Terminology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>MCollective Terminology </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-01-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <p>这一部分主要包括了后面经常会用到的MCollective术语。</p>
+
+<p>最重要的概念是server,client。这与C/S架构中客户端/服务器端没有必然关系，在MCollective中是多个server&lt;-----&gt;一个client的结构</p>
+
+<ul>
+<li>Server</li>
+</ul>
+
+<p>服务端，简单说就是数据提供方。它是mcollective守护进程，一个负责托管代理和管理中间件连接的应用程序服务器。
++ Client</p>
+
+<p>客户端，简单说是数据/信息接收方。它是创建命令让代理去执行的应用程序，特别地这会是一台安装有客户端程序的机器用户可以使用像mco ping这样的命令来与代理交互。通常客户端会使用MCollective::Client库来与Collective通信。</p>
+
+<ul>
+<li>Node</li>
+</ul>
+
+<p>节点，server运行的计算机或操作系统</p>
+
+<ul>
+<li>Agent</li>
+</ul>
+
+<p>代理，Ruby代码块，执行一个特定的角色，mcollective主要用来托管代理。代理可以执行防火墙操作，服务管理，包管理等任务。它在所有的‘server’节点上执行命令，将返回传递给‘client’。MCollective提供内建的过滤机制来选择执行代理。</p>
+
+<ul>
+<li>Action</li>
+</ul>
+
+<p>动作，代理执行的任务称为动作。每个代理就像exim队列管理代理可能执行mailq, rm, retry等任务一样。这些动作由代理提供。</p>
+
+<ul>
+<li>Plugins</li>
+</ul>
+
+<p>插件，ruby代码块，位于server机器并且执行像安全，连接处理，代理等的特定角色。按照维基百科解释就是一系列增强/提高其他软件应用程序的软件并且通常不能独立运行。</p>
+
+<ul>
+<li>Middleware</li>
+</ul>
+
+<p>中间件，这里仅指类似Apache ActiveMQ这样的发布/订阅中间件 </p>
+
+<p>处理服务间通信的软件，这个服务传输请求消息和回复消息。可以看成是一个有着路由规则的邮件服务器。</p>
+
+<ul>
+<li>Message Quence</li>
+</ul>
+
+<p>消息队列，可以从中读取或向里写入的数据存储应用程序。就像SMTP服务器中的邮件队列。</p>
+
+<ul>
+<li>Connector</li>
+</ul>
+
+<p>连接器，MCollective::Connector类型的插件，处理与所选中间件的连接</p>
+
+<ul>
+<li>Name Space</li>
+</ul>
+
+<p>命名空间，当前发送到中间件的消息直接在名为/topic/mcollective.package.command的主题下（topics）而回复则在/topic/mcollective.package.reply</p>
+
+<p>这个例子中命名空间是”mcollective”,所有的servers和clients如果想形成同一个collective的一部分就必须使用相同命名空间。</p>
+
+<p>中间件通常能够携带不同命名空间因此有多个collectives。</p>
+
+<ul>
+<li>Collective</li>
+</ul>
+
+<p>在同一个命名空间下操作的servers,nodes和中间件的组合</p>
+
+<p>多个colletives能够通过使用不同命名空间共享同一中间件</p>
+
+<ul>
+<li>Subcollective</li>
+</ul>
+
+<p>一个server可以属于多个命名空间。一个subcollective就是一个命名空间，这个subcollective属于这个server所属全部collectives的子集</p>
+
+<p>subcollectives用于在高流量网络中网络分区和控制广播域</p>
+
+<ul>
+<li>Facts</li>
+</ul>
+
+<p>节点信息，比如域名，国家，角色，操作系统版本等等</p>
+
+<p>facts由MCollective::Facts类型的插件提供</p>
+
+<ul>
+<li>Registration</li>
+</ul>
+
+<p>注册，server向代理发送的信息称为注册。发送注册消息的代码是MCollective::Registration类型的插件。</p>
+
+<ul>
+<li>Security</li>
+</ul>
+
+<p>安全，MCollective::Security类型的插件来负责加密、验证和消息在传给connector时的编码。</p>
+
+<ul>
+<li>User</li>
+</ul>
+
+<p>用户，servers和clients都向中间件验证，用户一般指的是用于中间件验证的用户名</p>
+
+<ul>
+<li>Aduilt</li>
+</ul>
+
+<p>审计，与SimpleRPC相关，审计动作指将请求落到磁盘日志或者相关动作</p>
+
+<ul>
+<li>Authorization</li>
+</ul>
+
+<p>授权，与SimpleRPC相关，授权过程就是根据请求者的验证信息对请求进行允许或取消操作</p>
+
+<ul>
+<li>MCollective</li>
+</ul>
+
+<p>通过队列发送和接收消息的软件，代理在系统上执行的动作依赖消息的内容。就像是你的邮件客户端和你或者是人在聊天室里。</p>
+
+<p>几个相关概念韦恩图：</p>
+
+<p><img src="/assets/media/mcollective/mcollective-concept.png" alt="图片"></p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/introduction-to-mcollective-security" title="Introduction To MCollective Security">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/mcollective-solve-problem" title="Mcollective Solve Problem">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

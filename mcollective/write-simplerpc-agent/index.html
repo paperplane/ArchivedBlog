@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Write SimpleRPC Agent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Write SimpleRPC Agent </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-15</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+      <li>
+        <a href="/tags#SimpleRPC-ref">SimpleRPC <span>5</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">编写SimpleRPC代理</h2>
+
+<p>SimpleRPC能够工作是因为它假设了如何来写Agents。下面通过完整的HelloWorld代理来演示。首先需要明白客户端发送数据格式，明白数据接收规则。</p>
+
+<hr>
+
+<h4 id="toc_1">接收数据规则</h4>
+
+<p>客户端发送请求如下格式：</p>
+
+<pre><code>mc.echo(:msg =&gt; &quot;Welcome to MCollective Simple RPC&quot;)
+</code></pre>
+
+<p>更复杂的例子：</p>
+
+<pre><code>exim.setsender(:msgid =&gt; &quot;1NOTVx-00028U-7G&quot;, :sender =&gt; &quot;foo@bar.com&quot;)
+</code></pre>
+
+<p>这为成员变量：msgid和:sendid创建Hash，当然也可以直接使用string:</p>
+
+<pre><code>exim.setsender(&quot;msgid&quot; =&gt; &quot;1NOTVx-00028U-7G&quot;, &quot;senderid&quot; =&gt; &quot;foo@bar.com&quot;)
+</code></pre>
+
+<p>只要安全插件支持，数据类型可以保持不变，这也是默认做法。可以传递数组，哈希，哈希的哈希,openstructs但要保证传进来这些是key/value形式。</p>
+
+<p>数据项不能使用:process_results，它对代理和客户端有特殊含义，这暗示代理客户端不会等待进程结果，一般用在不会选择收到回复。</p>
+
+<hr>
+
+<h4 id="toc_2">示例代理</h4>
+
+<p>以下是一个Helloworld的代理，将输入的参数msg的值输出。</p>
+
+<hr>
+
+<pre><code>module MCollective
+    module Agent
+        class Helloworld&lt;RPC::Agent
+            # Basic echo server
+            action &quot;echo&quot; do
+                validate :msg, String
+                reply[:msg] = request[:msg]
+            end
+        end
+    end
+end
+</code></pre>
+
+<p>这是一个能工作却不完全的代理。没有帮助没有Metadata.执行过程及结果</p>
+
+<pre><code>[root@master agent]# mco rpc  --agent helloworld --action echo --argument msg=&quot;Welcome to MCollective Simple RPC&quot;
+Determining the amount of hosts matching filter for 2 seconds .... 2
+ * [ ============================================================&gt; ] 2 / 2
+Finished processing 2 / 2 hosts in 65.70 ms
+</code></pre>
+
+<p><strong>代理名称 AgentName</strong></p>
+
+<p>代理名称由类名继承而来，示例代码类名 MCollective::Agent::Helloworld那么代理名称就是helloworld</p>
+
+<p><strong>目标数据和初始化</strong></p>
+
+<p>SimpleRPC仍需要目标数据，没有就只能是默认设置。加了目标数据的代码如下：</p>
+
+<pre><code>module MCollective
+    module Agent
+        class Helloworld&lt;RPC::Agent
+            metadata :name        =&gt; &quot;SimpleRPC Sample Agent&quot;,
+                     :description =&gt; &quot;Echo service for MCollective&quot;,
+                     :author      =&gt; &quot;JunQi Lee&quot;,
+                     :license     =&gt; &quot;GPLv2&quot;,
+                     :version     =&gt; &quot;1.1&quot;,
+                     :url         =&gt; &quot;http://projects.puppetlabs.com/projects/mcollective-plugins/wiki&quot;,
+                     :timeout     =&gt; 60
+            # Basic echo server
+            action &quot;echo&quot; do
+                validate :msg, String
+                reply[:msg] = request[:msg]
+            end
+        end
+    end
+end
+</code></pre>
+
+<p>增加的代码设置了创建者信息，license和版本以及timeout。timeout是在杀掉该代理前允许代理运行的时间。如果设置过短，代理执行完之前就被终结。</p>
+
+<p><strong>写动作 Write Actions</strong></p>
+
+<p>动作（actions）是代理允许执行的单个任务：</p>
+
+<pre><code>action &quot;echo&quot; do
+    validate :msg, String
+
+    reply[:msg] = request[:msg]
+end
+</code></pre>
+
+<p>这里创建了一个名为&#39;echo&#39;的动作，它没有任何参数</p>
+
+<hr>
+
+<h4 id="toc_3">激活代理</h4>
+
+<p>过去仅仅需要将代理拷贝到机器上就能运行，因为所有代理无论依赖都被激活。</p>
+
+<p>为了使部署简单并且支持代理选择特定运行平台，默认情况下代理能够被配置是否激活。</p>
+
+<pre><code>plugin.helloworld.activate_agent = false
+</code></pre>
+
+<p>你可已在下面的文件中 /etc/mcollective/plugins.d/helloworld.cfg加入这句话（这个文件就是根据代理名在安装目录下的plugin.d目录下自己添加的）：</p>
+
+<pre><code>activate_agent = false
+</code></pre>
+
+<p>这是启用和禁用代理最简单的方式。代理也可已在它的定义文件中声明何时被激活：</p>
+
+<pre><code>module MCollective
+    module Agent
+        class Helloworld&lt;RPC::Agent
+
+            activate_when do
+                File.executable?(&quot;/usr/bin/puppet&quot;)
+            end
+        end
+    end
+end
+</code></pre>
+
+<p>如果此块返回错误或者异常，此台机器上该代理不会被激活也不会被发现。每次代理加载时都会测试/usr/bin/puppet是否存在，只有存在该代理才会被激活。</p>
+
+<hr>
+
+<h4 id="toc_4">帮助和数据描述语言（DDL）</h4>
+
+<p>代理ruby文件之外同时还有一个单独文件用于详细描述代理，之前例子的DDL文件如下所示：（注：此处文档语法多处错误，且文档多处单词错误）</p>
+
+<pre><code>metadata :name        =&gt; &quot;SimpleRPC Sample Agent&quot;,
+         :description =&gt; &quot;Echo service for MCollective&quot;,
+         :author      =&gt; &quot;R.I.Pienaar&quot;,
+         :license     =&gt; &quot;GPLv2&quot;,
+         :version     =&gt; &quot;1.1&quot;,
+         :url         =&gt; &quot;http://projects.puppetlabs.com/projects/mcollective-plugins/wiki&quot;,
+         :timeout     =&gt; 60
+
+action &quot;echo&quot;, :description =&gt; &quot;Echos back any message it receives&quot; do
+    input :msg,
+          :prompt      =&gt; &quot;Service Name&quot;,
+          :description =&gt; &quot;The service to get the status for&quot;,
+          :type        =&gt; :string,
+          :validation  =&gt; &#39;^[a-zA-Z\-_\d]+$&#39;,
+          :optional    =&gt; false,
+          :maxlength   =&gt; 30
+
+    output :msg,
+           :description =&gt; &quot;The message we received&quot;,
+           :display_as  =&gt; &quot;Message&quot;
+end
+</code></pre>
+
+<p>如上所示，DDL文件语法很简单就是一些标记值，帮助和其他重要的验证信息。DDL语言详细信息见数据描述语言DDL部分。</p>
+
+<p><strong>验证输入</strong></p>
+
+<p>如果按照规则用Hash结构接收发送的数据，然后就可以使用提供的验证器来确定接收的数据正是想要的数据。如果没有采用输入哈希结构，验证器不会起作用。今后基于DDL验证会自动执行，所以强烈建议使用哈希。</p>
+
+<p>在示例的动作里验证：msg输入是String。这有些例子：</p>
+
+<pre><code>1    validate :msg, /[a-zA-Z]+/
+2    validate :ipaddr, :ipv4address
+3    validate :ipaddr, :ipv6address
+4    validate :commmand, :shellsafe
+5    validate :mode, [&quot;all&quot;, &quot;packages&quot;]
+</code></pre>
+
+<p>下面的列表展示所有支持的验证器：</p>
+
+<pre><code>类型    说明    举例
+正则表达式  将输入与提供的正则表达式匹配    validate :msg, /[a-zA-Z]+/
+Type    验证输入是给定ruby数据类型  validate :msg, String
+IPv4    验证IPv4地址    validate :ipaddr, :ipv4address
+IPv6    验证IPv6地址    validate :ipaddr, :ipv6address
+system call safety  确保输入没有&gt;&lt;半括号，管道符号之类  validate :command, :shellsafe
+Boolean 验证输入时true 或者false    validate :enable, :bool
+List of valid options   验证输入是所给列表中之一    validate :mode, [“all”, “packages”]
+</code></pre>
+
+<p>几点说明：</p>
+
+<p>所有这些检查会引发InvalidRPCDate异常，Simple RPC框见会在适当时候捕获处理所以不用去catch。</p>
+
+<p>可以提供自己的输入验证器，自定义验证类型。</p>
+
+<p>另外如果想让某个String不被传入Shell，可以使用新版本ruby的shellescape来避免：</p>
+
+<pre><code>safe = shellescape(request[:foo])
+</code></pre>
+
+<p><strong>代理配置</strong></p>
+
+<p>可以在server.cfg中配置代理</p>
+
+<pre><code>plugin.helloworld.setting = foo
+</code></pre>
+
+<p>上面的配置等同于：</p>
+
+<pre><code>setting = config.pluginconf[&quot;helloworld.setting&quot;] || &quot;&quot;
+</code></pre>
+
+<p>这会使任何未设置选项设置为“”</p>
+
+<p><strong>访问输入</strong></p>
+
+<p>输出可以根据repuest很容易获取，这会是之前向客户端输入的原始请求的Hash值。</p>
+
+<p>request对象是MCollective::RPC::Request的实例，可以获取以下访问全权限：</p>
+
+<p>属性    描述
+time    消息发送时间
+action  发送的要求代理执行的动作
+data    数据的哈希值
+sender  发送者的senderid
+agent   往哪个代理发送</p>
+
+<p>通过这种形式：request.data[:msg]或者request[:msg]</p>
+
+<p>注：根据第一种方式会给你对所有正常哈希方法的访问权限，但是第二种只能获取include中的访问权限。</p>
+
+<hr>
+
+<h4 id="toc_5">执行Shell命令</h4>
+
+<p>存在一个帮助函数能够事运行Shell命令变得很容易，也可以获取STDOUT,STDERR。推荐所有人使用这个函数来调用shell命令，因为它强制LC_ALL为C而且等待所有的子进程并且避免僵尸进程，可以给它设置唯一的工作路径和shell环境（这个简单地使用ruby提供的system可能无法实现）</p>
+
+<p>最简单地用例就是执行一个命令并且向客户端返回输出：</p>
+
+<pre><code>reply[:status] = run(&quot;echo &#39;hello world&#39;&quot;, :stdout =&gt; :out, :stderr =&gt; :err)
+</code></pre>
+
+<p>这里可以设置基于命令输出的reply[:out], reply[:err]和 reply[:status]</p>
+
+<p>也可以将输出附加到任意string：</p>
+
+<pre><code>out = []
+err = &quot;&quot;
+status = run(&quot;echo &#39;hello world&#39;&quot;, :stdout =&gt; out, :stderr =&gt; err)
+</code></pre>
+
+<p>例子中命令的STDOUT将被存储到变量out中并且不会被送回调用者。唯一需要注意的就是变量out和err有&lt;&lt;方法，可以将输出每一行应用到一个数组一个成员。在例子中out将会是一个拥有多行的数组而err就是一个多行的string.</p>
+
+<pre><code>[root@master application]# mco rpc helloworld echo msg=&quot;uname&quot; -v
+Determining the amount of hosts matching filter for 2 seconds .... 2
+
+ * [ ============================================================&gt; ] 2 / 2
+
+puppet.example.com                      : OK
+    {:status=&gt;0, :msg=&gt;&quot;uname&quot;, :out=&gt;&quot;Linux\n&quot;, :err=&gt;&quot;&quot;}
+
+master.example.com                      : OK
+    {:msg=&gt;&quot;uname&quot;, :out=&gt;&quot;Linux\n&quot;, :err=&gt;&quot;&quot;}
+
+---- helloworld#echo call stats ----
+           Nodes: 2 / 2
+     Pass / Fail: 2 / 0
+      Start Time: Wed Jul 25 13:29:02 -0400 2012
+  Discovery Time: 2002.91ms
+      Agent Time: 119.73ms
+      Total Time: 2122.64ms
+</code></pre>
+
+<p>默认情况下，任何尾随的换行符将被包含在输出和错误:</p>
+
+<pre><code>reply[:status] = run(&quot;echo &#39;hello world&#39;&quot;, :stdout =&gt; :out, :stderr =&gt; :err)
+reply[:stdout].chomp!
+reply[:stderr].chomp!
+</code></pre>
+
+<p>如果希望从目录/tmp处运行</p>
+
+<pre><code>reply[:status] = run(&quot;echo &#39;hello world&#39;&quot;, :stdout =&gt; :out, :stderr =&gt; :err, :cwd =&gt; &quot;/tmp&quot;)
+</code></pre>
+
+<p>或者希望包含环境变量：</p>
+
+<pre><code>reply[:status] = run(&quot;echo &#39;hello world&#39;&quot;, :stdout =&gt; :out, :stderr =&gt; :err, :environment =&gt; {&quot;FOO&quot; =&gt; &quot;BAR&quot;})
+</code></pre>
+
+<p>返回状态是程序执行的返回码，如果程序完全失败比如文件不存在、资源不可用，返回码将是-1。</p>
+
+<p>必须通过这些选项来设置CWD和环境变量。不要在代理中简单地调用chdir和ENV，这些在ruby多线程应用程序中不安全。</p>
+
+<p>关于运行Shell命令部分，源代码主要是在actionrunner.rb中定义。ActionRunner类有如下属性:command, :agent, :action, :format, :stdout, :stderr, :request</p>
+
+<p>其中run函数接收三个参数：command, request, format=:json，命令内容，请求内容，返回格式（默认json）.现在只有基于json序列化数据支持今后可能会增加基于key=val形式的数据。</p>
+
+<p>根据源代码，整个类主要是通过把请求对象序列化为一个输入文件（临时文件）并且创建一个空的输出文件，然后创建外部命令读取输出文件。</p>
+
+<p>任何标准输出将会在info级别计入日志，而标准错误将会在error级别记录日志。</p>
+
+<p>执行命令过程中调用封转的外部命令MCollective::Shell。而shell又是封装的ruby systemu执行系统命令，systemu号称在获取标准输出和标准错误和处理子进程上是万能的。Shell有属性：:environment, :command, :status, :stdout, :stderr, :stdin, :cwd。程序输出经过精心封装，可根据返回码判断正确执行与否。</p>
+
+<hr>
+
+<h4 id="toc_6">结构化回复</h4>
+
+<p><strong>回复数据</strong></p>
+
+<p>回复数据在变量reply中，它是MCollective::RPC::Reply的实例。</p>
+
+<pre><code>reply[:msg] = request[:msg]
+</code></pre>
+
+<p><strong>回复状态</strong></p>
+
+<p>状态列表见写客户端部分。</p>
+
+<pre><code>def rmmsg_action
+   validate :msg, String
+   validate :msg, /[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+/
+   reply.fail &quot;No such message #{request[:msg]}&quot;, 1 unless have_msg?(request[:msg])
+
+   # check all the validation passed before doing any work
+   return unless reply.statuscode == 0
+
+   # now remove the message from the queue
+end
+</code></pre>
+
+<hr>
+
+<h4 id="toc_7">外部脚本动作</h4>
+
+<p>这部分可参考自定节点部分。动作可以使用其他支持JSON的外部语言实现。</p>
+
+<pre><code>action &quot;test&quot; do
+    implemented_by &quot;script.py&quot;
+end
+</code></pre>
+
+<p>此外这部分的授权、验证、审计等内容参考本篇其他相应部分。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/use-filter" title="Use Filter">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/control-daemon" title="Control Daemon">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

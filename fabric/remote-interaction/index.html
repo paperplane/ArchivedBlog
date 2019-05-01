@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Remote Interaction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Remote Interaction </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-17</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">远程交互--Remote Interaction</h2>
+
+<p>Fabric基本操作，run和sudo，能够将本地输入发送到远程终端，以一种几乎和SSH相同的方式。这时你就像在和远程主机直接交互一样，例如程序提示输入密码之类。</p>
+
+<p>然而，正如ssh本身一样，fabric在实现该功能时同样受到一些局限，因此并不总是很直观。</p>
+
+<hr>
+
+<h4 id="toc_1">合并stdout和stderr</h4>
+
+<p>第一个需要讨论的问题就是标准输出和标准错误流，为什么它们能够根据需要分开和合并</p>
+
+<p>Fabric 0.9以及之前版本，以至python自身，buffer输出都是基于line-by-line。除非一个新行字母（character）出现,否则文本不会被打印出来，这在大都数情况下工作的很好，但是当一个人需要处理半行输出(例如prompts)时会出现问题。</p>
+
+<p>最新的fabric版本buffer输入和输出基于character-by-character，这使有prompts这样的交互变得可能。这对于那些复杂的需要利用‘curses’库或者需要重绘屏幕的程序(例如top这样)的交互提供了便利。</p>
+
+<h4 id="toc_2">交叉流</h4>
+
+<p>不幸的是，同很多程序一样，同时打印stderr和stdout意味着两种流能同时独立地每次一byte打印，这会使结果混乱。虽然这个问题很多时候可以通过line-buffering其中某一种而不是另一种流来解决，这仍是一个问题。</p>
+
+<p>为了解决这个问题，fabric使用一个SSH层的设置：它使两种流在一个低层次的级别合并然后输出，这让输出变得更自然。这是由env.combine_stderr呈现，默认为True。由于这种默认设置，输出变得正确，但是代价是sudo/run返回空的.stderr属性，因为所有输出都会呈现为stdout。</p>
+
+<p>相反地，如果用户需要返回python级别的不同的stderr流而又不怕受到混乱的输出可以选择将其设置为False。因为combine_stderr=True时，即使发生错误，也只是标准输出，而不是标准错误。</p>
+
+<h4 id="toc_3">伪终端</h4>
+
+<p>另一个需要考虑的问题就是什么时候激活prompt等待用户自己的输入</p>
+
+<p>典型地终端应用程序或者文本终端呈献给程序以终端设备面孔，这称为tty或者pty(对于伪终端)。他们自动echo所有的文本输入然后将它们通过stdout返回给用户，因为交互时看不到已经输入的东西使它很困难。终端设备同样能够根据情况关闭echo,考虑到安全的密码prompts。</p>
+
+<p>当然，程序也可以完全运行在没有tty或者pty的情况下（例如cron jobs），这时向这个程序所有输入数据都不会被echoed。这对于那些不需要人在旁边守候的程序很需要，同时它也是fabric之前默认的操作模式。</p>
+
+<h4 id="toc_4">Fabric的方法</h4>
+
+<p>不幸的是，在使用fabric执行命令的上下文中，当没有pty提供给用户作为输入时，fabric必须为他们echo用户输入。这对于很多应用都没有问题，但是在密码输入时出现问题，它不再安全。</p>
+
+<p>在满足安全和最少意外的双重要求下，fabric现在强制默认使用pty。当一个pty被启用，fabric可以简单地允许远程终端来处理echoing或者隐藏stdin并且不再echo任何东西。</p>
+
+<p>需要关闭pty行为时，这时命令行选项--no-pty和env变量always<em>use</em>pty可能被用到。</p>
+
+<h4 id="toc_5">结合这两项</h4>
+
+<p>作为最后的注释，记住有效使用伪终端意味着结合stdout和stderr。在很大程度和combine_stderr设置一样。这是因为一个终端设备自然向同一个地方---用户的显示屏，发送stdout和stderr，这使区分它们变得很难。</p>
+
+<p>然而，在fabric级别，这两项可以组合成几种不同的设置。默认是两个都设置为True。默认设置在run方法中有详细介绍。此时既合并标准输出与标准错误，又在远程主机启动pty，不用Fabric自己echo所有输入。其他的组合如下。</p>
+
+<p>run(&quot;cmd&quot;, pty=False, combine_stderr=True): 这会使fabric自己echo所有的输入，包括密码，以及其他潜在改变cmd的行为。一般是用在用户不关心密码提示以及在pty下cmd表现很糟的情况下。</p>
+
+<p>run(&quot;cmd&quot;, pty=False, combine_stderr=False):这时fabric自己echo所有输入，而且也不会使用pty.这可能会导致除了最基础的命令外几乎所有的结果都很糟。然而，这是获取一个完全不同错误流的唯一方式。</p>
+
+<p>run(&quot;cmd&quot;, pty=True, combine<em>stderr=False):有效，但是不会有什么作用，因为pty=True，就会合并流。此时等同于设置pty=combine</em>stderr=True。</p>
+
+<p>默认方式，以及以上列举的第一种，第三种方式输出都是作为标准输出产生。使用默认方式会出项一个冗余信息就是正确执行时，返回结果stderr信息始终为空。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/fabric-api" title="Fabric API">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/puppet/puppet-ca" title="Puppet CA">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

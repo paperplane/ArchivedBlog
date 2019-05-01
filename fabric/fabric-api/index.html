@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fabric API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Fabric API </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">Fabric API Full List</h2>
+
+<h4 id="toc_1">Core API</h4>
+
+<p>核心API主要有七类:带颜色的输出类(color output),上下文管理类(context 
+managers), 装饰器类(decorators), 网络类(network), 操作类(oprations), 任务类(tasks), 工具类(utils)。 </p>
+
+<h5 id="toc_2">Color Output</h5>
+
+<p>每一个包含这个模块的函数返回String带有颜色。比如: </p>
+
+<pre><code>From fabric.api import green,red 
+Print (red(&quot;This sentence is red, except for &quot; + green(&quot;these words, which are green&quot;) + &quot;.&quot;))
+</code></pre>
+
+<p>共包括以下：</p>
+
+<pre><code>fabric.colors.blue(text, bold=False)
+fabric.colors.cyan(text, bold=False)
+fabric.colors.green(text, bold=False)
+fabric.colors.magenta(text, bold=False)
+fabric.colors.red(text, bold=False)
+fabric.colors.white(text, bold=False)
+fabric.colors.yellow(text, bold=False)
+</code></pre>
+
+<h5 id="toc_3">Context Managers</h5>
+
+<p>Context Managers使用都需要结合with语句。连续使用多个时可嵌套也可用逗号隔开连接使用。</p>
+
+<p>举例如下：</p>
+
+<pre><code>with cd(&#39;/path/to/app&#39;):
+    with prefix(&#39;workon myvenv&#39;):
+        run(&#39;./manage.py syncdb&#39;)
+        run(&#39;./manage.py loaddata myfixture&#39;)
+</code></pre>
+
+<p>它等价于</p>
+
+<pre><code>with cd(&#39;/path/to/app&#39;), prefix(&#39;workon myvenv&#39;):
+    run(&#39;./manage.py syncdb&#39;)
+    run(&#39;./manage.py loaddata myfixture&#39;)
+</code></pre>
+
+<p>注意此时在python2.5中的写法：with nested(cd(&#39;/path/to/app&#39;), prefix(&#39;workon myvenv&#39;)):</p>
+
+<p>此类包括：</p>
+
+<pre><code>fabric.context_managers.cd(path) cd(远程主机更新工作目录) 
+</code></pre>
+
+<p>任何被包括在 with cd(path):代码块里的命令run/sudo/get/put 相当于执行&quot;cd <path> &amp;&amp; &quot;</p>
+
+<p>那么很明显它与 shell 命令cd的区别举例如下：</p>
+
+<pre><code>with cd(&#39;/var/www&#39;):
+    run(&#39;ls&#39;) # Turns into &quot;cd /var/www &amp;&amp; ls&quot;
+</code></pre>
+
+<p>比较</p>
+
+<pre><code>run(&#39;cd /var/www&#39;)
+run(&#39;ls&#39;)
+</code></pre>
+
+<p>前者相当于执行:run(‘cd /var/www &amp;&amp; ls’)</p>
+
+<p>后者相当于执行:ls 时并没在/var/www 路径下，而是在默认路径$HOME路径下</p>
+
+<p>cd 可嵌套:</p>
+
+<pre><code>with cd(&#39;/var/www&#39;):
+    run(&#39;ls&#39;) # cd /var/www &amp;&amp; ls
+    with cd(&#39;website1&#39;):
+        run(&#39;ls&#39;) # cd /var/www/website1 &amp;&amp; ls
+</code></pre>
+
+<p>fabric.context<em>managers.lcd(path) lcd(本地主机更新工作目录) 同 cd用法相同,只是它改变的的是本地工作目录,而 cd 改变的远程主机工作目录，所以它只能改变local的调用以及put/get的本地参数，它的默认路径与fabfile所在路径相关，由环境变量env.real</em>fabfile指定</p>
+
+<p>目前，cd和lcd的实现视是通过改变环境变量env.cwd和env.lcwd实现的，所以如果要实现这个也可以通过环境变量来实现，但是不建议这么做。因为按照官方文档说明，将来这种实现方式可能要改。</p>
+
+<p>fabric.context_managers.hide(*groups) hide(将指定参数输出级别默
+认设置为 False) 指定默认隐藏的输出级别 group是一个或多个之前output
+指定的类别之一，执行时它会将这些输出类型置为False。
+比如你不想看到[hostname]:run:xxxx,以及阻止标准输出和错误就可以用下面这样</p>
+
+<pre><code>def my_task():
+    with hide(&#39;running&#39;, &#39;stdout&#39;, &#39;stderr&#39;):
+        run(&#39;ls /var/www&#39;)
+fabric.context_managers.show(\*groups) show(将指定参数输出级别默
+</code></pre>
+
+<p>认设置为 False) 指定默认输出的输出级别 用法同 hide，作用刚好相反。默认是所有都输出，所以show的一个作用就是打开默认隐藏的debug。
+fabric.context_managers.path(path, behavior=&#39;append&#39;) 默认设置为将参数path附加在系统/用户环境变量$PATH，即 &quot;PATH=$PATH:<path> &quot;指定 run/sudo 路径</p>
+
+<p>behavior默认还有两个参数：</p>
+
+<pre><code>prepend:将指定参数path在$PATH前置即：PATH=&lt;path&gt;:$PATH
+replace：将指定参数代替$PATH，即PATH=&lt;path&gt;
+</code></pre>
+
+<p>fabric.context_managers.prefix(command) prefix( 对 于 所 有 包括在其中的run/sudo 命令相当于再给定参数命令后加了&amp;&amp;)</p>
+
+<p>这与cd用法相同，只是在嵌套调用时，它是直接在后面附加字符串，而不是cd中的修改字符串。大多数时候，会用它来export或alter环境变量。</p>
+
+<pre><code>with prefix(&#39;workon myvenv&#39;):
+    run(&#39;./manage.py syncdb&#39;)
+</code></pre>
+
+<p>等价于执行#workon myvenv &amp;&amp; ./manage.py syncdb</p>
+
+<p>嵌套调用举例：</p>
+
+<pre><code>with prefix(&#39;workon myenv&#39;):
+    run(&#39;ls&#39;)
+    with prefix(&#39;source /some/script&#39;):
+        run(&#39;touch a_file&#39;)
+</code></pre>
+
+<p>结果是：</p>
+
+<pre><code>$ workon myenv &amp;&amp; ls
+$ workon myenv &amp;&amp; source /some/script &amp;&amp; touch a_file
+</code></pre>
+
+<p>和cd 是兼容的，结合使用举例：</p>
+
+<pre><code>with cd(&#39;/path/to/app&#39;):
+    with prefix(&#39;workon myvenv&#39;):
+        run(&#39;./manage.py syncdb&#39;)
+        run(&#39;./manage.py loaddata myfixture&#39;)
+</code></pre>
+
+<p>结果如下：</p>
+
+<pre><code>$ cd /path/to/app &amp;&amp; workon myvenv &amp;&amp; ./manage.py syncdb
+$ cd /path/to/app &amp;&amp; workon myvenv &amp;&amp; ./manage.py loaddata myfixture
+</code></pre>
+
+<p>fabric.context_managers.settings(*args, **kwargs) setting(嵌套的上下文管理器覆盖env 变量) 它有两个作用:</p>
+
+<p>大多数情况下,它会暂时覆盖/更新任何提到的关键字的 env 变量的值。比 如 : with settings(user=&#39;foo&#39;): 相 当 于 设 定env.user=‘foo’。出了这个代码块,setting 中的值就会失效。此时注意 clean_revert=True 对作用域的影响,若此时在代码块中重新更新 env 的值,则该值就被更新即使出了代码块直到下 次 更 新 。 </p>
+
+<pre><code># Before the block, env.parallel defaults to False, host_string to None
+with settings(parallel=True, host_string=&#39;myhost&#39;):
+    # env.parallel is True
+    # env.host_string is &#39;myhost&#39;
+    env.host_string = &#39;otherhost&#39;
+    # env.host_string is now &#39;otherhost&#39;
+# Outside the block:
+# * env.parallel is False again
+# * env.host_string is None again
+</code></pre>
+
+<p>另 外 , 它 还 能 对 env 变 量 中 未 提 到 的 关 键 字（即env变量中没有的，这些可能会是其他的上下文管理器） 进 行 指 定 值 , 比 如 :</p>
+
+<pre><code>def my_task():
+    with settings(
+        hide(&#39;warnings&#39;, &#39;running&#39;, &#39;stdout&#39;, &#39;stderr&#39;),
+        warn_only=True
+    ):
+        if run(&#39;ls /etc/lsb-release&#39;):
+            return &#39;Ubuntu&#39;
+        elif run(&#39;ls /etc/redhat-release&#39;):
+            return &#39;RedHat&#39;
+</code></pre>
+
+<p>最后就是clean_revert设置带来的变化注意对比前面例子：</p>
+
+<pre><code># Before the block, env.parallel defaults to False, host_string to None
+with settings(parallel=True, host_string=&#39;myhost&#39;, clean_revert=True):
+    # env.parallel is True
+    # env.host_string is &#39;myhost&#39;
+    env.host_string = &#39;otherhost&#39;
+    # env.host_string is now &#39;otherhost&#39;
+# Outside the block:
+# * env.parallel is False again
+# * env.host_string remains &#39;otherhost&#39;
+</code></pre>
+
+<h5 id="toc_4">Decorators</h5>
+
+<pre><code>fabric.decorators.hosts(\*host_list)  定义哪个或者哪些主机来执行这些命令,定义方式：
+@hosts(&#39;host1&#39;) 
+@hosts(&#39;host1&#39;, &#39;host2&#39;) 
+@hosts([&#39;host1&#39;,&#39;host2&#39;]))
+fabric.decorators.roles(\*role_list) 定义执行任务的 roles,与主机对应
+env.roledefs.update({
+    &#39;webserver&#39;: [&#39;www1&#39;, &#39;www2&#39;],
+    &#39;dbserver&#39;: [&#39;db1&#39;]})
+@roles(&#39;webserver&#39;, &#39;dbserver&#39;)
+def my_func():
+    pass
+</code></pre>
+
+<p>同hosts一样，roles的参数既可以是一个参数列表，或者一个可迭代对象</p>
+
+<pre><code>fabric.decorators.serial(func) （串行执行，不允许并行）强制func串行执行
+fabric.decorators.parallel(pool_size=None) （并行执行，而不是串行）   
+fabric.decorators.task(\*args, **kwargs) 即新风格任务，参照前面定义任务时的参数给其设定参数
+fabric.decorators.with_settings(\*arg_settings, **kw_settings) 作用同于上下文管理器中的with，只是它的作用域应该是整个函数。
+@with_settings(warn_only=True)
+def foo():
+    ...
+fabric.decorators.runs_once(func) 函数仅执行一次 
+</code></pre>
+
+<h5 id="toc_5">Network</h5>
+
+<pre><code>fabric.network.disconnect_all()
+</code></pre>
+
+<p>用于与所有当前连接的服务器断开连接。一般用于 fab  主循环,也同时用于将Fabric作为类库使用。</p>
+
+<h5 id="toc_6">Operations</h5>
+
+<pre><code>fabric.operations.get(remote_path, local_path=None)从 远 程 主 机下载一个或多个文件
+fabric.operations.put(local_path, remote_path, use_sudo=False, mirror_local_mode=False, mode=None) 从本地上传一个或多个文件至远程主机
+</code></pre>
+
+<p>很多时候用法类似scp或cp,用于上传下载文件，它的本地和远程路径实现发别是通过lcd和cd实现，所以用上下文管理器的cd会影响远程路径参数，而lcd会影响本地路径参数。这里主要是弄明白本地路径和远程路径的表示，它们将路径分成host/dirname/basename/path，可分别用基于字典的方式来指定，这里具体可查文档说明。</p>
+
+<pre><code>fabric.operations.open_shell(command=None) 在远程主机调用交互式shell。
+</code></pre>
+
+<p>如果命令给定，它将会在调用用户之前被送至管道。当你需要一个完全基于shell调用和一系列命令</p>
+
+<p>时非常有用，比如debug的时候。这可以被看作是run的简单版，但并不是可替代版，因为它无法</p>
+
+<p>处理远程交互中遇到的prompt，标准输入，login等问题。此外，它没有返回值而且在发生错误时也</p>
+
+<p>不会有fabric的错误处理机制。</p>
+
+<pre><code>fabric.operations.reboot(wait=120) 
+</code></pre>
+
+<p>重启远程机器,会暂时调整fabric冲连接设置以保证在wait时间内重连接成功。</p>
+
+<pre><code>fabric.operations.run(command, shell=True, pty=True, combine_stderr=True)在远程主机执行shell命令。
+</code></pre>
+
+<p>如果shell为True,run会将给定的命令通过env.shell设定的shell上解释。命令参数中任何双引号“和$符都会被忽略。</p>
+
+<p>run会将远程程序的标准输出作为一个单一（可能多行）string作为结果返回。这个string包括布尔值的failed和succeed的属性来标志命令执行的成功与失败，</p>
+
+<p>以及一个结果码来做为返回的 return_code属性。</p>
+
+<p>本地终端的任何文本的输入在run执行过程中都会被送往远程程序，来允许你更自然地处理密码和其他prompts。</p>
+
+<p>你可以使用pty=False来放弃在远程主机上创建伪终端以防其在命令存在问题时会制造麻烦。然而，这会强制fabric自己在run运行时echo所有的输入和你的键入，包括大小写敏感的密码。远程伪终端会替你echo，而且会只能的处理密码这种prompts。</p>
+
+<p>同样地，如果你需要编程检测远程程序的标准错误流（利用函数返回值的stderr属性），你可以设置combine<em>stderr=False。这样做会使你终端输出很混乱（虽然返回strings能合理地分开）。但是这是你单独获取标准错误流的唯一方式。设置pty=combine</em>stderr=False。</p>
+
+<pre><code>fabric.operations.sudo(command, shell=True, pty=True, combine_stderr=True, user=None)
+</code></pre>
+
+<p>以上连个命令都是在远程执行命令,后者拥有特殊权限,关于参数含义已经在远程交互中详细介绍和run中介绍。</p>
+
+<p>它们的返回结果是一个多行 string,这个 string 会有 failed, succeeded,return_code 这样的属性来标识是否执行成功。</p>
+
+<p>同样地，如果你需要编程检测远程程序的标准错误流（利用函数返回值的stderr属性），你可以设置combine_stderr=False。这样做会使你终端输出很混乱（虽然返回strings能合理地分开）。</p>
+
+<p>sudo会多接受一个user的参数，这用来允许你在其他用户而不是root用户来执行命令。在很多系统，user可以是string的username或者是int的uid。</p>
+
+<p>此外上述各函数都有相应的参数为（<em>args, *</em>kwargs）的重载函数。</p>
+
+<pre><code>fabric.operations.local(command, capture=False)
+</code></pre>
+
+<p>使用 python subprocess 模块实现且 shell=True,local 现在能够打印和捕捉输出,正如 run/sudo 一样。caputure 参数允许你选择是打印还是捕捉输出。</p>
+
+<pre><code>caputure=False 时,本地 subprocess 的标准输出和错误直接显示在终端,可通过全局输出控制,output.stdout 等,此时返回为空。
+caputure=True 时,命令 stdout 作为类 string 对象返回,同 run/sudo 一样,返回值有 return_code,stderr,failed 和 succeeded 属性。
+</code></pre>
+
+<h5 id="toc_7">Tasks</h5>
+
+<p>class fabric.tasks.Task(alias=None, aliases=None, default=False, <em>args, *</em>kwargs) 对于抽象基类和子类处理不同 详细参数含义可参考定义任务中新风格任务的参数含义。</p>
+
+<p>fabric.tasks.execute(task, <em>args, *</em>kwargs)  执行任务无论是新风格的任务名还是经典风格的可调用对象。</p>
+
+<p>任务会在该任务主机列表中每个主机上执行一遍，这些主机列表包括来自命令行-H,装饰器@hosts,@roles,env.hosts等等。</p>
+
+<p>host/hosts/role/roles、exclude_hosts都可以作为参数传递进去来设置该任务的主机列表。</p>
+
+<p>如果task还有其他参数需要传递，比如</p>
+
+<pre><code>execute(mytask, &#39;arg1&#39;, kwarg1=&#39;value&#39;)将会执行
+mytask(&#39;arg1&#39;, kwarg1=&#39;value&#39;)
+</code></pre>
+
+<p>它的执行结果也是按字典形式返回，比如execute(foo,hosts=[&#39;a&#39;, &#39;b&#39;])</p>
+
+<p>结果可能是{&#39;a&#39;: None, &#39;b&#39;: &#39;bar&#39;}</p>
+
+<p>如果设置了skip<em>bad</em>hosts则该主机返回值可能为错误对象或消息。</p>
+
+<h5 id="toc_8">Utils</h5>
+
+<pre><code>fabric.utils.abort(msg)放弃执行，打印msg为stderr和错误状态。
+fabric.utils.error(message, func=None, exception=None, stdout=None, stderr=None)调用func，给出指定错误、输出等信息。
+fabric.utils.fastprint(text, show_prefix=False, end=&#39;&#39;, flush=True)
+fabric.utils.indent(text, spaces=4, strip=False)同puts相同，只是不同的参数，快速打印文本text,不用等行结尾。
+fabric.utils.puts(text, show_prefix=None, end=&#39;\n&#39;, flush=False)
+fabric.utils.warn(msg)打印警告信息，但是不放弃执行。
+</code></pre>
+
+<hr>
+
+<h4 id="toc_9">Contrib API</h4>
+
+<p>一般使用较少，所以简单介绍</p>
+
+<h5 id="toc_10">console output 工具</h5>
+
+<pre><code>confirm(询问用户问题，返回 Y/N，比如“是否继续”这样的问题) 
+</code></pre>
+
+<h5 id="toc_11">django 集成</h5>
+
+<pre><code>project:设置 DJANGO_SETTINGS_MODULE to &#39;&lt;name&gt;.settings&#39;. 
+setting module：设置 DJANGO_SETTINGS_MODULE 
+</code></pre>
+
+<p>这个集成主要是用来做一些django设置方面的事，目前不成熟。</p>
+
+<h5 id="toc_12">文件和目录管理</h5>
+
+<pre><code>append(附加，类似 java 中 FileWriter 的 append 方法) 
+contains(返回文件是否存在该文本) 
+exits(返回远程主机是否存在该路径) 
+first(返回多个文件中第一个找到的) 
+upload_template(上传远程主机模板) 
+</code></pre>
+
+<h5 id="toc_13">项目工具</h5>
+
+<pre><code>rsync_project(使用 rsync 同步远程目录与当前项目目录)
+</code></pre>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/activemq-middleware" title="ActiveMQ Middleware">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/fabric/remote-interaction" title="Remote Interaction">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

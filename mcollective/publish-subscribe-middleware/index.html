@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Publish Subscribe Middleware</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Publish Subscribe Middleware </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-01-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <p>在概述中已经提到，MCollective的设计采用了摒弃SSH循环、去中心化结构，汲取现代化工具发布订阅中间件和现代化理念使用目标数据实时发现网络资源。这部分就是关于发布订阅中间件的背景介绍。</p>
+
+<p>注：此部分内容主要来源于维基百科</p>
+
+<hr>
+
+<h3 id="toc_0">中间件</h3>
+
+<p>中间件是指网络环境下位于操作系统等系统软件和应用软件之间的一种连接分布计算实体的分布式软件，它通过提供简单、一致和集成的分布编程环境，简化分布应用的设计、编程和管理。从本质上讲，中间件是一个分布软件层，屏蔽了底层分布环境（网络、主机、操作系统、编程语言）的复杂性和异构性，主要解决异构网络环境下分布应用软件之间的互连、互通和互操作问题，可以提高应用系统的可移植性。自20世纪80年代以来，以CORBA、J2EE、RMI、COM+等技术为代表的中间件技术取得了长足的发展，得到了工业界和学术界的青睐，已经成为分布式系统的主流技术之一。从本质上讲，上述典型中间件的通讯模型属于点到点和同步请求/应答方式。</p>
+
+<p>随着具有异步性、异构性和高度松耦合特性的Internet和大规模Intranet的出现和飞速发展，传统中间件面临的分布计算环境发生了深刻变化。现在的分布式系统可能涉及到数以万计的实体，这些实体可能在地理上分布到世界各地，它们的行为随时间动态地演化，系统实体之间是松耦合的，系统可能涉及异构的数据源，系统要求分布的系统管理。从本质上讲，这类系统的特点是松耦合、异步性、动态性和异构性。传统的中间件具有的点到点和同步通讯模型实际上具有紧耦合的特性，不适合开发这类系统。</p>
+
+<p>这种变化客观上需要一种通讯模型支持具有松耦合、异步性、动态性和异构性等特性的应用需求，P/S通讯模型是满足这种需求的模型之一。以这种通讯模型为基础的P/S中间件得到了工业界和学术界的普遍关注，已经成为研究的热点。</p>
+
+<hr>
+
+<h3 id="toc_1">P/S中间件</h3>
+
+<p>发布/订阅（Publish/subscribe 或pub/sub）是一种消息范式，消息的发送者（发布者）不是计划发送其消息给特定的接收者（订阅者）。而是发布的消息分为不同的类别，而不需要知道什么样的订阅者订阅。订阅者对一个或多个类别表达兴趣，于是只接收感兴趣的消息，而不需要知道什么样的发布者发布的消息。这种发布者和订阅者的解耦解耦可以允许更好的可扩展性和更为动态的网络拓扑.</p>
+
+<p>发布/订阅是消息队列范式的兄弟，通常是更大的面向消息的中间件系统的一部分。大多数消息系统在应用程序接口（API）中同时支持消息队列模型和发布/订阅模型，例如Java消息服务（JMS）。</p>
+
+<p>在发布/订阅模型中，订阅者通常接收所有发布的消息的一个子集。选择接受和处理的消息的过程被称作过滤。有两种常用的过滤形式：</p>
+
+<ul>
+<li>基于主题</li>
+</ul>
+
+<p>在基于主题的系统中，消息被发布到主题或命名通道上。订阅者将收到其订阅的主题上的所有消息，并且所有订阅同一主题的订阅者将接收到同样的消息。发布者负责定义消息的类别，订阅者才能订阅。</p>
+
+<ul>
+<li>基于内容</li>
+</ul>
+
+<p>在基于内容的系统中，订阅者定义其感兴趣的消息的条件，只有当消息的属性或内容满足订阅者定义的条件时，消息才会被投递到该订
+阅者。订阅者需要负责对消息进行分类。</p>
+
+<p>一些系统支持两者的混合：发布者发布消息到主题上，而订阅者将基于内容的订阅注册到一个或多个主题上。在MCollective推荐使用的ACtiveMQ中间件就是使用这种混合模式。</p>
+
+<p><strong>P/S拓扑</strong></p>
+
+<p>在许多发布/订阅系统中，发布者发布消息到一个中间的消息代理，然后订阅者向该消息代理注册订阅，由消息代理来进行过滤。
+消息代理通常执行存储转发的功能将消息从发布者发送到订阅者。</p>
+
+<p><strong>P/S优点</strong></p>
+
+<ul>
+<li><p>松耦合：发布者与订阅者松散地耦合，并且不需要知道对方的存在。由于主题是被关注的，发布者和订阅者可以对系统拓扑毫无所知。发送者和订阅者都可以继续正常操作，不管对方。在传统的紧耦合的客户端-服务器范式中, 在服务器进程不运行时，客户端无法发送消息给服务器，服务器也无法在客户端不运行时接收消息。许多发布/订阅系统不单解耦发布者和订阅者的位置，还从时间上解耦发布者和订阅者。</p></li>
+<li><p>可扩展性：对于相对小的安装，发布/订阅通过并行操作，消息缓存，基于树的或基于网络的发送等，与传统的客户端/服务器相比，提供了更好的可扩展性的机会。可是，当系统升级城外包含数千台服务器的数据中心共享发布/订阅基础设施时，这一好处通常会丧失；实际上，在大型部署中在高负载时发布/订阅产品的可扩展性是一个非常大的研究课题。</p></li>
+</ul>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/notes/introduction-to-http-connection" title="Introduction To HTTP Connection">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/introduction-to-mcollective-security" title="Introduction To MCollective Security">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

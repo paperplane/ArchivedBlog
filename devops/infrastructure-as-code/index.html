@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Infrastructure As Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Infrastructure As Code </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-11</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Puppet-ref">Puppet <span>7</span></a>
+      </li>
+      <li>
+        <a href="/tags#DevOps-ref">DevOps <span>5</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">基础设施即代码</h2>
+
+<hr>
+
+<ul>
+<li><strong>DevOps不仅仅是工具</strong></li>
+</ul>
+
+<p>确实如此，同样敏捷也不仅仅是工具，它是一系列思想，概念以及最佳实践等。</p>
+
+<p>这听起来很好，但是我要怎样成功实现它呢？</p>
+
+<pre><code>工具能够带来行为的改变并最终改变文化【Patrick Debois】
+</code></pre>
+
+<p>就像古登堡打印机这个工具最终引起印刷文化的变化，敏捷开发离开持续集成将变得不可能。DevOps依赖一些工具来实现它的理念。</p>
+
+<p>不幸的是，正如每个人都会认为自己足够聪明，每个能够支持云计算的工具都声称自己是DevOps。</p>
+
+<p>但是，现在有这样的约定：实现DevOps概念的关键是基础设施即代码，能够允许我们处理基础设施即代码的工具才是DevOps。</p>
+
+<p>DevOps已经发展很久，现在它被标准化为像Chef或Puppet这样的工具。以前，你能够编写自己的脚本来自动化服务器安装，配置等等，当时每个人都会以自己的方式来做。现在，Puppet或者Chef已经有自己的通用语言，通用语言允许以模块或者食谱(modules or recipes)的方式共享和重用配置。</p>
+
+<hr>
+
+<ul>
+<li><strong>基础设施即代码，关键概念</strong></li>
+</ul>
+
+<p>基础设施应该被视为代码的概念非常强大。服务器配置，软件包安装，机器间关系等等都应该用代码模块化来实现自动化和结果可预期，消除人工步骤会带来的错误。这听起来似乎不坏，难道不是吗？</p>
+
+<p>但是新的解决方案带来新的挑战，当基础设施即代码的时候我们面临开发者同样会遇到的问题：</p>
+
+<ol>
+<li><p>在生产环境中使用什么版本的基础设施？</p></li>
+<li><p>怎样确保当问题发现时的修复与重部署？</p></li>
+<li><p>当我们开发基础设施时怎样来进行测试？</p></li>
+</ol>
+
+<p>这就是为什么当我们处理基础设施即代码时我们应该遵守开发的最佳实践。</p>
+
+<p>例如我们能够（并且应该）：</p>
+
+<ol>
+<li><p>对定义服务器的代码打标签，建分支并且进行发布</p></li>
+<li><p>为整个基础设施代码进行生命生命周期管理以覆盖不同阶段，例如，开发环境，测试环境，生产环境</p></li>
+<li><p>当进行变更时进行持续测试</p></li>
+</ol>
+
+<p>翻译整理自：<a href="http://blog.csanchez.org/2012/03/13/infrastructure-as-code/">Carlos Sanchez&#39;s Weblog</a></p>
+
+<hr>
+
+<ul>
+<li><strong>实践案例</strong></li>
+</ul>
+
+<p>最近看了丁登的<a href="http://www.infoq.com/cn/presentations/automatic-maintenance-netease-hangzhou-institute-experiences">自动化运维：网易杭州研究院经验谈</a>，其中提到对基础设施即代码的理解，他概括为四点：</p>
+
+<pre><code>* 版本控制（Git）
+* 代码审核（Gerrit）
+* 持续集成（Buildbot）
+* 测试环境（Puppet environments）
+</code></pre>
+
+<p>演讲中提到的基础设施即代码的理解就是：把基础设施当成项目来开发。</p>
+
+<p>我对他提到四点的简单概括就是：</p>
+
+<p>整体采用Puppet实现自动化运维，把puppet多环境部署与Git版本控制结合，对开发，测试，生产环境进行版本控制，代码的提交由Gerrit进行审核。集成时进行语法检查(puppet --parseonly)，代码风格检查(puppet-lint)，软件配置文件检查(Augeas)。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/notes/web-server" title="Web Server">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/simplerpc-authorization" title="SimpleRPC Authorization">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

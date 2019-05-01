@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Use SubCollective</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Use SubCollective </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-01-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <p>分区既是为了解决单一广播域问题，也是对安全的一种考虑。</p>
+
+<hr>
+
+<h3 id="toc_0">概述</h3>
+
+<p>默认情况下，所有的servers属于单一广播域，如果你有一个代理安装在你的网络中所有的机器上，那么你发送给有这个代理的机器的消息就会直接被所有机器收到而无论使用滤器(filters)，这在常规使用中能工作的很好但是在下面这些场景中会出现问题：</p>
+
+<ul>
+<li><p>A.拥有一个非常大而拥挤的网络。假设有成千上万机器需要每隔10秒回复请求，大量的消息会被创建，你想给流量分区。</p></li>
+<li><p>B.不同的地方拥有多个数据中心，网站流量和延迟很大。你想在每个数据中心复制监控和自动化管理，但是所有都在一个广播域仍会看到大量流量缓慢链路。</p></li>
+<li><p>C.需要完成多个独立安装，但仍想保持MCollective中心管理功能。</p></li>
+<li><p>D.平面网络(plat network)安全问题。SimpleRPC拥有一个安全框架提醒用户和网络拓扑但是核心网络没有。</p></li>
+</ul>
+
+<p>Sub collectives允许你定义广播域并且配置一个mcollective属于这些域中的一个或多个。</p>
+
+<hr>
+
+<h3 id="toc_1">分区策略</h3>
+
+<p>确定如何分区比较复杂，需要考虑的有：对消息流的理解，请求者所在位置和中间件集群拓扑。很重要的一点需要注意就是大多数中间件能够仅仅在它们&quot;兴趣&quot;的区域发送流量。因此如果你在1000台机器的10台中安装一个代理，那么只有这10台机器能够收到相关流量。</p>
+
+<p>下面是一个52个节点collective的例子，collective在4个国家很多数据中心都有机器。有3个ActiveMQ连接成网状。另有一个国家在图中未画出。这些ACtiveMQ节点同时也是Puppet Master,Nagios实例或者其他共享设施组件。</p>
+
+<p><img src="/assets/media/mcollective/mcollective-sub1.png" alt="图片"></p>
+
+<p>这个网络理想的安装可能是：</p>
+
+<p><strong>在所有节点安装MCollective NRPE和Puppeted Agent</p>
+
+<p>3个ActiveMQ地点是Puppet Master</p>
+
+<p>Nagios在每个区域监测该区域机器&lt;</p>
+
+<p>区域间流量相互隔离</p>
+
+<p>系统管理员和注册数据保持覆盖所有collectives的能力</strong></p>
+
+<p>现在的问题是这3个Puppet master都会有一份所有流量的拷贝，即使这不是它们请求的。它们之间的连接会有大量流量经过，这在小数量节点可以处理，但是节点多了就无法处理。必须创建单独广播域。</p>
+
+<p>使用SubCollectives可以实现：</p>
+
+<p><strong>一个全局的collective包含所有的机器</p>
+
+<p>UK，DE，ZA和US collectives仅仅包含它们所在区域的机器</p>
+
+<p>EU collectives包含UK，DE和ZA所有机器</strong></p>
+
+<p><img src="/assets/media/mcollective/mcollective-sub2.png" alt="图片"></p>
+
+<p>然后在配置Nagios和Puppet Master仅仅与这些 sub mcollectives通信，这些collectives的流量只会在它们内部。
+下面显示US ACtiveMQ实例在分区前和分区后流量变化图：</p>
+
+<p><img src="/assets/media/mcollective/mcollective-sub3.png" alt="图片"></p>
+
+<hr>
+
+<h3 id="toc_2">配置MCollective</h3>
+
+<p>配置分区collective很简单，上面的DE节点(该节点的Server.cfg)可以配置如下：</p>
+
+<pre><code>collectives = mcollective,de_collective,eu_collective
+main_collective = mcollective
+</code></pre>
+
+<p>collectives 表示节点所属的所有collectives，而main_collective 表示应该去哪注册消息</p>
+
+<p><strong>使用测试</strong></p>
+
+<pre><code>[root@master ~]# mco inventory --list-collectives
+Collective                     Nodes
+==========                     =====
+web                            1
+local                          1
+puppet                         2
+mcollective                    3
+                 Total nodes: 3
+
+[root@master ~]# mco ping -T mcollective
+master.example.com                       time=52.75 ms
+web.example.com                          time=92.25 ms
+puppet.example.com                       time=92.83 ms
+---- ping statistics ----
+3 replies max: 92.83 min: 52.75 avg: 79.28
+</code></pre>
+
+<hr>
+
+<h3 id="toc_3">分区为了安全</h3>
+
+<p>另一个使用分区的优势就是安全。虽然在SimpleRPC框架中有一个安全模型能够注意拓扑结构但核心网络层没有。即使你仅仅给某人权限来执行SimpleRPC请求，他依然可以使用mco ping来发现网络中其他节点。</p>
+
+<p>通过创建submcollectives你可以有效而且完备地在现有网络上创建隔离区，并在中间件层给予限制。</p>
+
+<p><strong>ActiveMQ过滤</strong></p>
+
+<p>之前的配置在很多情况下足够，但是若想有效阻止Sub Collective流量在网络间传播，需要重新对ACtiveMQ配置。通过定义网络连接和添加过滤器来实现。</p>
+
+<pre><code>&lt;networkConnectors&gt;
+    &lt;networkConnector
+        &lt;excludedDestinations&gt;
+            &lt;topic physicalName=&quot;us_collective.&gt;&quot; /&gt;
+            &lt;topic physicalName=&quot;uk_collective.&gt;&quot; /&gt;
+            &lt;topic physicalName=&quot;de_collective.&gt;&quot; /&gt;
+            &lt;topic physicalName=&quot;za_collective.&gt;&quot; /&gt;
+            &lt;topic physicalName=&quot;eu_collective.&gt;&quot; /&gt;
+        &lt;/excludedDestinations&gt;
+        name=&quot;us-uk&quot;
+        uri=&quot;static:(tcp://stomp1.uk.my.net:6166)&quot;
+        userName=&quot;amq&quot;
+        password=&quot;secret&quot;
+        duplex=&quot;true&quot; 
+    /&gt;
+&lt;/networkConnectors&gt;
+</code></pre>
+
+<p>这种配置就会使 US&lt;-&gt;UK的连接不再传输us_collective 的流量。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/mcollective-message" title="Mcollective Message">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/zabbix/introduction-to-zabbix-api" title="Introduction To Zabbix Api">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

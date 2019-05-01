@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ActiveMQ Middleware</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>ActiveMQ Middleware </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+      <li>
+        <a href="/tags#ActiveMQ-ref">ActiveMQ <span>4</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">ActiveMQ中间件</h2>
+
+<p>此部分公分三小部分，即ActiveMQ安全，ActiveMQ TLS，ActiveMQ 集群。</p>
+
+<hr>
+
+<h4 id="toc_1">ActiveMQ 安全</h4>
+
+<p>作为MCollective重要部分就是考虑安全。目前看到的例子都是允许所有的代理和所有的节点代理进行通信。问题是通过这种方法如果在某个节点有一个不受信任的用户他就能够安装一个客户端应用程序来从server配置文件中读取用户名/密码从而控制整个体系结构。</p>
+
+<p>默认的消息主题格式与ActiveMQ Wildcard 模式相兼容，因此可以做细粒度的控制。</p>
+
+<h5 id="toc_2">ActiveMQ Wildcard模式</h5>
+
+<p>ActiveMQ支持目的地通配符来提供简单的支持联合的名称层次结构。这个概念在金融市场流行很长时间，用来作为一种以层次结构组织事件（如价格变化）的方式并且用也通配符能够很容易订阅你所感兴趣的信息范围。</p>
+
+<p>假设想通过证券交易所订阅发布价格消息，可能会使用如下结构：</p>
+
+<pre><code>PRICE.STOCK.NASDAQ.ORCL 发布ORACLE在NASDAQ的股票价格
+PRICE.STOCK.NYSE.IBM   发布IBM在NYK证券交易所的股票价格
+</code></pre>
+
+<p>订阅者同样会使用相同目的地来订阅正需要的价格，或者使用通配符来定义层次模式匹配目的地。</p>
+
+<p><strong>通配符支持</strong></p>
+
+<p>使用如下通配符：</p>
+
+<pre><code>.用来作为路径分隔符
+*用来匹配路径任意名称
+&gt;用来递归匹配任意以这个名称开始的目的地
+</code></pre>
+
+<p>例如：</p>
+
+<pre><code>订阅    含义
+PRICE.&gt; 任意交易所任意产品的任意价格
+PRICE.STOCK.&gt;   任意交易所一个股票的任意价格
+PRICE.STOCK.NASDAQ.*    NASDAQ的任意股票价格
+PRICE.STOCK.*.IBM   任意交易所的任意IBM股票价格
+</code></pre>
+
+<p><strong>自定义路径分隔符</strong></p>
+
+<p>允许自定义之后，可以使用FOO/BAR/<em>来代替FOO.BAR.</em></p>
+
+<p>仅需要如下设置：
+    <plugins>
+       .....
+       <destinationPathSeparatorPlugin/>
+    </plugins></p>
+
+<hr>
+
+<h5 id="toc_3">MCollective中ActiveMQ安全设置</h5>
+
+<p>在MCollective中默认的消息目的地看起来如下：</p>
+
+<pre><code>/topic/mcollective.agentname.command
+/topic/mcollective.agentname.reply
+</code></pre>
+
+<p>如果使用subcollectives，每个subcollective都会有如下形式主题（topics）：</p>
+
+<pre><code>/topic/subcollective.agentname.command
+/topic/subcollective.agentname.reply
+</code></pre>
+
+<p>对于某个节点属于某个属于sub collective同样需要这些主题的权限。</p>
+
+<p>节点仅需要对command主题的写权限和对reply主题的读权限。下面的例子同样给了它们管理员权限这样可以动态创建这些主题。为了简化使用通配符来匹配代理名称，可以进一步限制特定节点仅运行特定代理。加上这些限制意味着任何在你的节点上的将无法向command主题进行写操作，这样就不会向剩余的collective发送命令。</p>
+
+<p>对于注册主题有一个特殊情形，如果想启用注册功能，就需要给这个节点command写权限来注册这个代理。在registration主题不需要返回任何东西，这可以在ActiveMQ配置文件中限制。</p>
+
+<p>我们会让mcollective作为mcollective user来登录，创建一个组叫做mcollectiveusers，然后给这个组在启用mcollective的节点上运行特殊注册的权限。</p>
+
+<p>rip user就是mcollective admin而且能够创建命令和接收回复。</p>
+
+<p>先是创建用户和组：</p>
+
+<pre><code>&lt;simpleAuthenticationPlugin&gt;
+     &lt;users&gt;
+      &lt;authenticationUser username=&quot;mcollective&quot; password=&quot;pI1SkjRi&quot; groups=&quot;mcollectiveusers,everyone&quot;/&gt;
+      &lt;authenticationUser username=&quot;rip&quot; password=&quot;foobarbaz&quot; groups=&quot;admins,everyone&quot;/&gt;
+     &lt;/users&gt;
+    &lt;/simpleAuthenticationPlugin&gt;
+</code></pre>
+
+<p>接着创建访问权限：</p>
+
+<pre><code>&lt;authorizationPlugin&gt;
+  &lt;map&gt;
+    &lt;authorizationMap&gt;
+      &lt;authorizationEntries&gt;
+        &lt;authorizationEntry queue=&quot;mcollective.&gt;&quot; write=&quot;admins&quot; read=&quot;admins&quot; admin=&quot;admins&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;mcollective.&gt;&quot; write=&quot;admins&quot; read=&quot;admins&quot; admin=&quot;admins&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;mcollective.*.reply&quot; write=&quot;mcollectiveusers&quot; admin=&quot;mcollectiveusers&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;mcollective.registration.command&quot; write=&quot;mcollectiveusers&quot; read=&quot;mcollectiveusers&quot; admin=&quot;mcollectiveusers&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;mcollective.*.command&quot; read=&quot;mcollectiveusers&quot; admin=&quot;mcollectiveusers&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;ActiveMQ.Advisory.&gt;&quot; read=&quot;everyone,all&quot; write=&quot;everyone,all&quot; admin=&quot;everyone,all&quot;/&gt;
+      &lt;/authorizationEntries&gt;
+    &lt;/authorizationMap&gt;
+  &lt;/map&gt;
+&lt;/authorizationPlugin&gt;
+</code></pre>
+
+<p>可以指定具体的节点mcollective.registration.command权限来运行注册代理以保证节点的注册安全。</p>
+
+<p>最后节点需要配置，在server.cfg中至少有以下几项：</p>
+
+<pre><code>plugin.stomp.user = mcollective
+plugin.stomp.password = pI1SkjRi
+plugin.psk = aBieveenshedeineeceezaeheer
+</code></pre>
+
+<p>对于客户端，建议用户详细信息配置使用shell环境变量：</p>
+
+<pre><code>export STOMP_USER=rip
+export STOMP_PASSWORD=foobarbaz
+export STOMP_SERVER=stomp1
+export MCOLLECTIVE_PSK=aBieveenshedeineeceezaeheer
+</code></pre>
+
+<p>最后当rip user登录到一个拥有这些环境变量的shell时会获得不同命令的所有权限。可以给不同用户整个collective的权限或者通过限制command主题的访问权限来给某个admin用户仅仅执行特定代理的权限。下一步将是设置节点和中间件的TLS。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/common-plugin" title="Common Plugin">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/fabric/fabric-api" title="Fabric API">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Task List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Task List </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">任务列表--Task List</h2>
+
+<p>有了主机列表，我们能指定任务执行的主机，下面就是对需要执行的任务的定义。在当前版本（1.1之后）fabric引进两种不同的任务定义方法。现在分别称之为新风格和经典风格。它们在判断fabfile中什么对象才是fabric的任务时（task）方式不同：</p>
+
+<p>新风格认为Task的实例或者它的子类为任务，以及import的模块，而且允许创建嵌套的命名空间。</p>
+
+<p>经典风格认为所有public的可调用对象（包括functions,classes等等），而且仅仅认为是fabfile中的对象才行而没有递归import的模块。</p>
+
+<p>注意：这两种定义方式是相互排斥的，如果fabric发现任何新风格的任务对象在fabfile或它import的模块中时，它就会认为你已经使用这种新风格的任务声明，而不会考虑任何没有Task声明的对象。如果没有新风格任务发现，它会使用默认经典风格。可以通过命令fab --list查看可用任务名及说明。</p>
+
+<hr>
+
+<h4 id="toc_1">新风格任务</h4>
+
+<p>新风格任务对面行对象特性和命名空间有很好的支持。尤其是面向对象的继承和多态特性，对代码的复用极其重要。通过引进Task，有两种方式来定义新任务。</p>
+
+<p>定义常规的模块级别的函数并带有装饰器@task，这会直接将该函数转化为Task子类。该函数名会被作为任务名。</p>
+
+<p>Task子类，定义run方法，模块级别实例化你的子类。实例名称的属性会被作为任务名，如果省略实例的变量名会被用作任务名。</p>
+
+<p>两种定义：</p>
+
+<pre><code>from fabric.api import task, run
+@task
+def mytask():
+    run(&quot;a command&quot;)
+</code></pre>
+
+<p>以及：</p>
+
+<pre><code>class MyTask(Task):
+    name = &quot;deploy&quot;
+    def run(self, environment, domain=&quot;whatever.com&quot;):
+        run(&quot;git clone foo&quot;)
+        sudo(&quot;service apache2 restart&quot;)
+instance = MyTask()
+</code></pre>
+
+<p>下面分别详细介绍上述两种定义。@task参数：</p>
+
+<p>task_class：被装饰的函数的类，Task的子类，默认是WrappedCallableTask.</p>
+
+<p>aliases：一个可迭代的string names,被用来作为该函数的别名。</p>
+
+<p>alias：跟aliases类似，只是只有一个string值而不是可迭代对象。如果aliases同时存在，前者优先。</p>
+
+<p>default：布尔值决定这个被装饰函数时候同时被包括在模块内作为一个任务名。若含有default=True的函数，fab不含参数时默认执行该任务。</p>
+
+<p>上述task子类完全等同于下面定义：</p>
+
+<pre><code>@task
+def deploy(environment, domain=&quot;whatever.com&quot;):
+    run(&quot;git clone foo&quot;)
+    sudo(&quot;service apache2 restart&quot;)
+</code></pre>
+
+<p>所以一般结合这两种定义方式：</p>
+
+<pre><code>from fabric.api import task
+from fabric.tasks import Task
+
+class CustomTask(Task):
+    def __init__(self, func, myarg, *args, **kwargs):
+        super(CustomTask, self).__init__(\*args, **kwargs)
+        self.func = func
+        self.myarg = myarg
+    def run(self, *args, **kwargs):
+        return self.func(\*args, **kwargs)
+@task(task_class=CustomTask, myarg=&#39;value&#39;, alias=&#39;at&#39;)
+def actual_task():
+    pass
+</code></pre>
+
+<p>命名空间的支持类似python语法。仅举例说明：</p>
+
+<p>有文件树结构如下：</p>
+
+<pre><code>.
+├── __init__.py
+├── db
+│   ├── __init__.py
+│   └── migrations.py
+└── lb.py
+</code></pre>
+
+<p>外层<strong>init</strong>.py:</p>
+
+<pre><code>import lb
+import db
+@task
+def deploy():
+    ...
+@task
+def compress():
+    ...
+lb.py 内容：
+@task
+def add_backend():
+    ...
+</code></pre>
+
+<p>内层<strong>init</strong>.py:</p>
+
+<pre><code>import migrations
+migrations.py内容：
+@task
+def list():
+    ...
+@task
+def run():
+    ...
+</code></pre>
+
+<p>最终任务列表：</p>
+
+<pre><code>deploy
+compress
+lb.add_backend
+db.migrations.list
+db.migrations.run
+</code></pre>
+
+<hr>
+
+<h4 id="toc_2">经典任务</h4>
+
+<p>经典任务就是普通的python函数，当没有新风格任务发现时，fabric默认都是经典任务，注意一下情况：</p>
+
+<p>可调用的函数名以_下划线开头，python认为是private的函数，fabric认为不是任务。</p>
+
+<p>可调用的但是没有用到fabric自身的，fabric认为不是任务。</p>
+
+<p>这里仅仅指可调用对象，而不是module, fabric经典风格不能import模块作为其他任务。</p>
+
+<p>定义经典风格任务与定义python函数基本类似，主要使用到fabric的API即可。这里就不多说，但注意以下这种import情况：</p>
+
+<p>原来写法：</p>
+
+<pre><code>from urllib import urlopen
+from fabric.api import run
+def webservice_read():
+    objects = urlopen(&#39;http://my/web/service/?foo=bar&#39;).read().split()
+    print(objects)
+</code></pre>
+
+<p>改进写法：</p>
+
+<pre><code>import urllib
+from fabric.api import run
+def webservice_read():
+    objects = urllib.urlopen(&#39;http://my/web/service/?foo=bar&#39;).read().split()
+    print(objects)
+</code></pre>
+
+<p>两种都没错只不过第一种写法fab会认为urlopen也是一个任务名，所以很可能被误用。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/fab-cli" title="Fab CLI">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/fabric/fabfile-and-fabricrc" title="Fabfile and Fabricrc">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction To MCollective</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Introduction To MCollective </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2012-11-08</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h3 id="toc_0">简介</h3>
+
+<p>MCollective 是一个构建服务器编排(Server Orchestration)和并行工作执行系统的框架。</p>
+
+<p>首先，MCollective 是一种针对服务器集群进行可编程控制的系统管理解决方案。在这一点上，它的功能类似：Func，Fabric  和 Capistrano。</p>
+
+<p>其次，MCollective 的设计打破基于中心存储式系统和像 SSH 这样的工具，不再仅仅痴、迷于 SSH 的 For 循环。它使用发布订阅中间件(Publish Subscribe Middleware)这样的现代化
+工具和通过目标数据(meta data)而不是主机名(hostnames)来实时发现网络资源这样的现代化理念。提供了一个可扩展的而且迅速的并行执行环境。</p>
+
+<p>有文档指出： MCollective 工具为命令行界面，但它可与数千个应用实例进行通信，而且传输速度惊人。无论部署的实例位于什么位置，通信都能以线速进行传输，使用的是一个类似多路传送的推送信息系统。MCollective 工具没有可视化用户界面，用户只能通过检索来获取需要应用的实例。Puppet Dashboard 提供有这部分功能。</p>
+
+<hr>
+
+<ul>
+<li>MCollective特点</li>
+</ul>
+
+<p>1 能够与小到大型服务器集群交互</p>
+
+<p>2 使用广播范式(broadcast paradigm)来进行请求分发，所有服务器会同时收到请求，而只有与请求所附带的过滤器匹配的服务器才会去执行这些请求。没有中心数据库来进行同步，网络是唯一的真理</p>
+
+<p>3 打破了以往用主机名作为身份验证手段的复杂命名规则。使用每台机器自身提供的丰富的目标数据来定位它们。目标数据来自于：Puppet, Chef, Facter, Ohai 或者自身提供的插件</p>
+
+<p>4 使用命令行调用远程代理</p>
+
+<p>5 能够写自定义的设备报告</p>
+
+<p>6 大量的代理来管理包，服务和其他来自于社区的通用组件</p>
+
+<p>7 允许写 SimpleRPC 风格的代理、客户端和使用 Ruby 实现 Web UIs</p>
+
+<p>8 外部可插件化(pluggable)实现本地需求</p>
+
+<p>9 中间件系统已有丰富的身份验证和授权模型，利用这些作为控制的第一道防线。</p>
+
+<p>10 重用中间件来做集群、路由和网络隔离以实现安全和可扩展安装。</p>
+
+<hr>
+
+<ul>
+<li>插件化内核 </li>
+</ul>
+
+<p>MCollective 就是一个框架，一个空壳。它除了 MCO 命令之外都可以被替换被自定义。MCollective 提供了一个可扩展稳定的面向需求的核心框架，可以根据需要在以下几方面构建自己的系统：</p>
+
+<p>1 替换 Stomp 兼容中间件，选择其他基于 AMQP 的中间件</p>
+
+<p>2 替换授权系统，使用符合自身需求的系统</p>
+
+<p>3 替换基于 Ruby 和 YAML 的序列化，可以选择想 JSONSchema 这样的中间语言。</p>
+
+<p>4 增加数据源，现在支持 Chef 和 Puppet，可以提供插件以访问自己的工具数据(tools data)。</p>
+
+<p>5 社区已经有了关于 Facter 和 Ohai 的插件。</p>
+
+<p>6 利用 MCollective 作为传输定期运行和分发存储数据(inventory data)来创建中心存储(Central Inventory)服务。</p>
+
+<p>7 现在社区提供的插件以代理为主，还有关于 Fact Source,审计，授权，注册，安全，工具类。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/introduction-to-fabric" title="Introduction To Fabric">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/fabric/host-list" title="Host List">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

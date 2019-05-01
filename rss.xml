@@ -1,0 +1,1226 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>&#x7D19;&#x98DB;&#x6A5F;</title>
+    <description>&#x7D19;&#x98DB;&#x6A5F;</description>
+    <link>http://junqili.com</link>
+    <pubDate>2014-06-25</pubDate>
+    <item>
+      <title>About Me</title>
+      <link>http://junqili.com/about</link>
+      <description>&lt;ul&gt;
+&lt;li&gt;&#x6211;&#x7684;Weibo: &lt;a href="http://weibo.com/ipaperplane"&gt;@JunQi&#x5728;&#x594B;&#x6597;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&#x6211;&#x7684;LinkedIn: &lt;a href="http://www.linkedin.com/profile/view?id=139738149"&gt;Junqi Lee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&#x6211;&#x7684;Twitter: &lt;a href="https://twitter.com/#!/ipaperplane"&gt;@ipaperplane&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&#x6211;&#x7684;Gtalk: &lt;a href="mailto:jql.buaa@gmail.com"&gt;jql.buaa@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&#x6211;&#x7684;GitHub: &lt;a href="https://github.com/paperplane"&gt;@paperplane&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Archive</title>
+      <link>http://junqili.com/archive</link>
+      <description>  &lt;h2&gt;2014&lt;/h2&gt;
+    &lt;h3&gt;June&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2014-06-15&lt;/span&gt; &amp;raquo; &lt;a href="/linux/getting-started-with-load-average"&gt;Getting Started With Load Average&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;May&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2014-05-17&lt;/span&gt; &amp;raquo; &lt;a href="/devops/getting-started-with-vagrant-coreos-docker"&gt;Getting Started With Vagrant/Coreos/Docker&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;April&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2014-04-01&lt;/span&gt; &amp;raquo; &lt;a href="/devops/the-way-to-deploy"&gt;The Way To Deploy&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;March&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2014-03-21&lt;/span&gt; &amp;raquo; &lt;a href="/puppet/sildes-about-puppet-and-mcollective"&gt;Sildes About Puppet And MCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;h2&gt;2013&lt;/h2&gt;
+    &lt;h3&gt;October&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-10-23&lt;/span&gt; &amp;raquo; &lt;a href="/linux/troubleshooting-5minutes"&gt;Troubleshooting 5minutes&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;September&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-09-17&lt;/span&gt; &amp;raquo; &lt;a href="/puppet/puppet-data-flow"&gt;Puppet Data Flow&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;July&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-07-01&lt;/span&gt; &amp;raquo; &lt;a href="/zabbix/zabbix-performance-tunning"&gt;Zabbix Performance Tunning&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;June&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-06-28&lt;/span&gt; &amp;raquo; &lt;a href="/python/decorators-and-functional-python"&gt;Decorators And Functional Python&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-06-18&lt;/span&gt; &amp;raquo; &lt;a href="/puppet/introduction-to-puppet"&gt;Introduction To Puppet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-06-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/puppet-commander"&gt;Puppet Commander&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;April&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-04-22&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-server-config"&gt;MCollective Server Config&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-04-22&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/activemq-config-for-mcollective"&gt;ActiveMQ Config For MCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-04-22&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-security-config"&gt;MCollective Security Config&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-04-08&lt;/span&gt; &amp;raquo; &lt;a href="/puppet/puppet-internals"&gt;Puppet Internals&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;March&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-24&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/deploy-mcollective-in-production-environment"&gt;Deploy MCollective in Production Environment&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-24&lt;/span&gt; &amp;raquo; &lt;a href="/puppet/puppet-ca"&gt;Puppet CA&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-17&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/remote-interaction"&gt;Remote Interaction&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/fabric-api"&gt;Fabric API&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/activemq-middleware"&gt;ActiveMQ Middleware&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/common-plugin"&gt;Common Plugin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/execution-mode"&gt;Execution Mode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/use-fabric-library"&gt;Use Fabric Library&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-with-puppet"&gt;MCollective With Puppet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/fabfile-and-fabricrc"&gt;Fabfile and Fabricrc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/task-list"&gt;Task List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/fab-cli"&gt;Fab CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/introduction-to-simplerpc"&gt;Introduction To SimpleRPC&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/manage-output"&gt;Manage Output&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-fabric-exec-commands"&gt;MCollective/Fabric Exec Commands&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-16&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/ssh-behavior"&gt;SSH behavior&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/node-report"&gt;Node Report&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/write-simplerpc-client"&gt;Write SimpleRPC Client&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/simplerpc-audit"&gt;SimpleRPC Audit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/ddl"&gt;DDL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/use-mcollective-cli"&gt;Use MCollective CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/control-daemon"&gt;Control Daemon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/write-simplerpc-agent"&gt;Write SimpleRPC Agent&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/use-filter"&gt;Use Filter&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-15&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC Authorization&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-11&lt;/span&gt; &amp;raquo; &lt;a href="/devops/infrastructure-as-code"&gt;Infrastructure As Code&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-03-10&lt;/span&gt; &amp;raquo; &lt;a href="/notes/web-server"&gt;Web Server&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;February&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/https"&gt;Https&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E9%9A%A7%E9%81%93"&gt;&#x96A7;&#x9053;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/web-robots"&gt;Web Robots&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/http-ng"&gt;Http Ng&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E4%BB%A3%E7%90%86"&gt;&#x4EE3;&#x7406;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E7%BC%93%E5%AD%98"&gt;&#x7F13;&#x5B58;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81"&gt;&#x5185;&#x5BB9;&#x534F;&#x5546;&#x4E0E;&#x8F6C;&#x7801;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB"&gt;&#x7528;&#x6237;&#x8BC6;&#x522B;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81"&gt;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E5%AE%9E%E4%BD%93%E4%B8%8E%E7%BC%96%E7%A0%81"&gt;&#x5B9E;&#x4F53;&#x4E0E;&#x7F16;&#x7801;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-02-28&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1"&gt;&#x4E3B;&#x673A;&#x6258;&#x7BA1;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;January&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-19&lt;/span&gt; &amp;raquo; &lt;a href="/zabbix/introduction-to-zabbix-api"&gt;Introduction To Zabbix Api&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/use-subcollective"&gt;Use SubCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-message"&gt;Mcollective Message&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/introduction-to-mcollective-doc"&gt;Introduction To MCollective Doc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-solve-problem"&gt;Mcollective Solve Problem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/mcollective-terminology"&gt;MCollective Terminology&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/introduction-to-mcollective-security"&gt;Introduction To MCollective Security&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-16&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/publish-subscribe-middleware"&gt;Publish Subscribe Middleware&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2013-01-03&lt;/span&gt; &amp;raquo; &lt;a href="/notes/introduction-to-http-connection"&gt;Introduction To HTTP Connection&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;h2&gt;2012&lt;/h2&gt;
+    &lt;h3&gt;December&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2012-12-16&lt;/span&gt; &amp;raquo; &lt;a href="/linux/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%96%AD%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7-%E6%9B%B4%E6%96%B0"&gt;&#x6DF1;&#x5165;&#x7406;&#x89E3;Linux&#x5185;&#x6838;&#x4E2D;&#x65AD;&#x53CA;&#x5176;&#x7279;&#x6027;(&#x66F4;&#x65B0;)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2012-12-16&lt;/span&gt; &amp;raquo; &lt;a href="/notes/http-packets-and-packet-analysis"&gt;HTTP Packets And Packet Analysis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2012-12-09&lt;/span&gt; &amp;raquo; &lt;a href="/notes/theory-and-design-of-url"&gt;Theory And Design Of URL&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;November&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2012-11-23&lt;/span&gt; &amp;raquo; &lt;a href="/notes/%E7%BD%91%E5%85%B3"&gt;&#x7F51;&#x5173;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2012-11-23&lt;/span&gt; &amp;raquo; &lt;a href="/notes/introduction-to-http"&gt;Introduction To HTTP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2012-11-08&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/host-list"&gt;Host List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2012-11-08&lt;/span&gt; &amp;raquo; &lt;a href="/mcollective/introduction-to-mcollective"&gt;Introduction To MCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;October&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2012-10-08&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/introduction-to-fabric"&gt;Introduction To Fabric&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;2012-10-08&lt;/span&gt; &amp;raquo; &lt;a href="/fabric/fabric-env"&gt;Fabric Env&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;September&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;2012-09-26&lt;/span&gt; &amp;raquo; &lt;a href="/lectures/mysql-backup-and-restore"&gt;MySQL Backup and Restore&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Categories</title>
+      <link>http://junqili.com/categories</link>
+      <description>&lt;ul class="tag_box inline"&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#MCollective-ref"&gt;MCollective &lt;span&gt;28&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#DevOps-ref"&gt;DevOps &lt;span&gt;42&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Daemon-ref"&gt;Daemon &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Python-ref"&gt;Python &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Fabric-ref"&gt;Fabric &lt;span&gt;12&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Linux-ref"&gt;Linux &lt;span&gt;3&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Notes-ref"&gt;Notes &lt;span&gt;17&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Puppet-ref"&gt;Puppet &lt;span&gt;5&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#Zabbix-ref"&gt;Zabbix &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/categories#lectures-ref"&gt;lectures &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;h3&gt;MCollective (28)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/mcollective/activemq-config-for-mcollective"&gt;ActiveMQ Config For MCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/activemq-middleware"&gt;ActiveMQ Middleware&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/common-plugin"&gt;Common Plugin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/control-daemon"&gt;Control Daemon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/ddl"&gt;DDL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/deploy-mcollective-in-production-environment"&gt;Deploy MCollective in Production Environment&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-doc"&gt;Introduction To MCollective Doc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-security"&gt;Introduction To MCollective Security&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective"&gt;Introduction To MCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-simplerpc"&gt;Introduction To SimpleRPC&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-fabric-exec-commands"&gt;MCollective/Fabric Exec Commands&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-server-config"&gt;MCollective Server Config&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-message"&gt;Mcollective Message&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-security-config"&gt;MCollective Security Config&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-solve-problem"&gt;Mcollective Solve Problem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-terminology"&gt;MCollective Terminology&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-with-puppet"&gt;MCollective With Puppet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/node-report"&gt;Node Report&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/publish-subscribe-middleware"&gt;Publish Subscribe Middleware&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/puppet-commander"&gt;Puppet Commander&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/simplerpc-audit"&gt;SimpleRPC Audit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC Authorization&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/puppet/sildes-about-puppet-and-mcollective"&gt;Sildes About Puppet And MCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/use-filter"&gt;Use Filter&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/use-mcollective-cli"&gt;Use MCollective CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/use-subcollective"&gt;Use SubCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-agent"&gt;Write SimpleRPC Agent&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-client"&gt;Write SimpleRPC Client&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;DevOps (42)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/mcollective/activemq-config-for-mcollective"&gt;ActiveMQ Config For MCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/activemq-middleware"&gt;ActiveMQ Middleware&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/common-plugin"&gt;Common Plugin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/ddl"&gt;DDL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/execution-mode"&gt;Execution Mode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fab-cli"&gt;Fab CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fabfile-and-fabricrc"&gt;Fabfile and Fabricrc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fabric-api"&gt;Fabric API&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fabric-env"&gt;Fabric Env&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/devops/getting-started-with-vagrant-coreos-docker"&gt;Getting Started With Vagrant/Coreos/Docker&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/host-list"&gt;Host List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/devops/infrastructure-as-code"&gt;Infrastructure As Code&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/introduction-to-fabric"&gt;Introduction To Fabric&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-doc"&gt;Introduction To MCollective Doc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-security"&gt;Introduction To MCollective Security&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective"&gt;Introduction To MCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/introduction-to-simplerpc"&gt;Introduction To SimpleRPC&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/zabbix/introduction-to-zabbix-api"&gt;Introduction To Zabbix Api&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/manage-output"&gt;Manage Output&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-fabric-exec-commands"&gt;MCollective/Fabric Exec Commands&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-server-config"&gt;MCollective Server Config&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-message"&gt;Mcollective Message&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-security-config"&gt;MCollective Security Config&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-solve-problem"&gt;Mcollective Solve Problem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-terminology"&gt;MCollective Terminology&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/mcollective-with-puppet"&gt;MCollective With Puppet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/node-report"&gt;Node Report&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/publish-subscribe-middleware"&gt;Publish Subscribe Middleware&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/puppet-commander"&gt;Puppet Commander&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/remote-interaction"&gt;Remote Interaction&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/simplerpc-audit"&gt;SimpleRPC Audit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC Authorization&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/ssh-behavior"&gt;SSH behavior&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/task-list"&gt;Task List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/use-fabric-library"&gt;Use Fabric Library&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/use-filter"&gt;Use Filter&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/use-mcollective-cli"&gt;Use MCollective CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/use-subcollective"&gt;Use SubCollective&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/devops/the-way-to-deploy"&gt;The Way To Deploy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-agent"&gt;Write SimpleRPC Agent&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-client"&gt;Write SimpleRPC Client&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/zabbix/zabbix-performance-tunning"&gt;Zabbix Performance Tunning&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Daemon (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/mcollective/control-daemon"&gt;Control Daemon&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Python (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/python/decorators-and-functional-python"&gt;Decorators And Functional Python&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Fabric (12)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/fabric/execution-mode"&gt;Execution Mode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fab-cli"&gt;Fab CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fabfile-and-fabricrc"&gt;Fabfile and Fabricrc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fabric-api"&gt;Fabric API&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/fabric-env"&gt;Fabric Env&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/host-list"&gt;Host List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/introduction-to-fabric"&gt;Introduction To Fabric&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/manage-output"&gt;Manage Output&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/remote-interaction"&gt;Remote Interaction&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/ssh-behavior"&gt;SSH behavior&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/task-list"&gt;Task List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/fabric/use-fabric-library"&gt;Use Fabric Library&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Linux (3)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/linux/getting-started-with-load-average"&gt;Getting Started With Load Average&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/linux/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%96%AD%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7-%E6%9B%B4%E6%96%B0"&gt;&#x6DF1;&#x5165;&#x7406;&#x89E3;Linux&#x5185;&#x6838;&#x4E2D;&#x65AD;&#x53CA;&#x5176;&#x7279;&#x6027;(&#x66F4;&#x65B0;)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/linux/troubleshooting-5minutes"&gt;Troubleshooting 5minutes&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Notes (17)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/notes/http-ng"&gt;Http Ng&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/http-packets-and-packet-analysis"&gt;HTTP Packets And Packet Analysis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/https"&gt;Https&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/introduction-to-http-connection"&gt;Introduction To HTTP Connection&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/introduction-to-http"&gt;Introduction To HTTP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/theory-and-design-of-url"&gt;Theory And Design Of URL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/web-robots"&gt;Web Robots&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/web-server"&gt;Web Server&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1"&gt;&#x4E3B;&#x673A;&#x6258;&#x7BA1;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E4%BB%A3%E7%90%86"&gt;&#x4EE3;&#x7406;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81"&gt;&#x5185;&#x5BB9;&#x534F;&#x5546;&#x4E0E;&#x8F6C;&#x7801;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E5%AE%9E%E4%BD%93%E4%B8%8E%E7%BC%96%E7%A0%81"&gt;&#x5B9E;&#x4F53;&#x4E0E;&#x7F16;&#x7801;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81"&gt;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB"&gt;&#x7528;&#x6237;&#x8BC6;&#x522B;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E7%BC%93%E5%AD%98"&gt;&#x7F13;&#x5B58;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E7%BD%91%E5%85%B3"&gt;&#x7F51;&#x5173;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/notes/%E9%9A%A7%E9%81%93"&gt;&#x96A7;&#x9053;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Puppet (5)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/puppet/introduction-to-puppet"&gt;Introduction To Puppet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/puppet/puppet-ca"&gt;Puppet CA&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/puppet/puppet-data-flow"&gt;Puppet Data Flow&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/puppet/puppet-internals"&gt;Puppet Internals&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/puppet/sildes-about-puppet-and-mcollective"&gt;Sildes About Puppet And MCollective&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Zabbix (2)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/zabbix/introduction-to-zabbix-api"&gt;Introduction To Zabbix Api&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/zabbix/zabbix-performance-tunning"&gt;Zabbix Performance Tunning&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;lectures (1)&lt;/h3&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/lectures/mysql-backup-and-restore"&gt;MySQL Backup and Restore&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>http://junqili.com/git</link>
+      <description>&lt;div&gt;
+    &lt;ul class="nav nav-tabs nav-tabs-google"&gt;
+        &lt;li class="active"&gt;&lt;a href="#intro" data-toggle="tab"&gt;&#x7B80;&#x4ECB;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Workflow" data-toggle="tab"&gt;GIT&#x5DE5;&#x4F5C;&#x6D41;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Commands" data-toggle="tab"&gt;GIT&#x7684;&#x547D;&#x4EE4;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Philosophy" data-toggle="tab"&gt;GIT&#x7684;&#x54F2;&#x5B66;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Operation" data-toggle="tab"&gt;GIT&#x4E0E;&#x8FD0;&#x7EF4;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Writing" data-toggle="tab"&gt;GIT&#x4E0E;&#x5199;&#x4F5C;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content row"&gt;
+        &lt;div class="tab-pane active" style="padding-left:24px;" id="intro"&gt;
+            &lt;p&gt;GIT&#x662F;&#x73B0;&#x4ECA;&#x6700;&#x6D41;&#x884C;&#x7684;&#x7248;&#x672C;&#x63A7;&#x5236;&#x5DE5;&#x5177;&#xFF0C;&#x4ECE;&#x5F00;&#x59CB;&#x63A5;&#x89E6;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x5C31;&#x88AB;&#x6DF1;&#x6DF1;&#x5438;&#x5F15;&#xFF0C;&#x4EE5;&#x81F3;&#x4E8E;&#x9762;&#x5BF9;SVN&#x4FBF;&#x518D;&#x65E0;&#x5174;&#x8DA3;&#x3002;&#x4E00;&#x65B9;&#x9762;&#x662F;GIT&#x4F5C;&#x4E3A;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x4F18;&#x4E8E;SVN&#x8FD9;&#x7C7B;&#x5DE5;&#x5177;&#x7684;&#x7279;&#x70B9;&#x3002;&#x53E6;&#x4E00;&#x53D1;&#x9762;&#xFF0C;&#x5176;&#x5B9E;&#x5F53;&#x4F60;&#x4F7F;&#x7528;&#x5B83;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x4E2A;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#x3002;&#x90A3;&#x4E48;GIT&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x5148;&#x4ECE;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x5F00;&#x59CB;&#x3002;&lt;/p&gt;
+            &lt;h4&gt;GIT&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&lt;/h4&gt;
+                &lt;p&gt;&lt;strong&gt;GIT&#x5728;&#x5B57;&#x5178;&#x4E2D;&#x7684;&#x89E3;&#x91CA;&lt;/strong&gt;&lt;/p&gt;
+                    &lt;p&gt;GIT&#xFF1A;&#x5728;&#x82F1;&#x56FD;&#x4FDA;&#x8BED;&#x4E2D;&#x6307;&#x4E00;&#x4E2A;&#x611A;&#x7B28;&#x6216;&#x8005;&#x4E0D;&#x5F00;&#x5FC3;&#x7684;&#x4EBA;&#x3002;&lt;/p&gt;
+                    &lt;code&gt;Dictionary.com: British Slang. a foolish or contemptible person.&lt;/code&gt;
+                &lt;p&gt;&lt;strong&gt;Linus&#x89E3;&#x91CA;&#x540D;&#x5B57;&#x7531;&#x6765;&lt;/strong&gt;&lt;/p&gt;
+                    &lt;code&gt;I am an egotistical bastard, and I name all my projects after myself. first linux, now git.&lt;/code&gt;
+            &lt;h4&gt;GIT&#x662F;&#x4EC0;&#x4E48;&lt;/h4&gt;
+            &lt;ul&gt;
+                &lt;li&gt;GIT&#x662F;&#x4E00;&#x6B3E;&#x6E90;&#x4EE3;&#x7801;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&lt;/li&gt;
+                &lt;li&gt;GIT&#x662F;&#x4E00;&#x6B3E;&#x5206;&#x5E03;&#x5F0F;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&lt;/li&gt;
+                &lt;li&gt;......&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;p&gt;&#x5173;&#x4E8E;GIT&#xFF0C;&#x6709;&#x5F88;&#x591A;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x8D44;&#x6599;&#x6574;&#x7406;&#xFF0C;&#x5F88;&#x591A;&#x6BD4;&#x8F83;&#x7ECF;&#x5178;&#x7684;&#x535A;&#x5BA2;&#x6587;&#x7AE0;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4F1A;&#x52AA;&#x529B;&#x5728;&#x505A;&#x597D;&#x642C;&#x8FD0;&#x5DE5;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x505A;&#x597D;&#x7C89;&#x5237;&#x5320;&#xFF0C;&#x5237;&#x51FA;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#x548C;&#x8BA4;&#x8BC6;&#x3002;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" style="padding-left:24px;"  id="Workflow"&gt;
+            &lt;p&gt;GIT&#x88AB;&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x534F;&#x4F5C;&#x5F00;&#x53D1;&#xFF0C;&#x5408;&#x9002;&#x7684;&#x5F00;&#x53D1;&#x6D41;&#x7A0B;&#x5C31;&#x4F1A;&#x663E;&#x5F97;&#x5F02;&#x5E38;&#x91CD;&#x8981;&#x3002; &#x8FD9;&#x662F;GIT&#x5206;&#x652F;&#x6A21;&#x578B;&#x7684;&#x91CD;&#x8981;&#x7528;&#x6B66;&#x4E4B;&#x5730;&#x3002;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" style="padding-left:24px;"  id="Commands"&gt;
+            &lt;p&gt;GIT&#x547D;&#x4EE4;&#x4F17;&#x591A;&#xFF0C;&#x800C;&#x4E14;&#x9009;&#x9879;&#x590D;&#x6742;&#xFF0C;&#x6709;&#x4E9B;&#x547D;&#x4EE4;&#x4E5F;&#x5F88;&#x5BB9;&#x6613;&#x5F15;&#x8D77;&#x6DF7;&#x6DC6;&#x3002;GIT&#x547D;&#x4EE4;&#x7684;&#x4F7F;&#x7528;&#x4E5F;&#x662F;&#x5145;&#x6EE1;&#x4E86;&#x6280;&#x5DE7;&#x3002;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" style="padding-left:24px;"  id="Philosophy"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&#x5206;&#x5E03;&#x5F0F;&lt;/li&gt;
+                &lt;li&gt;&#x5C0F;&#x4ED3;&#x5E93;&lt;/li&gt;
+                &lt;li&gt;&#x57FA;&#x4E8E;&#x5DE5;&#x5177;&#x96C6;&#x5F00;&#x53D1;&lt;/li&gt;
+                &lt;li&gt;&#x517C;&#x5BB9;&#x7CFB;&#x7EDF;&#x548C;&#x534F;&#x8BAE;&lt;/li&gt;
+                &lt;li&gt;......&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" style="padding-left:24px;"  id="Operation"&gt;
+            &lt;p&gt;&#x5728;&#x6784;&#x5EFA;&#x6301;&#x7EED;&#x4EA4;&#x4ED8;&#x6D41;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F5C;&#x4E3A;&#x6E90;&#x4EE3;&#x7801;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x662F;&#x540E;&#x7EED;&#x81EA;&#x52A8;&#x5316;&#x7684;&#x8D77;&#x70B9;&#xFF0C;&#x8FD9;&#x91CC;&#x9762;GIT HOOK&#x8D77;&#x5173;&#x952E;&#x4F5C;&#x7528;&#x3002;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" style="padding-left:24px;"  id="Writing"&gt;
+            &lt;p&gt;&#x6B63;&#x662F;&#x56E0;&#x4E3A;GIT&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x5177;&#x8BDE;&#x751F;&#xFF0C;&#x624D;&#x50AC;&#x751F;&#x4E86;GitHub, Ruhoh&#x8FD9;&#x6837;&#x7684;&#x5199;&#x4F5C;&#x5E73;&#x53F0;&#x7684;&#x7E41;&#x8363;&#x3002;&#x7ED3;&#x5408;Git+Markdown&#x5199;&#x4F5C;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x65B0;&#x9C9C;&#x3002;&#x53D8;&#x5316;&#x7684;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#x5408;&#x65B9;&#x5F0F;&#x3002;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
+      <title>Notes</title>
+      <link>http://junqili.com/notes</link>
+      <description>&lt;div&gt;
+    &lt;ul class="nav nav-tabs nav-tabs-google"&gt;
+        &lt;li class="active"&gt;&lt;a href="#HTTP" data-toggle="tab"&gt;HTTP&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#CDN" data-toggle="tab"&gt;CDN&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Operations" data-toggle="tab"&gt;WEB Operations&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Others" data-toggle="tab"&gt;Others&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content row"&gt;
+        &lt;div class="tab-pane active" id="HTTP"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;&#x8FD9;&#x662F;&#x9605;&#x8BFB;&#x300A;HTTP&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;&#x7684;&#x7CFB;&#x5217;&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#x5217;&#x8868;&#x3002;&#x6211;&#x4F1A;&#x968F;&#x7740;&#x9605;&#x8BFB;&#x7684;&#x8FDB;&#x5EA6;&#x968F;&#x65F6;&#x66F4;&#x65B0;&#x8BE5;&#x5217;&#x8868;&#x3002;&lt;/p&gt;
+                &lt;p&gt;&#x611F;&#x8C22;&lt;a href="http://weibo.com/jeffz"&gt;&#x8D75;&#x8001;&#x5E08;&lt;/a&gt;&#x7684;&lt;a href="https://github.com/JeffreyZhao/ssp"&gt;&#x5B66;&#x751F;&#x8D44;&#x52A9;&#x8BA1;&#x5212;&lt;/a&gt;&#x3002;&#x4E0D;&#x4EC5;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x9605;&#x8BFB;&#x6750;&#x6599;--&lt;a href="http://book.douban.com/subject/10746113/"&gt;&#x300A;HTTP&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;&lt;/a&gt;&#xFF0C;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x8BFB;&#x4E66;&#x4EA4;&#x6D41;&#x5E73;&#x53F0;&#x3002;&#x5F53;&#x7136;&#x540C;&#x65F6;&#x5E0C;&#x671B;&#x66F4;&#x591A;&#x7684;&#x540C;&#x5B66;&#x548C;&#x76F8;&#x5173;&#x4EBA;&#x58EB;&#x52A0;&#x5165;&#x8FDB;&#x6765;&#x3002;&lt;/p&gt;
+                &lt;p&gt;&#x6700;&#x540E;&#xFF0C;&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x591A;&#x591A;&#x4EA4;&#x6D41;&#x6C9F;&#x901A;&#xFF0C;&#x4E0D;&#x597D;&#x7684;&#x9519;&#x8BEF;&#x7684;&#x6B22;&#x8FCE;&#x6279;&#x8BC4;&#x6307;&#x6B63;&#x3002;&lt;/p&gt;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/notes/introduction-to-http"&gt;HTTP&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x6C47;&#x603B;&lt;/a&gt; &lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/theory-and-design-of-url"&gt;URL&#x539F;&#x7406;&#x53CA;&#x8BBE;&#x8BA1;&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/http-packets-and-packet-analysis"&gt;HTTP&#x62A5;&#x6587;&#x4E0E;&#x6293;&#x5305;&#x5206;&#x6790;&lt;/a&gt; &lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/introduction-to-http-connection"&gt;HTTP&#x8FDE;&#x63A5;&#x521D;&#x63A2;&lt;/a&gt; &lt;/li&gt;
+                    &lt;li&gt;&#x6DF1;&#x5165;&#x7406;&#x89E3;HTTP&#x6301;&#x4E45;&#x5316;&#x8FDE;&#x63A5; &lt;font color="#33CC00"&gt;&#x672A;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/web-server/"&gt;WEB&#x670D;&#x52A1;&#x5668;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E4%BB%A3%E7%90%86/"&gt;&#x4EE3;&#x7406;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E7%BC%93%E5%AD%98/"&gt;&#x7F13;&#x5B58;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/%E7%BD%91%E5%85%B3/"&gt;&#x7F51;&#x5173;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E9%9A%A7%E9%81%93/"&gt;&#x96A7;&#x9053;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/web%E6%9C%BA%E5%99%A8%E4%BA%BA/"&gt;WEB&#x673A;&#x5668;&#x4EBA;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/http-ng/"&gt;HTTP-NG&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB/"&gt;&#x7528;&#x6237;&#x8BC6;&#x522B;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/"&gt;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/https/"&gt;HTTPS&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E5%AE%9E%E4%BD%93%E4%B8%8E%E7%BC%96%E7%A0%81/"&gt;&#x5B9E;&#x4F53;&#x4E0E;&#x7F16;&#x7801;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81/"&gt;&#x5185;&#x5BB9;&#x534F;&#x5546;&#x4E0E;&#x8F6C;&#x7801;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/notes/%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1/"&gt;&#x4E3B;&#x673A;&#x6258;&#x7BA1;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;&#x91CD;&#x5B9A;&#x5411;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;HTTP&#x65B9;&#x6CD5;&#x56DE;&#x987E;&#x603B;&#x7ED3;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;HTTP&#x9996;&#x90E8;&#x56DE;&#x987E;&#x603B;&#x7ED3;&lt;/a&gt;&lt;font color="#33CC00"&gt;&#x76EE;&#x5F55;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/li&gt;&lt;/a&gt;
+                &lt;/ul&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="CDN"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Test&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="Operations"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;p&gt;Test&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Test&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="Others"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;a href="#"&gt;test&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
+      <title>Pages</title>
+      <link>http://junqili.com/pages</link>
+      <description>&lt;ul&gt;
+  
+    &lt;li&gt;&lt;a href="/about"&gt;About Me&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/archive"&gt;Archive&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/categories"&gt;Categories&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/git"&gt;Git&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/notes"&gt;Notes&lt;/a&gt;&lt;/li&gt;
+  
+    &lt;li class="active"&gt;&lt;a href="/pages" class="active"&gt;Pages&lt;/a&gt;&lt;/li&gt;
+  
+  
+  
+    &lt;li&gt;&lt;a href="/python"&gt;Python&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/tags"&gt;Tags&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/tools"&gt;Tools&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/linux"&gt;linux&lt;/a&gt;&lt;/li&gt;
+  
+  
+    &lt;li&gt;&lt;a href="/"&gt;&#x7D19;&#x98DB;&#x6A5F;&#x7684;&#x535A;&#x5BA2;&lt;/a&gt;&lt;/li&gt;
+  
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://junqili.com/python</link>
+      <description/>
+    </item>
+    <item>
+      <title>Tags</title>
+      <link>http://junqili.com/tags</link>
+      <description>&lt;ul class="tag_box inline"&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#MCollective-ref"&gt;MCollective &lt;span&gt;27&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#ActiveMQ-ref"&gt;ActiveMQ &lt;span&gt;4&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Plugin-ref"&gt;Plugin &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Python-ref"&gt;Python &lt;span&gt;3&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#decorator-ref"&gt;decorator &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Fabric-ref"&gt;Fabric &lt;span&gt;13&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Linux-ref"&gt;Linux &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#loadavg-ref"&gt;loadavg &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Vagrant-ref"&gt;Vagrant &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#CoreOS-ref"&gt;CoreOS &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Docker-ref"&gt;Docker &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#HTTP-ref"&gt;HTTP &lt;span&gt;17&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Note-ref"&gt;Note &lt;span&gt;17&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Puppet-ref"&gt;Puppet &lt;span&gt;7&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#DevOps-ref"&gt;DevOps &lt;span&gt;5&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#SimpleRPC-ref"&gt;SimpleRPC &lt;span&gt;5&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Zabbix-ref"&gt;Zabbix &lt;span&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#linux&#x5185;&#x6838;-ref"&gt;linux&#x5185;&#x6838; &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#MySQL-ref"&gt;MySQL &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Report-ref"&gt;Report &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Authorization-ref"&gt;Authorization &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#troubleshooting-ref"&gt;troubleshooting &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="/tags#Deploy-ref"&gt;Deploy &lt;span&gt;1&lt;/span&gt;&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;h3 id="MCollective-ref"&gt;MCollective&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/mcollective/activemq-config-for-mcollective"&gt;ActiveMQ Config For MCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/activemq-middleware"&gt;ActiveMQ Middleware&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/common-plugin"&gt;Common Plugin&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/ddl"&gt;DDL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/deploy-mcollective-in-production-environment"&gt;Deploy MCollective in Production Environment&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-doc"&gt;Introduction To MCollective Doc&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-security"&gt;Introduction To MCollective Security&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective"&gt;Introduction To MCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/introduction-to-simplerpc"&gt;Introduction To SimpleRPC&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-fabric-exec-commands"&gt;MCollective/Fabric Exec Commands&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-server-config"&gt;MCollective Server Config&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-message"&gt;Mcollective Message&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-security-config"&gt;MCollective Security Config&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-solve-problem"&gt;Mcollective Solve Problem&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-terminology"&gt;MCollective Terminology&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-with-puppet"&gt;MCollective With Puppet&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/node-report"&gt;Node Report&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/publish-subscribe-middleware"&gt;Publish Subscribe Middleware&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/puppet-commander"&gt;Puppet Commander&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/simplerpc-audit"&gt;SimpleRPC Audit&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC Authorization&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/sildes-about-puppet-and-mcollective"&gt;Sildes About Puppet And MCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/use-filter"&gt;Use Filter&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/use-mcollective-cli"&gt;Use MCollective CLI&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/use-subcollective"&gt;Use SubCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-agent"&gt;Write SimpleRPC Agent&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-client"&gt;Write SimpleRPC Client&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="ActiveMQ-ref"&gt;ActiveMQ&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/mcollective/activemq-config-for-mcollective"&gt;ActiveMQ Config For MCollective&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/activemq-middleware"&gt;ActiveMQ Middleware&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-server-config"&gt;MCollective Server Config&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-security-config"&gt;MCollective Security Config&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Plugin-ref"&gt;Plugin&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/mcollective/common-plugin"&gt;Common Plugin&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Python-ref"&gt;Python&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/python/decorators-and-functional-python"&gt;Decorators And Functional Python&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/introduction-to-http-connection"&gt;Introduction To HTTP Connection&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-ca"&gt;Puppet CA&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="decorator-ref"&gt;decorator&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/python/decorators-and-functional-python"&gt;Decorators And Functional Python&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Fabric-ref"&gt;Fabric&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/fabric/execution-mode"&gt;Execution Mode&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/fab-cli"&gt;Fab CLI&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/fabfile-and-fabricrc"&gt;Fabfile and Fabricrc&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/fabric-api"&gt;Fabric API&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/fabric-env"&gt;Fabric Env&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/host-list"&gt;Host List&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/introduction-to-fabric"&gt;Introduction To Fabric&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/manage-output"&gt;Manage Output&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-fabric-exec-commands"&gt;MCollective/Fabric Exec Commands&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/remote-interaction"&gt;Remote Interaction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/ssh-behavior"&gt;SSH behavior&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/task-list"&gt;Task List&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/fabric/use-fabric-library"&gt;Use Fabric Library&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Linux-ref"&gt;Linux&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/linux/getting-started-with-load-average"&gt;Getting Started With Load Average&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/linux/troubleshooting-5minutes"&gt;Troubleshooting 5minutes&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="loadavg-ref"&gt;loadavg&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/linux/getting-started-with-load-average"&gt;Getting Started With Load Average&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Vagrant-ref"&gt;Vagrant&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/devops/getting-started-with-vagrant-coreos-docker"&gt;Getting Started With Vagrant/Coreos/Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="CoreOS-ref"&gt;CoreOS&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/devops/getting-started-with-vagrant-coreos-docker"&gt;Getting Started With Vagrant/Coreos/Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Docker-ref"&gt;Docker&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/devops/getting-started-with-vagrant-coreos-docker"&gt;Getting Started With Vagrant/Coreos/Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="HTTP-ref"&gt;HTTP&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/notes/http-ng"&gt;Http Ng&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/http-packets-and-packet-analysis"&gt;HTTP Packets And Packet Analysis&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/https"&gt;Https&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/introduction-to-http-connection"&gt;Introduction To HTTP Connection&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/introduction-to-http"&gt;Introduction To HTTP&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/theory-and-design-of-url"&gt;Theory And Design Of URL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/web-robots"&gt;Web Robots&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/web-server"&gt;Web Server&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1"&gt;&#x4E3B;&#x673A;&#x6258;&#x7BA1;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E4%BB%A3%E7%90%86"&gt;&#x4EE3;&#x7406;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81"&gt;&#x5185;&#x5BB9;&#x534F;&#x5546;&#x4E0E;&#x8F6C;&#x7801;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E5%AE%9E%E4%BD%93%E4%B8%8E%E7%BC%96%E7%A0%81"&gt;&#x5B9E;&#x4F53;&#x4E0E;&#x7F16;&#x7801;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81"&gt;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB"&gt;&#x7528;&#x6237;&#x8BC6;&#x522B;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%BC%93%E5%AD%98"&gt;&#x7F13;&#x5B58;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%BD%91%E5%85%B3"&gt;&#x7F51;&#x5173;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E9%9A%A7%E9%81%93"&gt;&#x96A7;&#x9053;&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Note-ref"&gt;Note&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/notes/http-ng"&gt;Http Ng&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/http-packets-and-packet-analysis"&gt;HTTP Packets And Packet Analysis&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/https"&gt;Https&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/introduction-to-http-connection"&gt;Introduction To HTTP Connection&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/introduction-to-http"&gt;Introduction To HTTP&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/theory-and-design-of-url"&gt;Theory And Design Of URL&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/web-robots"&gt;Web Robots&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/web-server"&gt;Web Server&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E4%B8%BB%E6%9C%BA%E6%89%98%E7%AE%A1"&gt;&#x4E3B;&#x673A;&#x6258;&#x7BA1;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E4%BB%A3%E7%90%86"&gt;&#x4EE3;&#x7406;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86%E4%B8%8E%E8%BD%AC%E7%A0%81"&gt;&#x5185;&#x5BB9;&#x534F;&#x5546;&#x4E0E;&#x8F6C;&#x7801;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E5%AE%9E%E4%BD%93%E4%B8%8E%E7%BC%96%E7%A0%81"&gt;&#x5B9E;&#x4F53;&#x4E0E;&#x7F16;&#x7801;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81"&gt;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB"&gt;&#x7528;&#x6237;&#x8BC6;&#x522B;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%BC%93%E5%AD%98"&gt;&#x7F13;&#x5B58;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E7%BD%91%E5%85%B3"&gt;&#x7F51;&#x5173;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/notes/%E9%9A%A7%E9%81%93"&gt;&#x96A7;&#x9053;&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Puppet-ref"&gt;Puppet&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/devops/infrastructure-as-code"&gt;Infrastructure As Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/introduction-to-puppet"&gt;Introduction To Puppet&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/mcollective-with-puppet"&gt;MCollective With Puppet&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-ca"&gt;Puppet CA&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-data-flow"&gt;Puppet Data Flow&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-internals"&gt;Puppet Internals&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/sildes-about-puppet-and-mcollective"&gt;Sildes About Puppet And MCollective&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="DevOps-ref"&gt;DevOps&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/devops/infrastructure-as-code"&gt;Infrastructure As Code&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/introduction-to-puppet"&gt;Introduction To Puppet&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-ca"&gt;Puppet CA&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-data-flow"&gt;Puppet Data Flow&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/puppet/puppet-internals"&gt;Puppet Internals&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="SimpleRPC-ref"&gt;SimpleRPC&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/mcollective/introduction-to-simplerpc"&gt;Introduction To SimpleRPC&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/simplerpc-audit"&gt;SimpleRPC Audit&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC Authorization&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-agent"&gt;Write SimpleRPC Agent&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-client"&gt;Write SimpleRPC Client&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Zabbix-ref"&gt;Zabbix&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/zabbix/introduction-to-zabbix-api"&gt;Introduction To Zabbix Api&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/zabbix/zabbix-performance-tunning"&gt;Zabbix Performance Tunning&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="linux&#x5185;&#x6838;-ref"&gt;linux&#x5185;&#x6838;&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/linux/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%96%AD%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7-%E6%9B%B4%E6%96%B0"&gt;&#x6DF1;&#x5165;&#x7406;&#x89E3;Linux&#x5185;&#x6838;&#x4E2D;&#x65AD;&#x53CA;&#x5176;&#x7279;&#x6027;(&#x66F4;&#x65B0;)&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="MySQL-ref"&gt;MySQL&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/lectures/mysql-backup-and-restore"&gt;MySQL Backup and Restore&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Report-ref"&gt;Report&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/mcollective/node-report"&gt;Node Report&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Authorization-ref"&gt;Authorization&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC Authorization&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="troubleshooting-ref"&gt;troubleshooting&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/linux/troubleshooting-5minutes"&gt;Troubleshooting 5minutes&lt;/a&gt;&lt;/li&gt;
+  &lt;h3 id="Deploy-ref"&gt;Deploy&lt;/h3&gt;
+    &lt;li&gt;&lt;a href="/devops/the-way-to-deploy"&gt;The Way To Deploy&lt;/a&gt;&lt;/li&gt;
+ 
+</description>
+    </item>
+    <item>
+      <title>Tools</title>
+      <link>http://junqili.com/tools</link>
+      <description>&lt;p&gt;&lt;a href="/devops/infrastructure-as-code"&gt;DevOps&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x5DE5;&#x5177;&lt;/a&gt;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x7CFB;&#x5217;&#x601D;&#x60F3;&#xFF0C;&#x6982;&#x5FF5;&#x4EE5;&#x53CA;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7B49;&#x3002;&#x4F46;&#x662F;&#x5B9E;&#x73B0;&#x8FD9;&#x4E9B;&#x7406;&#x5FF5;&#x7684;&#x5374;&#x662F;&#x901A;&#x8FC7;&#x5DE5;&#x5177;&#x6765;&#x5B8C;&#x6210;&#x3002;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;div&gt;
+    &lt;ul class="nav nav-tabs nav-tabs-google"&gt;
+        &lt;li class="active"&gt;&lt;a href="#Puppet" data-toggle="tab"&gt;Puppet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#MCollective" data-toggle="tab"&gt;MCollective&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Fabric" data-toggle="tab"&gt;Fabric&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Zabbix" data-toggle="tab"&gt;Zabbix&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content row"&gt;
+        &lt;div class="tab-pane active" id="Puppet"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;Puppet&#x662F;&#x4E00;&#x4E2A;&#x91C7;&#x7528;Ruby&#x7F16;&#x5199;&#x7684;&#x5F00;&#x6E90;IT&#x7BA1;&#x7406;&#x5DE5;&#x5177;,&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x81EA;&#x52A8;&#x5316;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x4F7F;&#x7528;&#x3002;Puppet&#x662F;&#x4E00;&#x4E2A;C/S&#x67B6;&#x6784;&#x7684;&#x914D;&#x7F6E;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x7B80;&#x5355;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x8BED;&#x8A00;&#x6765;&#x5B8C;&#x6210;&#x673A;&#x5668;&#x914D;&#x7F6E;&#x3002;&#x5B83;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x66F4;&#x662F;&#x4E00;&#x4E2A;&#x6846;&#x67B6;&#x3002;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;p&gt;&#x6982;&#x8FF0;&#x90E8;&#x5206;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/puppet/introduction-to-puppet"&gt;&#x603B;&#x4F53;&#x4ECB;&#x7ECD;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x6982;&#x5FF5;&#x672F;&#x8BED;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+
+                &lt;li&gt;&lt;p&gt;&#x539F;&#x7406;&#x90E8;&#x5206;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/puppet/puppet-internals"&gt;&#x5185;&#x90E8;&#x539F;&#x7406;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/puppet/puppet-ca"&gt;&#x8BA4;&#x8BC1;&#x8FC7;&#x7A0B;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/puppet/puppet-data-flow"&gt;&#x6570;&#x636E;&#x6D41;&#x7A0B;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+
+                &lt;li&gt;&lt;p&gt;Master&#x76F8;&#x5173;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x65E0;Master&#x6A21;&#x5F0F;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x5355;Master&#x6269;&#x5C55;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x591A;Master&#x6269;&#x5C55;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+
+                &lt;li&gt;&lt;p&gt;&#x4F7F;&#x7528;&#x90E8;&#x5206;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x4EE3;&#x7801;&#x6570;&#x636E;&#x5206;&#x79BB;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x4F7F;&#x7528;&#x591A;&#x73AF;&#x5883;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;&#x6784;&#x5EFA;&#x4EA4;&#x4ED8;&#x6D41;&#x7A0B;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+
+                &lt;li&gt;&lt;p&gt;&#x5916;&#x56F4;&#x4EA7;&#x54C1;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;DashBoard&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;Foreman&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;PuppetDB&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;MCollective&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;herf="#"&gt;Hiera&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="Fabric"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;Fabric &#x65E2;&#x662F;&#x4E00;&#x4E2A; python(2.5+)&#x7C7B;&#x5E93;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; SSH &#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x90E8;&#x7F72;&#x548C;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x4EFB;&#x52A1;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x6574;&#x5957;&#x672C;&#x5730;&#x548C;&#x8FDC;&#x7A0B;&#x6267;&#x884C; shell &#x547D;&#x4EE4;&#x3001;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x8F85;&#x52A9;&#x529F;&#x80FD;&#x6BD4;&#x5982;&#x63D0;&#x793A;&#x548C;&#x6267;&#x884C;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF0C;&#x653E;&#x5F03;&#x6267;&#x884C;&#x4E4B;&#x7C7B;&#x3002;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;a href="/fabric/introduction-to-fabric"&gt;&lt;font color="#33CC00"&gt;&#x7B80;&#x4ECB;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/fabric-env"&gt;&lt;font color="#33CC00"&gt;&#x73AF;&#x5883;&#x5B57;&#x5178;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/host-list"&gt;&lt;font color="#33CC00"&gt;&#x4E3B;&#x673A;&#x5217;&#x8868;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/task-list"&gt;&lt;font color="#33CC00"&gt;&#x4EFB;&#x52A1;&#x5217;&#x8868;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/execution-mode"&gt;&lt;font color="#33CC00"&gt;&#x6267;&#x884C;&#x6A21;&#x5F0F;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/fab-cli"&gt;&lt;font color="#33CC00"&gt;&#x5DE5;&#x5177;&#x547D;&#x4EE4;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/fabfile-and-fabricrc"&gt;&lt;font color="#33CC00"&gt;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/remote-interaction"&gt;&lt;font color="#33CC00"&gt;&#x8FDC;&#x7A0B;&#x4EA4;&#x4E92;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/use-fabric-library"&gt;&lt;font color="#33CC00"&gt;&#x4F7F;&#x7528;&#x7C7B;&#x5E93;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/ssh-behavior"&gt;&lt;font color="#33CC00"&gt;SSH&#x884C;&#x4E3A;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/fabric/fabric-api"&gt;&lt;font color="#33CC00"&gt;API&#x5217;&#x8868;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="MCollective"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;MCollective&#x662F;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x7F16;&#x6392;&#x548C;&#x5E76;&#x884C;&#x5DE5;&#x4F5C;&#x6267;&#x884C;&#x7CFB;&#x7EDF;&#x7684;&#x6846;&#x67B6;&#x3002;&#x9996;&#x5148;&#xFF0C;MCollective&#x662F;&#x4E00;&#x79CD;&#x9488;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x96C6;&#x7FA4;&#x8FDB;&#x884C;&#x53EF;&#x7F16;&#x7A0B;&#x63A7;&#x5236;&#x7684;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1B;&#x5176;&#x6B21;&#x5B83;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x800C;&#x4E14;&#x8FC5;&#x901F;&#x7684;&#x5E76;&#x884C;&#x6267;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x4E0D;&#x518D;&#x4F9D;&#x8D56;SSH&#x3002;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;p&gt;&#x6982;&#x8FF0;&#x7BC7;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective"&gt;MCollective &#x7B80;&#x4ECB;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-solve-problem"&gt;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x53CA;&#x4F7F;&#x7528;&#x539F;&#x56E0;(What &amp;amp;&amp;amp; why)&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-terminology"&gt;&#x5E38;&#x7528;&#x672F;&#x8BED;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-doc"&gt;&#x6587;&#x6863;&#x7EFC;&#x8FF0;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;p&gt;&#x539F;&#x7406;&#x7BC7;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/publish-subscribe-middleware"&gt;&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x4E2D;&#x95F4;&#x4EF6;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-message"&gt;&#x6D88;&#x606F;&#x6D41;&#x548C;&#x6D88;&#x606F;&#x683C;&#x5F0F;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/use-subcollective"&gt;&#x4F7F;&#x7528;SubCollectives&#x8FDB;&#x884C;&#x7F51;&#x7EDC;&#x5206;&#x533A;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/introduction-to-mcollective-security"&gt;&#x5B89;&#x5168;&#x6982;&#x8FF0;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;p&gt;&lt;strong&gt;&#x914D;&#x7F6E;&#x7BC7;&lt;/strong&gt; &lt;font color="#33CC00"&gt;&#x6700;&#x65B0;&#x5B8C;&#x6210;&lt;/font&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/activemq-config-for-mcollective"&gt;ActiveMQ&#x4E2D;&#x95F4;&#x4EF6;&#x914D;&#x7F6E;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-server-config"&gt;MCollective&#x57FA;&#x672C;&#x914D;&#x7F6E;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-security"&gt;MCollective&#x5B89;&#x5168;&#x914D;&#x7F6E;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/deploy-mcollective-in-production-environment"&gt;MCollective&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x90E8;&#x7F72;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;p&gt;&#x4F7F;&#x7528;&#x7BC7;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollectiveollective/use-mcollective-cli"&gt;&#x4F7F;&#x7528;MCollective&#x547D;&#x4EE4;&#x884C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/node-report"&gt;&#x81EA;&#x5B9A;&#x4E49;&#x62A5;&#x544A;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/control-daemon"&gt;&#x63A7;&#x5236;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/use-filter"&gt;&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x5668;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;p&gt;&#x7F16;&#x7A0B;&#x7BC7;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/introduction-to-simplerpc"&gt;SimpleRPC&#x7B80;&#x4ECB;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-agent"&gt;&#x7F16;&#x5199;SimpleRPC&#x4EE3;&#x7406;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/write-simplerpc-client"&gt;&#x7F16;&#x5199;SimplRPC&#x5BA2;&#x6237;&#x7AEF;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/simplerpc-authorization"&gt;SimpleRPC&#x6388;&#x6743;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/simplerpc-audit"&gt;SimpleRPC&#x5BA1;&#x8BA1;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/ddl"&gt;DDL&#x6570;&#x636E;&#x5B9A;&#x4E49;&#x8BED;&#x8A00;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-fabric-exec-commands"&gt;MCollective/Fabric&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x6BD4;&#x8F83;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;p&gt;&#x96C6;&#x6210;&#x7BC7;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/mcollective-with-puppet"&gt;MCollective&#x7ED3;&#x5408;Puppet&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/activemq-middleware"&gt;ActiveMQ&#x4E2D;&#x95F4;&#x4EF6;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li&gt;&lt;p&gt;&#x63D2;&#x4EF6;&#x7BC7;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/common-plugin"&gt;&#x5E38;&#x89C1;&#x63D2;&#x4EF6;&#x7C7B;&#x578B;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/mcollective/puppet-commander"&gt;&#x5E38;&#x89C1;&#x63D2;&#x4EF6;&#x4E3E;&#x4F8B;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="Zabbix"&gt;
+            &lt;ul class="nav nav-list"&gt;
+                &lt;p&gt;Zabbix&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;WEB&#x754C;&#x9762;&#x7684;&#x63D0;&#x4F9B;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x76D1;&#x89C6;&#x4EE5;&#x53CA;&#x7F51;&#x7EDC;&#x76D1;&#x89C6;&#x529F;&#x80FD;&#x7684;&#x4F01;&#x4E1A;&#x7EA7;&#x7684;&#x5F00;&#x6E90;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;Zabbix&#x80FD;&#x76D1;&#x89C6;&#x5404;&#x79CD;&#x7F51;&#x7EDC;&#x53C2;&#x6570;&#xFF0C;&#x4FDD;&#x8BC1;&#x670D;&#x52A1;&#x5668;&#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x8FD0;&#x8425;;&#x5E76;&#x63D0;&#x4F9B;&#x67D4;&#x8F6F;&#x7684;&#x901A;&#x77E5;&#x673A;&#x5236;&#x4EE5;&#x8BA9;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x5FEB;&#x901F;&#x5B9A;&#x4F4D;/&#x89E3;&#x51B3;&#x5B58;&#x5728;&#x7684;&#x5404;&#x79CD;&#x95EE;&#x9898;&#x3002;&lt;/p&gt;
+                &lt;hr&gt;
+                &lt;li&gt;&lt;herf="#"&gt;&#x539F;&#x7406;&#x67B6;&#x6784;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;herf="#"&gt;&#x9AD8;&#x53EF;&#x7528;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/zabbix/zabbix-performance-tunning"&gt;&lt;font color="#33CC00"&gt;&#x9AD8;&#x6027;&#x80FD;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;herf="#"&gt;&#x81EA;&#x52A8;&#x5316;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/zabbix/introduction-to-zabbix-api"&gt;&lt;font color="#33CC00"&gt;API&#x4F7F;&#x7528;&lt;/font&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;herf="#"&gt;SDK&#x6784;&#x5EFA;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;herf="#"&gt;Tool&#x7F16;&#x5199;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;herf="#"&gt;&#x8FDC;&#x7A0B;&#x4EA4;&#x4E92;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
+      <title>linux</title>
+      <link>http://junqili.com/linux</link>
+      <description>&lt;div&gt;
+    &lt;ul class="nav nav-tabs nav-tabs-google"&gt;
+        &lt;li class="active"&gt;&lt;a href="#Performance" data-toggle="tab"&gt;Performance&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Commands" data-toggle="tab"&gt;Command&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content row"&gt;
+        &lt;div class="tab-pane active" style="padding-left:24px;" id="Performance"&gt;
+            &lt;p&gt;&#x5173;&#x4E8E;Linux Performance&#x7684;&#x5206;&#x6790;&#x548C;&#x5DE5;&#x5177;&#xFF0C;&#x5927;&#x5E08;Brendan Gregg(&lt;a href="http://en.wikipedia.org/wiki/Brendan_Gregg"&gt;&#x7EF4;&#x57FA;&lt;/a&gt;,&lt;a href="http://www.brendangregg.com/index.html"&gt;&#x4E3B;&#x9875;&lt;/a&gt;)&#x6709;&#x4E2A;&#x5F88;&#x5B8C;&#x6574;&#x7684;&#x603B;&#x7ED3;,&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;&lt;a href="http://www.brendangregg.com/linuxperf.html"&gt;&#x5728;&#x8FD9;&#x91CC;&lt;/a&gt;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4ED6;&#x5173;&#x4E8E;linux&#x6027;&#x80FD;&#x5206;&#x6790;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x6587;&#x6863;&#x4EE5;&#x53CA;&#x6F14;&#x8BB2;&#x6C47;&#x603B;&#x4ECB;&#x7ECD;&#x3002;&lt;/p&gt;
+            &lt;img src="/assets/media/linux/linuxperftools.png" alt=Linux Performance" /&gt;
+            &lt;p&gt;&#x8FD9;&#x90E8;&#x5206;&#x4E3B;&#x8981;&#x5206;&#x4EAB;&#x5173;&#x4E8E;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x76F8;&#x5173;&#x7684;&#x8BDD;&#x9898;&#x4EE5;&#x53CA;&#x6027;&#x80FD;&#x5206;&#x6790;&#x3002;&lt;/p&gt;
+        &lt;div class="progress progress-striped"&gt;
+            &lt;div class="bar" style="width: 10%;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p&gt;&lt;strong&gt;&#x5F85;&#x66F4;&#x65B0;...&lt;/strong&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" style="padding-left:12px;"  id="Commands"&gt;
+            &lt;ul class="nav nav-list"&gt;
+            &lt;p&gt;&#x76F8;&#x4FE1;&#x5F88;&#x591A;&#x4EBA;&#x559C;&#x6B22;linux&#x90FD;&#x662F;&#x4ECE;&#x547D;&#x4EE4;&#x884C;&#x5F00;&#x59CB;&#x7684;&#xFF0C;&#x800C;&#x8FD9;&#x6B63;&#x662F;&#x4E00;&#x4E2A;&#x4E2A;&#x547D;&#x4EE4;&#x7EC4;&#x6210;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;linux&#x9B45;&#x529B;&#x4E4B;&#x4E00;&#x3002;&lt;/p&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    <item>
+      <title>&#x7D19;&#x98DB;&#x6A5F;&#x7684;&#x535A;&#x5BA2;</title>
+      <link>http://junqili.com/</link>
+      <description>&lt;h2&gt;Hello, New World!&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2012&#x5E74;9&#x6708;&#xFF0C;&#x535A;&#x5BA2;&#x8BDE;&#x751F;&#xFF0C;&#x91C7;&#x7528;Ruhoh 1.0&#x7248;&#x672C;&#x3002;&#x6700;&#x521D;&#x53EA;&#x662F;&#x8BB0;&#x5F55;&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#x548C;&#x611F;&#x60F3;&#x3002;&#x6162;&#x6162;&#x53D1;&#x73B0;&#x5199;&#x7684;&#x5185;&#x5BB9;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2013&#x5E74;9&#x6708;&#xFF0C;&#x535A;&#x5BA2;&#x6539;&#x7248;&#xFF0C;&#x91C7;&#x7528;Ruhoh 2.X&#x7248;&#x672C;&#x3002;&#x5F88;&#x591A;&#x5185;&#x5BB9;&#x4ECD;&#x5728;&#x915D;&#x917F;&#xFF0C;&#x5F88;&#x591A;&#x5185;&#x5BB9;&#x4ECD;&#x9700;&#x5B8C;&#x5584;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8D77;&#x70B9;&#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2014&#x5E74;6&#x6708;&#xFF0C;&#x535A;&#x5BA2;&#x6539;&#x7248;&#xFF0C;&#x589E;&#x52A0;&#x4E2A;&#x4EBA;Wiki&#xFF0C;&#x8BB0;&#x5F55;&#x96F6;&#x788E;&#x77E5;&#x8BC6;&#x3002;&#x91C7;&#x7528;Simiki+GitCafe&#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;button class="btn btn-info" type="button"&gt;&#x5185;&#x5BB9;&#x6807;&#x7B7E;&lt;/button&gt;&lt;/button&gt;   
+    &lt;span class="label label-default"&gt;&lt;font size="3"&gt;&#x81EA;&#x52A8;&#x5316;&#x8FD0;&#x7EF4;&lt;/font&gt;&lt;/span&gt;
+    &lt;span class="label label-default"&gt;&lt;font size="3"&gt;Linux&#x5185;&#x6838;&lt;/font&gt;&lt;/span&gt;  
+    &lt;span class="label label-default"&gt;&lt;font size="3"&gt;Python&#x76F8;&#x5173;&lt;/font&gt;&lt;/span&gt;  
+    &lt;span class="label label-default"&gt;&lt;font size="3"&gt;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&lt;/font&gt;&lt;/span&gt;  
+    &lt;span class="label label-default"&gt;&lt;font size="3"&gt;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&lt;/font&gt;&lt;/span&gt;  
+    &lt;span class="label label-default"&gt;&lt;font size="3"&gt;&#x8BB2;&#x5EA7;&#x7B14;&#x8BB0;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;div class="progress progress-striped"&gt;
+      &lt;div class="bar" style="width: 20%;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&#x6301;&#x7EED;&#x66F4;&#x65B0;&#x4E2D;......&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Latest Posts&lt;/h2&gt;
+
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/linux/getting-started-with-load-average"&gt;Getting Started With Load Average&lt;/a&gt; &lt;span class="date pull-right"&gt;2014-06-15&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h3 id="toc_0"&gt;what&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#20160;&amp;#20040;&amp;#26159;Load Average&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Load_(computing)"&gt;Load&amp;#26159;&amp;#35745;&amp;#31639;&amp;#26426;&amp;#24037;&amp;#20316;&amp;#37327;&amp;#30340;&amp;#24230;&amp;#37327;&lt;/a&gt;&amp;#12290;Load Average&amp;#23601;&amp;#26159;&amp;#19968;&amp;#27573;&amp;#26102;&amp;#38388;&amp;#20869;(1&amp;#20998;&amp;#38047;&amp;#65292;5&amp;#20998;&amp;#38047;&amp;#65292;15&amp;#20998;&amp;#38047;)&amp;#31995;&amp;#32479;Load&amp;#30340;&amp;#24179;&amp;#22343;&amp;#20540;&amp;#12290;&amp;#31616;&amp;#21333;&amp;#26469;&amp;#35828;&amp;#65292;&amp;#23601;&amp;#26159;&amp;#19968;&amp;#27573;&amp;#26102;&amp;#38388;&amp;#20869;(1&amp;#20998;&amp;#38047;&amp;#65292;5&amp;#20998;&amp;#38047;&amp;#65292;15&amp;#20998;&amp;#38047;)&amp;#36816;&amp;#34892;&amp;#38431;&amp;#21015;&amp;#37324;&amp;#31561;&amp;#24453;&amp;#30340;&amp;#36827;&amp;#31243;&amp;#25968;&amp;#21152;&amp;#19978;&amp;#24403;&amp;#21069;&amp;#27491;&amp;#22312;&amp;#25191;&amp;#34892;&amp;#30340;&amp;#36827;&amp;#31243;&amp;#25968;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#21487;&amp;#20197;&amp;#36890;&amp;#36807;uptime&amp;#21629;&amp;#20196;&amp;#26597;&amp;#30475;&amp;#12290;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;uptime
+
+21:45  up 22:37, 3 users, load averages: 1.81 1.79 1.58
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#21738;&amp;#20123;&amp;#36827;&amp;#31243;&amp;#34987;&amp;#32479;&amp;#35745;&amp;#22312;&amp;#20869;&lt;/p&gt;
+
+&lt;p&gt;&amp;#19968;&amp;#20010;&amp;#31354;&amp;#38386;&amp;#30340;&amp;#35745;&amp;#31639;&amp;#26426;load&amp;#20540;&amp;#20026;0&amp;#65292;&amp;#27599;&amp;#19968;&amp;#20010;&amp;#20351;&amp;#29992;&amp;#25110;&amp;#32773;&amp;#31561;&amp;#24453;CPU&amp;#30340;&amp;#36827;&amp;#31243;&amp;#20351;Load&amp;#20540;&amp;#22686;1&amp;#12290;&amp;#22823;&amp;#22810;&amp;#25968;UNIX&amp;#31995;&amp;#32479;&amp;#20165;&amp;#20165;&amp;#35745;&amp;#31639;&amp;#22788;&amp;#20110;&amp;#27491;&amp;#22312;&amp;#36816;&amp;#34892;&amp;#25110;&amp;#32773;&amp;#31561;&amp;#24453;&amp;#36816;&amp;#34892;(running or runnable)&amp;#29366;&amp;#24577;&amp;#30340;&amp;#36827;&amp;#31243;&amp;#12290;&amp;#20294;&amp;#26159;Linux&amp;#21516;&amp;#26679;&amp;#21253;&amp;#25324;&amp;#22788;&amp;#20110;&amp;#19981;&amp;#21487;&amp;#20013;&amp;#26029;(uniterruptible)&amp;#29366;&amp;#24577;&amp;#30340;&amp;#36827;&amp;#31243;(&amp;#36890;&amp;#24120;&amp;#26159;&amp;#31561;&amp;#24453;I/O)&amp;#65292;&amp;#22914;&amp;#26524;&amp;#31995;&amp;#32479;&amp;#19978;&amp;#26377;&amp;#35768;&amp;#22810;&amp;#36827;&amp;#31243;&amp;#22240;&amp;#20026;I/O&amp;#32321;&amp;#24537;&amp;#34987;&amp;#38459;&amp;#22622;&amp;#20250;&amp;#23548;&amp;#33268;&amp;#19981;&amp;#21516;&amp;#30340;&amp;#32467;&amp;#26524;&amp;#12290;&amp;#36825;&amp;#26679;&amp;#30340;&amp;#24773;&amp;#20917;&amp;#19979;Load Average&amp;#20250;&amp;#24456;&amp;#39640;&amp;#65292;&amp;#20294;&amp;#19981;&amp;#33021;&amp;#21453;&amp;#24212;CPU&amp;#23454;&amp;#38469;&amp;#20351;&amp;#29992;&amp;#22686;&amp;#21152;(&amp;#21487;&amp;#33021;CPU&amp;#20351;&amp;#29992;&amp;#29575;&amp;#20250;&amp;#24456;&amp;#20302;&amp;#65292;&amp;#20294;&amp;#26159;&amp;#20381;&amp;#28982;&amp;#21453;&amp;#24212;&amp;#20986;&amp;#29992;&amp;#25143;&amp;#38656;&amp;#35201;&amp;#31561;&amp;#24453;&amp;#22810;&amp;#38271;&amp;#26102;&amp;#38388;)&amp;#12290;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#26159;&amp;#32479;&amp;#35745;&amp;#36827;&amp;#31243;&amp;#36824;&amp;#26159;&amp;#32447;&amp;#31243;&lt;/p&gt;
+
+&lt;p&gt;&amp;#22312;&amp;#29616;&amp;#20195;&amp;#25805;&amp;#20316;&amp;#31995;&amp;#32479;&amp;#20013;&amp;#65292;&amp;#23545;&amp;#32447;&amp;#31243;&amp;#30340;&amp;#19981;&amp;#21516;&amp;#23454;&amp;#29616;&amp;#23548;&amp;#33268;Load Average&amp;#35745;&amp;#31639;&amp;#30340;&amp;#19981;&amp;#21516;&amp;#12290;&amp;#36825;&amp;#23454;&amp;#38469;&amp;#26159;&amp;#36319;&amp;#19981;&amp;#21516;&amp;#32447;&amp;#31243;&amp;#27169;&amp;#22411;&amp;#30456;&amp;#20851;&amp;#30340;&amp;#12290;&amp;#20026;&amp;#20102;&amp;#35745;&amp;#31639;Load&amp;#19968;&amp;#20123;&amp;#31995;&amp;#32479;&amp;#35270;&amp;#32447;&amp;#31243;&amp;#20026;&amp;#36827;&amp;#31243;&amp;#65306;&amp;#37027;&amp;#20040;&amp;#27599;&amp;#20010;&amp;#31561;&amp;#24453;&amp;#30340;&amp;#32447;&amp;#31243;&amp;#37117;&amp;#20250;&amp;#20351;Load&amp;#20540;&amp;#22686;1&amp;#12290;&amp;#20294;&amp;#26159;&amp;#20854;&amp;#20182;&amp;#31995;&amp;#32479;&amp;#21487;&amp;#33021;&amp;#19981;&amp;#21516;&amp;#65292;&amp;#23588;&amp;#20854;&amp;#26159;&amp;#23545;&amp;#20110;&amp;#23454;&amp;#29616;M:N&amp;#36825;&amp;#31181;&amp;#32447;&amp;#31243;&amp;#27169;&amp;#22411;&amp;#30340;&amp;#31995;&amp;#32479;&amp;#36890;&amp;#24120;&amp;#20351;&amp;#29992;&amp;#19981;&amp;#21516;&amp;#30340;&amp;#31574;&amp;#30053;&amp;#65292;&amp;#23545;&amp;#20110;Load&amp;#35745;&amp;#31639;&amp;#26377;&amp;#30340;&amp;#26159;&amp;#25353;&amp;#29031;&amp;#27599;&amp;#20010;&amp;#36827;&amp;#31243;&amp;#24688;&amp;#22909;&amp;#19968;&amp;#27425;(&amp;#26080;&amp;#35770;&amp;#32447;&amp;#31243;&amp;#25968;&amp;#37327;)&amp;#65292;&amp;#26377;&amp;#30340;&amp;#26159;&amp;#20165;&amp;#20165;&amp;#35745;&amp;#31639;&amp;#29992;&amp;#25143;&amp;#32447;&amp;#31243;&amp;#35843;&amp;#24230;&amp;#22120;&amp;#26292;&amp;#38706;&amp;#32473;&amp;#20869;&amp;#26680;&amp;#30340;&amp;#32447;&amp;#31243;&amp;#25968;(&amp;#36825;&amp;#21487;&amp;#33021;&amp;#21462;&amp;#20915;&amp;#20110;&amp;#22788;&amp;#29702;&amp;#22120;&amp;#30340;&amp;#24182;&amp;#21457;&amp;#37327;)&amp;#12290;Linux&amp;#31995;&amp;#32479;&amp;#24212;&amp;#35813;&amp;#26159;&amp;#27599;&amp;#20010;&amp;#32447;&amp;#31243;&amp;#21333;&amp;#29420;Load&amp;#22686;1&amp;#12290;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#19968;&amp;#20010;&amp;#31867;&amp;#27604;&lt;/p&gt;
+
+&lt;p&gt;&amp;#26126;&amp;#30333;&amp;#19978;&amp;#36848;&amp;#20004;&amp;#28857;&amp;#23601;&amp;#30693;&amp;#36947;&amp;#20102;Load&amp;#35745;&amp;#31639;&amp;#30340;&amp;#23454;&amp;#20307;&amp;#26159;&amp;#20160;&amp;#20040;&amp;#65292;&amp;#20851;&amp;#38190;&amp;#26159;&amp;#38024;&amp;#23545;&amp;#19981;&amp;#21516;&amp;#30340;&amp;#31995;&amp;#32479;&amp;#26377;&amp;#19981;&amp;#21516;&amp;#30340;&amp;#23454;&amp;#29616;&amp;#12290;&amp;#23545;&amp;#20110;Load&amp;#30340;&amp;#29702;&amp;#35299;&amp;#65292;&amp;#22312;&lt;a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages"&gt;&amp;#36825;&amp;#31687;&amp;#25991;&amp;#31456;&lt;/a&gt;&amp;#20013;&amp;#26377;&amp;#20010;&amp;#36890;&amp;#20439;&amp;#30340;&amp;#35299;&amp;#37322;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#19968;&amp;#21482;&amp;#21333;&amp;#26680;&amp;#30340;&amp;#22788;&amp;#29702;&amp;#22120;&amp;#21487;&amp;#20197;&amp;#27604;&amp;#21947;&amp;#25104;&amp;#19968;&amp;#26465;&amp;#21333;&amp;#36710;&amp;#36947;&amp;#12290;&amp;#35774;&amp;#24819;&amp;#20320;&amp;#26159;&amp;#36825;&amp;#26465;&amp;#36947;&amp;#36335;&amp;#30340;&amp;#20132;&amp;#35686;&amp;#65292;&amp;#20320;&amp;#26469;&amp;#35268;&amp;#21010;&amp;#36710;&amp;#36742;&amp;#24590;&amp;#20040;&amp;#36890;&amp;#36807;&amp;#12290;&amp;#22914;&amp;#26524;&amp;#21069;&amp;#38754;&amp;#27809;&amp;#26377;&amp;#36710;&amp;#36742;&amp;#22312;&amp;#31561;&amp;#24453;&amp;#65292;&amp;#37027;&amp;#20040;&amp;#20320;&amp;#21487;&amp;#20197;&amp;#21578;&amp;#35785;&amp;#21518;&amp;#38754;&amp;#30340;&amp;#21496;&amp;#26426;&amp;#36890;&amp;#36807;&amp;#12290; &amp;#22914;&amp;#26524;&amp;#36710;&amp;#36742;&amp;#20247;&amp;#22810;&amp;#65292;&amp;#37027;&amp;#20040;&amp;#38656;&amp;#35201;&amp;#21578;&amp;#35785;&amp;#20182;&amp;#20204;&amp;#31245;&amp;#31561;&amp;#19968;&amp;#20250;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#20110;&amp;#26159;&amp;#65292;&amp;#23545;&amp;#20110;&amp;#36710;&amp;#27969;&amp;#24773;&amp;#20917;&amp;#26377;&amp;#29305;&amp;#23450;&amp;#30340;&amp;#25551;&amp;#36848;&amp;#65292;&amp;#20363;&amp;#22914;&amp;#65306;&lt;/p&gt;
+
+&lt;p&gt;0.00 &amp;#34920;&amp;#31034;&amp;#30446;&amp;#21069;&amp;#36947;&amp;#36335;&amp;#19978;&amp;#27809;&amp;#26377;&amp;#20219;&amp;#20309;&amp;#30340;&amp;#36710;&amp;#27969;&amp;#12290; &amp;#23454;&amp;#38469;&amp;#19978;&amp;#36825;&amp;#31181;&amp;#24773;&amp;#20917;&amp;#19982; 0.00 &amp;#21040; 1.00 &amp;#20043;&amp;#38388;&amp;#26159;&amp;#30456;&amp;#21516;&amp;#30340;&amp;#65292;&amp;#24456;&amp;#36890;&amp;#30021;&amp;#65292;&amp;#36807;&amp;#24448;&amp;#30340;&amp;#36710;&amp;#36742;&amp;#21487;&amp;#20197;&amp;#19997;&amp;#27627;&amp;#19981;&amp;#29992;&amp;#31561;&amp;#24453;&amp;#30340;&amp;#36890;&amp;#36807;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;1.00 &amp;#34920;&amp;#31034;&amp;#21018;&amp;#22909;&amp;#26159;&amp;#22312;&amp;#36825;&amp;#26465;&amp;#36947;&amp;#36335;&amp;#30340;&amp;#25215;&amp;#21463;&amp;#33539;&amp;#22260;&amp;#20869;&amp;#12290; &amp;#36825;&amp;#31181;&amp;#24773;&amp;#20917;&amp;#19981;&amp;#31639;&amp;#31967;&amp;#31957;&amp;#65292;&amp;#21482;&amp;#26159;&amp;#36710;&amp;#27969;&amp;#20250;&amp;#26377;&amp;#20123;&amp;#22581;&amp;#65292;&amp;#19981;&amp;#36807;&amp;#36825;&amp;#31181;&amp;#24773;&amp;#20917;&amp;#21487;&amp;#33021;&amp;#20250;&amp;#36896;&amp;#25104;&amp;#20132;&amp;#36890;&amp;#36234;&amp;#26469;&amp;#36234;&amp;#24930;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#36229;&amp;#36807; 1.00&amp;#65292;&amp;#37027;&amp;#20040;&amp;#35828;&amp;#26126;&amp;#36825;&amp;#26465;&amp;#36947;&amp;#36335;&amp;#24050;&amp;#32463;&amp;#36229;&amp;#20986;&amp;#36127;&amp;#33655;&amp;#65292;&amp;#20132;&amp;#36890;&amp;#20005;&amp;#37325;&amp;#30340;&amp;#25317;&amp;#22581;&amp;#12290; &amp;#37027;&amp;#20040;&amp;#24773;&amp;#20917;&amp;#26377;&amp;#22810;&amp;#31967;&amp;#31957;&amp;#65311; &amp;#20363;&amp;#22914; 2.00 &amp;#30340;&amp;#24773;&amp;#20917;&amp;#35828;&amp;#26126;&amp;#36710;&amp;#27969;&amp;#24050;&amp;#32463;&amp;#36229;&amp;#20986;&amp;#20102;&amp;#26725;&amp;#25152;&amp;#33021;&amp;#25215;&amp;#21463;&amp;#30340;&amp;#19968;&amp;#20493;&amp;#65292;&amp;#37027;&amp;#20040;&amp;#23558;&amp;#26377;&amp;#22810;&amp;#20313;&amp;#36807;&amp;#26725;&amp;#19968;&amp;#20493;&amp;#30340;&amp;#36710;&amp;#36742;&amp;#27491;&amp;#22312;&amp;#28966;&amp;#24613;&amp;#30340;&amp;#31561;&amp;#24453;&amp;#12290;3.00 &amp;#30340;&amp;#35805;&amp;#24773;&amp;#20917;&amp;#23601;&amp;#26356;&amp;#19981;&amp;#22937;&amp;#20102;&amp;#65292;&amp;#35828;&amp;#26126;&amp;#36825;&amp;#26465;&amp;#36947;&amp;#36335;&amp;#22522;&amp;#26412;&amp;#19978;&amp;#24050;&amp;#32463;&amp;#24555;&amp;#25215;&amp;#21463;&amp;#19981;&amp;#20102;&amp;#65292;&amp;#36824;&amp;#26377;&amp;#36229;&amp;#20986;&amp;#36947;&amp;#36335;&amp;#36127;&amp;#36733;&amp;#20004;&amp;#20493;&amp;#22810;&amp;#30340;&amp;#36710;&amp;#36742;&amp;#27491;&amp;#22312;&amp;#31561;&amp;#24453;&amp;#36890;&amp;#36807;&amp;#12290;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#20004;&amp;#20010;&amp;#27604;&amp;#36739;&lt;/p&gt;
+
+&lt;p&gt;Load Average&amp;#26159;&amp;#31995;&amp;#32479;&amp;#36127;&amp;#33655;&amp;#30340;&amp;#37325;&amp;#35201;&amp;#24230;&amp;#37327;&amp;#25351;&amp;#26631;&amp;#65292;&amp;#21478;&amp;#19968;&amp;#20010;&amp;#21516;&amp;#26679;&amp;#32463;&amp;#24120;&amp;#34987;&amp;#20351;&amp;#29992;&amp;#30340;&amp;#21017;&amp;#26159;CPU&amp;#20351;&amp;#29992;&amp;#29575;&amp;#12290;&amp;#36825;&amp;#37324;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#36827;&amp;#34892;&amp;#27604;&amp;#36739;&amp;#12290;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Load Average&amp;#24230;&amp;#37327;&amp;#30340;&amp;#26159;CPU&amp;#20351;&amp;#29992;&amp;#30340;&amp;#36235;&amp;#21183;&amp;#65292;&amp;#32780;&amp;#19981;&amp;#20687;CPU&amp;#20351;&amp;#29992;&amp;#29575;&amp;#37027;&amp;#26679;&amp;#26159;&amp;#30636;&amp;#26102;&amp;#24555;&amp;#29031;&lt;/li&gt;
+&lt;li&gt;Load Average&amp;#21253;&amp;#21547;&amp;#20102;&amp;#25152;&amp;#26377;&amp;#23545;CPU&amp;#30340;&amp;#38656;&amp;#27714;&amp;#65292;&amp;#32780;&amp;#19981;&amp;#20165;&amp;#20165;&amp;#26159;&amp;#24230;&amp;#37327;&amp;#26102;&amp;#38388;&amp;#28857;&amp;#30340;&amp;#27963;&amp;#36291;&amp;#31243;&amp;#24230;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#23545;&amp;#20110;&amp;#22343;&amp;#34913;&amp;#36127;&amp;#36733;&amp;#26469;&amp;#35828;&amp;#65292;&amp;#22522;&amp;#20110;CPU&amp;#38431;&amp;#21015;&amp;#38271;&amp;#24230;&amp;#30340;CPU Load&amp;#20449;&amp;#24687;&amp;#20250;&amp;#27604;CPU&amp;#20351;&amp;#29992;&amp;#29575;&amp;#26356;&amp;#22909;&amp;#12290;&amp;#21407;&amp;#22240;&amp;#22823;&amp;#27010;&amp;#26159;&amp;#23545;&amp;#20110;Load&amp;#24456;&amp;#39640;&amp;#30340;&amp;#20027;&amp;#26426;&amp;#65292;CPU&amp;#20351;&amp;#29992;&amp;#29575;&amp;#21487;&amp;#33021;&amp;#25509;&amp;#36817;100%&amp;#65292;&amp;#36825;&amp;#26102;&amp;#30340;&amp;#21033;&amp;#29992;&amp;#29575;&amp;#19981;&amp;#33021;&amp;#21453;&amp;#24212;&amp;#36127;&amp;#36733;&amp;#30340;&amp;#32423;&amp;#21035;&amp;#12290;&amp;#30456;&amp;#21453;&amp;#65292;CPU&amp;#38431;&amp;#21015;&amp;#38271;&amp;#24230;&amp;#33021;&amp;#30452;&amp;#25509;&amp;#21453;&amp;#24212;&amp;#36825;&amp;#20010;CPU&amp;#30340;&amp;#36127;&amp;#36733;&amp;#24635;&amp;#37327;&amp;#12290;&amp;#19968;&amp;#20010;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#20363;&amp;#23376;&amp;#23601;&amp;#26159;&amp;#65306;&amp;#23545;&amp;#20110;&amp;#20004;&amp;#20010;&amp;#19981;&amp;#21516;&amp;#30340;&amp;#31995;&amp;#32479;&amp;#65292;&amp;#19968;&amp;#20010;&amp;#26377;3&amp;#20010;&amp;#36827;&amp;#31243;&amp;#22312;&amp;#31561;&amp;#24453;&amp;#38431;&amp;#21015;&amp;#19968;&amp;#20010;&amp;#26377;6&amp;#20010;&amp;#36827;&amp;#31243;&amp;#22312;&amp;#38431;&amp;#21015;&amp;#65292;&amp;#23427;&amp;#20204;&amp;#30340;CPU&amp;#21033;&amp;#29992;&amp;#29575;&amp;#37117;&amp;#21487;&amp;#33021;&amp;#25509;&amp;#36817;100%&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#23545;&amp;#20110;CPU&amp;#21033;&amp;#29992;&amp;#29575;&amp;#21644;CPU Load Average&amp;#30340;&amp;#32467;&amp;#26524;&amp;#26469;&amp;#21028;&amp;#26029;&amp;#24615;&amp;#33021;&amp;#38382;&amp;#39064;&amp;#12290;&amp;#39318;&amp;#20808;&amp;#20302;CPU&amp;#21033;&amp;#29992;&amp;#29575;&amp;#19981;&amp;#34920;&amp;#26126;CPU&amp;#19981;&amp;#26159;&amp;#29942;&amp;#39048;&amp;#65292;&amp;#31454;&amp;#20105;CPU&amp;#30340;&amp;#38431;&amp;#21015;&amp;#38271;&amp;#26399;&amp;#20445;&amp;#25345;&amp;#36739;&amp;#38271;&amp;#20063;&amp;#26159;CPU&amp;#36229;&amp;#36127;&amp;#33655;&amp;#30340;&amp;#19968;&amp;#31181;&amp;#34920;&amp;#29616;&amp;#12290;&amp;#23545;&amp;#20110;&amp;#24212;&amp;#29992;&amp;#26469;&amp;#35828;&amp;#21487;&amp;#33021;&amp;#20250;&amp;#21435;&amp;#33457;&amp;#26102;&amp;#38388;&amp;#22312;I/O,Socket&amp;#31561;&amp;#26041;&amp;#38754;&amp;#65292;&amp;#37027;&amp;#20040;&amp;#21487;&amp;#20197;&amp;#32771;&amp;#34385;&amp;#26159;&amp;#21542;&amp;#21518;&amp;#36825;&amp;#20123;&amp;#30828;&amp;#20214;&amp;#30340;&amp;#36895;&amp;#24230;&amp;#24433;&amp;#21709;&amp;#20102;&amp;#25972;&amp;#20307;&amp;#30340;&amp;#25928;&amp;#29575;&amp;#12290;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/linux/getting-started-with-load-average" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/devops/getting-started-with-vagrant-coreos-docker"&gt;Getting Started With Vagrant/Coreos/Docker&lt;/a&gt; &lt;span class="date pull-right"&gt;2014-05-17&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;p&gt;&amp;#36825;&amp;#26159;&amp;#19968;&amp;#31687;&amp;#20851;&amp;#20110;Vagrant, CoreOS, Docker&amp;#19977;&amp;#20010;&amp;#24037;&amp;#20855;&amp;#30340;&amp;#20837;&amp;#38376;&amp;#20171;&amp;#32461;&amp;#24615;&amp;#25991;&amp;#31456;&amp;#65292;&amp;#36890;&amp;#36807;&amp;#25551;&amp;#36848;"&amp;#20351;&amp;#29992;Vagrant&amp;#23433;&amp;#35013;CoreOS", "&amp;#22312;CoreOS&amp;#20013;&amp;#20351;&amp;#29992;Docker"&amp;#26469;&amp;#20171;&amp;#32461;&amp;#19977;&amp;#20010;&amp;#24037;&amp;#20855;&amp;#30340;&amp;#20837;&amp;#38376;&amp;#20351;&amp;#29992;&amp;#12290;&amp;#24403;&amp;#28982;&amp;#35201;&amp;#39318;&amp;#20808;&amp;#20171;&amp;#32461;&amp;rdquo;&amp;#22312;Mac OS X&amp;#19978;&amp;#36816;&amp;#34892;Vagrant&amp;rdquo;&amp;#12290;&lt;/p&gt;
+
+&lt;h3 id="toc_0"&gt;Part I: Running Vagrant On Mac OS X&lt;/h3&gt;
+
+&lt;hr&gt;
+&lt;h4 id="toc_1"&gt;Vagrant&amp;#31616;&amp;#20171;&lt;/h4&gt;
+
+&lt;p&gt;Vagrant&amp;#26159;&amp;#19968;&amp;#20010;&amp;#21019;&amp;#24314;&amp;#21644;&amp;#37197;&amp;#32622;&amp;#36731;&amp;#37327;&amp;#32423;&amp;#65292;&amp;#21487;&amp;#22797;&amp;#21046;&amp;#65292;&amp;#21487;&amp;#31227;&amp;#26893;&amp;#24320;&amp;#21457;&amp;#29615;&amp;#22659;&amp;#30340;&amp;#24037;&amp;#20855;&amp;#65292;&amp;#35753;&amp;#37197;&amp;#32622;&amp;#24320;&amp;#21457;&amp;#29615;&amp;#22659;&amp;#26356;&amp;#23481;&amp;#26131;&amp;#12290;&amp;#19968;&amp;#20010;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#20351;&amp;#29992;&amp;#26696;&amp;#20363;&amp;#23601;&amp;#26159;&amp;#36890;&amp;#36807;vagrant&amp;#23553;&amp;#35013;&amp;#19968;&amp;#20010;Linux&amp;#24320;&amp;#21457;&amp;#29615;&amp;#22659;&amp;#65292;&amp;#20998;&amp;#21457;&amp;#32473;&amp;#22242;&amp;#38431;&amp;#25104;&amp;#21592;&amp;#12290;&amp;#32780;&amp;#27599;&amp;#20010;&amp;#20154;&amp;#37117;&amp;#21487;&amp;#20197;&amp;#22312;&amp;#33258;&amp;#24049;&amp;#21916;&amp;#27426;&amp;#30340;&amp;#26700;&amp;#38754;&amp;#31995;&amp;#32479;(Mac/Win/Linux)&amp;#19978;&amp;#24320;&amp;#21457;&amp;#31243;&amp;#24207;&amp;#65292;&amp;#20195;&amp;#30721;&amp;#21364;&amp;#33021;&amp;#22312;&amp;#23553;&amp;#35013;&amp;#22909;&amp;#30340;&amp;#29615;&amp;#22659;&amp;#37324;&amp;#36816;&amp;#34892;&amp;#12290;&amp;#24471;&amp;#30410;&amp;#20110;&amp;#19979;&amp;#38754;&amp;#20960;&amp;#20010;&amp;#29305;&amp;#28857;&amp;#65292;Vagrant&amp;#23558;&amp;#26497;&amp;#22823;&amp;#25913;&amp;#21464;&amp;#25105;&amp;#20204;&amp;#30340;&amp;#24037;&amp;#20316;&amp;#27969;&amp;#31243;&amp;#12290;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#24555;&amp;#36895;&amp;#23433;&amp;#35013;&lt;/p&gt;
+
+&lt;p&gt;&amp;#19979;&amp;#36733;&amp;#21644;&amp;#23433;&amp;#35013;Vagrant&amp;#38750;&amp;#24120;&amp;#24555;&amp;#65292;&amp;#26080;&amp;#35770;&amp;#26159;&amp;#22312;MacOS X&amp;#65292; Windows&amp;#25110;&amp;#32773;&amp;#20854;&amp;#20182;&amp;#27969;&amp;#34892;&amp;#30340;Linux&amp;#21457;&amp;#34892;&amp;#29256;&amp;#65292;&amp;#20165;&amp;#38656;&amp;#25968;&amp;#20998;&amp;#38047;&amp;#26102;&amp;#38388;&amp;#12290;&amp;#27809;&amp;#26377;&amp;#22797;&amp;#26434;&amp;#30340;&amp;#23433;&amp;#35013;&amp;#36807;&amp;#31243;&amp;#65292;&amp;#20165;&amp;#20165;&amp;#26159;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#20351;&amp;#29992;&amp;#31995;&amp;#32479;&amp;#26631;&amp;#20934;&amp;#23433;&amp;#35013;&amp;#24037;&amp;#20855;&amp;#12290;&amp;#24555;&amp;#36895;&amp;#32780;&amp;#19988;&amp;#36328;&amp;#24179;&amp;#21488;&amp;#12290;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#26497;&amp;#31616;&amp;#37197;&amp;#32622;&lt;/p&gt;
+
+&lt;p&gt;Vagrant&amp;#39033;&amp;#30446;&amp;#21807;&amp;#19968;&amp;#37197;&amp;#32622;&amp;#25991;&amp;#20214;Vagrantfile&amp;#25551;&amp;#36848;&amp;#38656;&amp;#35201;&amp;#30340;&amp;#26426;&amp;#22120;&amp;#31867;&amp;#22411;&amp;#65292;&amp;#38656;&amp;#35201;&amp;#23433;&amp;#35013;&amp;#30340;&amp;#36719;&amp;#20214;&amp;#20197;&amp;#21450;&amp;#22914;&amp;#20309;&amp;#35775;&amp;#38382;&amp;#35813;&amp;#26426;&amp;#22120;&amp;#31561;&amp;#12290;&amp;#25903;&amp;#25345;Puppet , Chef, Shell&amp;#31561;&amp;#37197;&amp;#32622;&amp;#31649;&amp;#29702;&amp;#24037;&amp;#20855;&amp;#65292;&amp;#28165;&amp;#21333;&amp;#25991;&amp;#20214;&amp;#21487;&amp;#36890;&amp;#36807;&amp;#21516;&amp;#27493;&amp;#30446;&amp;#24405;&amp;#23454;&amp;#29616;&amp;#12290;&amp;#22522;&amp;#30784;&amp;#35774;&amp;#26045;&amp;#21363;&amp;#20195;&amp;#30721;&amp;#12290;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;#24037;&amp;#20316;&amp;#31616;&amp;#21333;&lt;/p&gt;
+
+&lt;p&gt;&amp;#36816;&amp;#34892;&amp;#21629;&amp;#20196;&amp;rdquo;vagrant up"&amp;#21363;&amp;#21487;&amp;#21551;&amp;#21160;&amp;#26426;&amp;#22120;&amp;#65292;vagrant&amp;#20250;&amp;#23558;&amp;#25152;&amp;#26377;&amp;#37197;&amp;#32622;&amp;#32452;&amp;#21512;&amp;#23436;&amp;#25104;&amp;#23436;&amp;#25972;&amp;#24320;&amp;#21457;&amp;#29615;&amp;#22659;&amp;#37197;&amp;#32622;&amp;#12290;&amp;rdquo;&amp;#20195;&amp;#30721;&amp;#22312;&amp;#25105;&amp;#26426;&amp;#23376;&amp;#19978;&amp;#36816;&amp;#34892;&amp;#27809;&amp;#26377;&amp;#38382;&amp;#39064;&amp;rdquo;&amp;#36825;&amp;#31181;&amp;#35828;&amp;#36766;&amp;#23558;&amp;#25104;&amp;#20026;&amp;#21382;&amp;#21490;&amp;#65292;&amp;#22240;&amp;#20026;vagrant&amp;#20026;&amp;#22242;&amp;#38431;&amp;#20013;&amp;#27599;&amp;#20010;&amp;#20154;&amp;#21019;&amp;#24314;&amp;#20102;&amp;#32479;&amp;#19968;&amp;#24320;&amp;#21457;&amp;#29615;&amp;#22659;&amp;#12290;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/devops/getting-started-with-vagrant-coreos-docker" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/devops/the-way-to-deploy"&gt;The Way To Deploy&lt;/a&gt; &lt;span class="date pull-right"&gt;2014-04-01&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;p&gt;&amp;#36825;&amp;#37096;&amp;#20998;&amp;#30340;&amp;#25991;&amp;#31456;&amp;#20027;&amp;#35201;&amp;#32842;&amp;#32842;&amp;#37096;&amp;#32626;&amp;#65292;&amp;#20316;&amp;#20026;&amp;#20132;&amp;#20184;&amp;#30340;&amp;#37325;&amp;#35201;&amp;#29615;&amp;#33410;&amp;#65292;&amp;#33258;&amp;#21160;&amp;#21270;&amp;#37096;&amp;#32626;&amp;#19968;&amp;#30452;&amp;#26159;&amp;#25345;&amp;#32493;&amp;#20132;&amp;#20184;&amp;#30340;&amp;#26680;&amp;#24515;&amp;#12290;&lt;/p&gt;
+
+&lt;h2 id="toc_0"&gt;Part I: Brief Introduction To Deploy&lt;/h2&gt;
+
+&lt;h3 id="toc_1"&gt;&amp;#37096;&amp;#32626;&amp;#30340;&amp;#24120;&amp;#35265;&amp;#26041;&amp;#24335;&lt;/h3&gt;
+
+&lt;p&gt;&amp;#33258;&amp;#21160;&amp;#21270;&amp;#37096;&amp;#32626;&amp;#20027;&amp;#35201;&amp;#20998;&amp;#20004;&amp;#20010;&amp;#38454;&amp;#27573;&amp;#65306;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&amp;#20195;&amp;#30721;&amp;#20998;&amp;#21457;&lt;/li&gt;
+&lt;li&gt;&amp;#37197;&amp;#32622;&amp;#31649;&amp;#29702;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#19979;&amp;#38754;&amp;#26469;&amp;#20855;&amp;#20307;&amp;#30475;&amp;#30475;&amp;#36825;&amp;#20123;&amp;#38454;&amp;#27573;&amp;#20351;&amp;#29992;&amp;#30340;&amp;#24120;&amp;#35265;&amp;#26041;&amp;#24335;&amp;#12290;&lt;/p&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/devops/the-way-to-deploy" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/puppet/sildes-about-puppet-and-mcollective"&gt;Sildes About Puppet And MCollective&lt;/a&gt; &lt;span class="date pull-right"&gt;2014-03-21&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary"&gt;
+&lt;h2 id="toc_0"&gt;&amp;#24037;&amp;#20855;&amp;#22522;&amp;#26412;&amp;#20171;&amp;#32461;&lt;/h2&gt;
+
+&lt;hr&gt;
+&lt;div&gt;
+    &lt;ul&gt;
+&lt;p&gt;&amp;#36825;&amp;#20004;&amp;#20010;Slides&amp;#20027;&amp;#35201;&amp;#20171;&amp;#32461;&amp;#20102;Puppet&amp;#21644;MCollective&amp;#30340;&amp;#27010;&amp;#35980;&amp;#65292;&amp;#20837;&amp;#38376;&amp;#32423;&amp;#20171;&amp;#32461;&amp;#65292;&amp;#21487;&amp;#20197;&amp;#20102;&amp;#35299;&amp;#36825;&amp;#20004;&amp;#20010;&amp;#24037;&amp;#20855;&amp;#30340;&amp;#32972;&amp;#26223;&amp;#65292;&amp;#26159;&amp;#20160;&amp;#20040;&amp;#20197;&amp;#21450;&amp;#29305;&amp;#28857;&amp;#21644;&amp;#20351;&amp;#29992;&amp;#31561;&amp;#12290;&lt;/p&gt;
+    &lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/assets/media/pdf/introduction-to-puppet.pdf"&gt;&lt;img src="/assets/media/pdf/attach.png"&gt;Puppet&amp;#31616;&amp;#20171;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/assets/media/pdf/introduction-to-mcollective.pdf"&gt;&lt;img src="/assets/media/pdf/attach.png"&gt;MCollective&amp;#31616;&amp;#20171;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/puppet/sildes-about-puppet-and-mcollective" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/linux/troubleshooting-5minutes"&gt;Troubleshooting 5minutes&lt;/a&gt; &lt;span class="date pull-right"&gt;2013-10-23&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h2 id="toc_0"&gt;&amp;#25925;&amp;#38556;&amp;#25490;&amp;#38500;&amp;#30340;&amp;#31532;&amp;#19968;&amp;#20010;&amp;#20116;&amp;#20998;&amp;#38047;&lt;/h2&gt;
+
+&lt;p&gt;&amp;#22312;&amp;#22788;&amp;#29702;&amp;#26085;&amp;#24120;&amp;#36816;&amp;#32500;&amp;#12289;&amp;#20248;&amp;#21270;&amp;#21644;&amp;#25193;&amp;#23637;&amp;#24615;&amp;#38382;&amp;#39064;&amp;#30340;&amp;#26102;&amp;#20505;,&amp;#32463;&amp;#24120;&amp;#30896;&amp;#21040;&amp;#20102;&amp;#21508;&amp;#31181;&amp;#19981;&amp;#21516;&amp;#35268;&amp;#27169;&amp;#30340;&amp;#24615;&amp;#33021;&amp;#24456;&amp;#24046;&amp;#30340;&amp;#31995; &amp;#32479;&amp;#21644;&amp;#22522;&amp;#30784;&amp;#35774;&amp;#26045;(&amp;#36890;&amp;#24120;&amp;#26159;&amp;#22823;&amp;#35268;&amp;#27169;&amp;#30340;,&amp;#27604;&amp;#22914; CNN &amp;#25110;&amp;#32773;&amp;#19990;&amp;#30028;&amp;#38134;&amp;#34892;&amp;#30340;&amp;#31995;&amp;#32479;)&amp;#12290;&amp;#20877;&amp;#21152;&amp;#19978;&amp;#20462;&amp;#22797;&amp;#26102;&amp;#38388;&amp;#32039;&amp;#36843;&amp;#12289; &amp;#22855;&amp;#33897;&amp;#30340;&amp;#25216;&amp;#26415;&amp;#24179;&amp;#21488;&amp;#12289;&amp;#32570;&amp;#23569;&amp;#20449;&amp;#24687;&amp;#21644;&amp;#25991;&amp;#26723;,&amp;#22522;&amp;#26412;&amp;#19978;&amp;#36825;&amp;#36807;&amp;#31243;&amp;#37117;&amp;#20250;&amp;#24808;&amp;#30171;&amp;#21040;&amp;#35753;&amp;#25105;&amp;#20204;&amp;#30041;&amp;#19979;&amp;#28145;&amp;#21051;&amp;#30340;&amp;#35760;&amp;#24518;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#36896;&amp;#25104;&amp;#25925;&amp;#38556;&amp;#30340;&amp;#21407;&amp;#22240;&amp;#22823;&amp;#22810;&amp;#25968;&amp;#24773;&amp;#20917;&amp;#26159;&amp;#19981;&amp;#26126;&amp;#26174;&amp;#30340;:&amp;#36825;&amp;#37324;&amp;#26377;&amp;#19968;&amp;#20123;&amp;#25105;&amp;#20204;&amp;#36890;&amp;#24120;&amp;#24320;&amp;#22987;&amp;#20570;&amp;#30340;&amp;#20107;&amp;#24773;&amp;#12290;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h4 id="toc_1"&gt;&amp;#33719;&amp;#21462;&amp;#19978;&amp;#19979;&amp;#25991;&amp;#20449;&amp;#24687;&lt;/h4&gt;
+
+&lt;p&gt;&amp;#19981;&amp;#35201;&amp;#24613;&amp;#20110;&amp;#21435;&amp;#26381;&amp;#21153;&amp;#22120;&amp;#25805;&amp;#20316;,&amp;#38656;&amp;#35201;&amp;#25630;&amp;#28165;&amp;#26970;&amp;#23545;&amp;#26381;&amp;#21153;&amp;#22120;&amp;#21644;&amp;#36825;&amp;#20010;&amp;#29305;&amp;#23450;&amp;#25925;&amp;#38556;&amp;#21040;&amp;#24213;&amp;#20102;&amp;#35299;&amp;#22810;&amp;#23569;&amp;#12290;&amp;#20320;&amp;#19981;&amp;#24076;&amp;#26395; &amp;#28010;&amp;#36153;&amp;#20320;&amp;#30340;&amp;#26102;&amp;#38388;&amp;#22312;&amp;#40657;&amp;#26263;&amp;#20013;&amp;#25490;&amp;#38500;(&amp;#25925;&amp;#38556;)&amp;#12290;
+&amp;#19968;&amp;#20123;&amp;ldquo;&amp;#24517;&amp;#39035;&amp;#20102;&amp;#35299;&amp;rdquo;&amp;#30340;&amp;#38382;&amp;#39064;:&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/linux/troubleshooting-5minutes" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/puppet/puppet-data-flow"&gt;Puppet Data Flow&lt;/a&gt; &lt;span class="date pull-right"&gt;2013-09-17&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h2 id="toc_0"&gt;Puppet&amp;#25968;&amp;#25454;&amp;#27969;&amp;#31243;&lt;/h2&gt;
+
+&lt;p&gt;&amp;#21069;&amp;#38754;&amp;#30340;&amp;#37096;&amp;#20998;&amp;#23545;Puppet&amp;#36827;&amp;#34892;&amp;#20102;&amp;#27010;&amp;#36848;&amp;#65292;&amp;#24182;&amp;#23545;Puppet&amp;#20869;&amp;#37096;&amp;#23454;&amp;#29616;&amp;#21407;&amp;#29702;&amp;#21644;&amp;#35748;&amp;#35777;&amp;#36807;&amp;#31243;&amp;#36827;&amp;#34892;&amp;#20102;&amp;#20171;&amp;#32461;&amp;#12290;&amp;#26412;&amp;#37096;&amp;#20998;&amp;#23558;&amp;#20027;&amp;#35201;&amp;#22260;&amp;#32469;puppet&amp;#25968;&amp;#25454;&amp;#27969;&amp;#31243;&amp;#36827;&amp;#34892;&amp;#20171;&amp;#32461;&amp;#65292;&amp;#35814;&amp;#32454;&amp;#25551;&amp;#36848;puppet&amp;#26159;&amp;#22914;&amp;#20309;&amp;#31649;&amp;#29702;&amp;#21333;&amp;#20010;&amp;#33410;&amp;#28857;&amp;#30340;&amp;#25968;&amp;#25454;&amp;#27969;&amp;#31243;&amp;#12290;&amp;#36825;&amp;#37096;&amp;#20998;&amp;#22312;&amp;#20043;&amp;#21069;&amp;#30340;&amp;#27010;&amp;#36848;&amp;#21644;&amp;#20869;&amp;#37096;&amp;#21407;&amp;#29702;&amp;#37117;&amp;#26377;&amp;#25152;&amp;#28041;&amp;#21450;&amp;#65292;&amp;#21333;&amp;#29420;&amp;#36873;&amp;#20986;&amp;#26469;&amp;#20316;&amp;#20026;&amp;#19968;&amp;#37096;&amp;#20998;&amp;#20171;&amp;#32461;&amp;#24076;&amp;#26395;&amp;#23545;&amp;#25968;&amp;#25454;&amp;#27969;&amp;#31243;&amp;#21644;&amp;#27969;&amp;#31243;&amp;#28041;&amp;#21450;&amp;#30340;&amp;#32452;&amp;#20214;&amp;#36827;&amp;#34892;&amp;#26356;&amp;#28145;&amp;#30340;&amp;#29702;&amp;#35299;&amp;#12290;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;p&gt;&amp;#39318;&amp;#20808;&amp;#22238;&amp;#39038;Puppet&amp;#26159;&amp;#22914;&amp;#20309;&amp;#24037;&amp;#20316;&amp;#65306;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/assets/media/puppet/internals.png" alt="puppet&amp;#25968;&amp;#25454;&amp;#27969;"&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;#23450;&amp;#20041;&amp;#65306;&amp;#37319;&amp;#29992;Puppet&amp;#30340;&amp;#25551;&amp;#36848;&amp;#24615;&amp;#35821;&amp;#35328;&amp;#65292;&amp;#20197;&amp;#21487;&amp;#37325;&amp;#29992;&amp;#30340;&amp;#27169;&amp;#22359;&amp;#24418;&amp;#24335;&amp;#26469;&amp;#23450;&amp;#20041;&amp;#36164;&amp;#28304;&amp;#21450;&amp;#36164;&amp;#28304;&amp;#38388;&amp;#20851;&amp;#31995;&amp;#30340;&amp;#22270;&amp;#12290;&amp;#36825;&amp;#20123;&amp;#27169;&amp;#22359;&amp;#23450;&amp;#20041;&amp;#22522;&amp;#30784;&amp;#35774;&amp;#26045;&amp;#30340;&amp;#39044;&amp;#26399;&amp;#29366;&amp;#24577;&amp;#12290;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#27169;&amp;#25311; : &amp;#26377;&amp;#20102;&amp;#36825;&amp;#20123;&amp;#36164;&amp;#28304;&amp;#21450;&amp;#20854;&amp;#20851;&amp;#31995;&amp;#22270;&amp;#65292;Puppet&amp;#33021;&amp;#22815;&amp;#27169;&amp;#25311;&amp;#37096;&amp;#32626;&amp;#29615;&amp;#22659;&amp;#65292;&amp;#35753;&amp;#20320;&amp;#22312;&amp;#19981;&amp;#24433;&amp;#21709;&amp;#22522;&amp;#30784;&amp;#35774;&amp;#26045;&amp;#30340;&amp;#21069;&amp;#25552;&amp;#19979;&amp;#27979;&amp;#35797;&amp;#20320;&amp;#30340;&amp;#25913;&amp;#21464;&amp;#12290;&amp;#20351;&amp;#29992;noop&amp;#21442;&amp;#25968;&amp;#25110;&amp;#32773;&amp;#22810;&amp;#29615;&amp;#22659;&amp;#31561;&amp;#23454;&amp;#29616;&amp;#12290;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#25191;&amp;#34892; : puppet&amp;#27604;&amp;#36739;&amp;#20320;&amp;#30340;&amp;#31995;&amp;#32479;&amp;#21644;&amp;#23450;&amp;#20041;&amp;#30340;&amp;#39044;&amp;#26399;&amp;#29366;&amp;#24577;&amp;#65292;&amp;#28982;&amp;#21518;&amp;#33258;&amp;#21160;&amp;#22320;&amp;#20351;&amp;#20320;&amp;#30340;&amp;#31995;&amp;#32479;&amp;#31526;&amp;#21512;&amp;#23450;&amp;#20041;&amp;#30340;&amp;#39044;&amp;#26399;&amp;#29366;&amp;#24577;&amp;#12290;&amp;#36825;&amp;#20010;&amp;#36807;&amp;#31243;&amp;#26159;&amp;#30456;&amp;#23545;&amp;#36879;&amp;#26126;&amp;#30340;&amp;#36807;&amp;#31243;&amp;#12290;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#25253;&amp;#21578; : Puppet Dashboard&amp;#23637;&amp;#31034;&amp;#25910;&amp;#38598;&amp;#21040;&amp;#30340;&amp;#32452;&amp;#20214;&amp;#20851;&amp;#31995;&amp;#21644;&amp;#25152;&amp;#26377;&amp;#30340;&amp;#25913;&amp;#21464;&amp;#65292;&amp;#24182;&amp;#25552;&amp;#20379;&amp;#23433;&amp;#20840;&amp;#21644;&amp;#25480;&amp;#26435;&amp;#25514;&amp;#26045;&amp;#26597;&amp;#30475;&amp;#12290;&amp;#27492;&amp;#22806;Puppet&amp;#20063;&amp;#25552;&amp;#20379;&amp;#26377;&amp;#24320;&amp;#25918;API&amp;#20197;&amp;#32467;&amp;#21512;&amp;#31532;&amp;#19977;&amp;#26041;&amp;#30417;&amp;#25511;&amp;#24037;&amp;#20855;&amp;#20351;&amp;#29992;&amp;#12290;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/puppet/puppet-data-flow" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/zabbix/zabbix-performance-tunning"&gt;Zabbix Performance Tunning&lt;/a&gt; &lt;span class="date pull-right"&gt;2013-07-01&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h2 id="toc_0"&gt;Zabbix&amp;#39640;&amp;#24615;&amp;#33021;&lt;/h2&gt;
+
+&lt;p&gt;&amp;#36825;&amp;#31687;&amp;#25991;&amp;#31456;&amp;#20027;&amp;#35201;&amp;#26159;&amp;#30001;&amp;#22810;&amp;#31687;&amp;#25991;&amp;#31456;&amp;#25972;&amp;#29702;&amp;#32780;&amp;#25104;&amp;#12290;&amp;#21253;&amp;#25324;&amp;#36807;&amp;#21435;&amp;#24456;&amp;#22810;&amp;#20154;&amp;#20351;&amp;#29992;&amp;#24635;&amp;#32467;&amp;#20986;&amp;#26469;&amp;#30340;&amp;#32463;&amp;#39564;&amp;#20197;&amp;#21450;&amp;#34917;&amp;#20805;&amp;#19968;&amp;#20123;&amp;#23448;&amp;#26041;&amp;#21338;&amp;#23458;&amp;#20851;&amp;#20110;&amp;#21407;&amp;#29702;&amp;#24615;&amp;#30340;&amp;#20171;&amp;#32461;&amp;#12290;&amp;#21253;&amp;#25324;&amp;#24615;&amp;#33021;&amp;#25351;&amp;#26631;&amp;#65292;&amp;#24615;&amp;#33021;&amp;#20248;&amp;#21270;&amp;#21644;&amp;#20855;&amp;#20307;&amp;#20248;&amp;#21270;&amp;#31574;&amp;#30053;&amp;#31561;&amp;#20869;&amp;#23481;&amp;#12290;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h4 id="toc_1"&gt;&amp;#24615;&amp;#33021;&amp;#27010;&amp;#36848;&lt;/h4&gt;
+
+&lt;h5 id="toc_2"&gt;&amp;#24615;&amp;#33021;&amp;#25351;&amp;#26631;&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;#25351;&amp;#26631;&amp;#19968;:NVPS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;NVPS--&amp;#36890;&amp;#36807;Zabbix&amp;#30340;NVPS(&amp;#27599;&amp;#31186;&amp;#22788;&amp;#29702;&amp;#25968;&amp;#20540;&amp;#25968;)&amp;#26469;&amp;#34913;&amp;#37327;&amp;#20854;&amp;#24615;&amp;#33021;&amp;#12290; &amp;#22312;Zabbix&amp;#30340;dashboard&amp;#19978;&amp;#26377;&amp;#19968;&amp;#20010;&amp;#31895;&amp;#30053;&amp;#30340;&amp;#20272;&amp;#20540;&amp;#12290;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/zabbix/zabbix-performance-tunning" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/python/decorators-and-functional-python"&gt;Decorators And Functional Python&lt;/a&gt; &lt;span class="date pull-right"&gt;2013-06-28&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h2 id="toc_0"&gt;Python&amp;#35013;&amp;#39280;&amp;#22120;&amp;#21644;&amp;#20989;&amp;#25968;&amp;#24335;&amp;#32534;&amp;#31243;[&amp;#35793;&amp;#25991;]&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="http://www.brianholdefehr.com/decorators-and-functional-python"&gt;&amp;#21407;&amp;#25991;&amp;#21442;&amp;#32771;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;#35013;&amp;#39280;&amp;#22120;&amp;#26159;Python&amp;#37325;&amp;#35201;&amp;#29305;&amp;#24615;&amp;#20043;&amp;#19968;&amp;#12290;&amp;#23427;&amp;#19981;&amp;#20165;&amp;#26159;&amp;#35821;&amp;#35328;&amp;#30340;&amp;#22266;&amp;#26377;&amp;#26377;&amp;#29992;&amp;#29305;&amp;#24615;&amp;#65292;&amp;#20063;&amp;#25945;&amp;#20250;&amp;#20102;&amp;#25105;&amp;#20204;&amp;#20197;&amp;#19968;&amp;#31181;&amp;#26377;&amp;#36259;&amp;#30340;&amp;#26041;&amp;#24335;--&amp;#20989;&amp;#25968;&amp;#24335;&amp;#26041;&amp;#24335;&amp;#26469;&amp;#24605;&amp;#32771;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#25105;&amp;#23558;&amp;#23581;&amp;#35797;&amp;#20174;&amp;#24213;&amp;#23618;&amp;#21407;&amp;#29702;&amp;#35299;&amp;#37322;&amp;#35013;&amp;#39280;&amp;#22120;&amp;#30340;&amp;#24037;&amp;#20316;&amp;#21407;&amp;#29702;&amp;#12290;&amp;#20026;&amp;#20102;&amp;#29702;&amp;#35299;&amp;#35013;&amp;#39280;&amp;#22120;&amp;#25105;&amp;#20204;&amp;#23558;&amp;#20174;&amp;#20960;&amp;#20010;&amp;#24120;&amp;#35265;&amp;#20027;&amp;#39064;&amp;#24320;&amp;#22987;&amp;#12290;&amp;#22312;&amp;#27492;&amp;#20043;&amp;#21518;&amp;#65292;&amp;#25105;&amp;#20204;&amp;#23558;&amp;#20250;&amp;#28145;&amp;#20837;&amp;#25506;&amp;#35752;&amp;#20960;&amp;#20010;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#35013;&amp;#39280;&amp;#22120;&amp;#20197;&amp;#21450;&amp;#23427;&amp;#20204;&amp;#22914;&amp;#20309;&amp;#24037;&amp;#20316;&amp;#12290;&amp;#26368;&amp;#21518;&amp;#65292;&amp;#23558;&amp;#35752;&amp;#35770;&amp;#19968;&amp;#20123;&amp;#20351;&amp;#29992;&amp;#35013;&amp;#39280;&amp;#22120;&amp;#30340;&amp;#26356;&amp;#39640;&amp;#32423;&amp;#26041;&amp;#24335;&amp;#65292;&amp;#20363;&amp;#22914;&amp;#20256;&amp;#36882;&amp;#21487;&amp;#36873;&amp;#21442;&amp;#25968;&amp;#25110;&amp;#32773;&amp;#20018;&amp;#32852;&amp;#21270;&amp;#20351;&amp;#29992;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#39318;&amp;#20808;&amp;#65292;&amp;#25105;&amp;#20204;&amp;#26469;&amp;#20197;&amp;#25105;&amp;#35748;&amp;#20026;&amp;#26368;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#26041;&amp;#24335;&amp;#26469;&amp;#23450;&amp;#20041;&amp;#19968;&amp;#20010;Python&amp;#20989;&amp;#25968;&amp;#12290;&amp;#20174;&amp;#36825;&amp;#20010;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#23450;&amp;#20041;&amp;#24320;&amp;#22987;&amp;#65292;&amp;#25105;&amp;#20204;&amp;#33021;&amp;#22815;&amp;#20197;&amp;#31867;&amp;#20284;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#26041;&amp;#24335;&amp;#26469;&amp;#23450;&amp;#20041;&amp;#35013;&amp;#39280;&amp;#22120;&amp;#12290;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;#20989;&amp;#25968;&amp;#26159;&amp;#19968;&amp;#20010;&amp;#25191;&amp;#34892;&amp;#29305;&amp;#23450;&amp;#21151;&amp;#33021;&amp;#30340;&amp;#21487;&amp;#22797;&amp;#29992;&amp;#30340;&amp;#20195;&amp;#30721;&amp;#22359;&amp;#12290;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/python/decorators-and-functional-python" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/puppet/introduction-to-puppet"&gt;Introduction To Puppet&lt;/a&gt; &lt;span class="date pull-right"&gt;2013-06-18&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h2 id="toc_0"&gt;Puppet-&amp;#12298;&amp;#24320;&amp;#28304;&amp;#36719;&amp;#20214;&amp;#26550;&amp;#26500;&amp;#12299;&amp;#32763;&amp;#35793;&lt;/h2&gt;
+
+&lt;hr&gt;
+&lt;h4 id="toc_1"&gt;&amp;#20171;&amp;#32461;&lt;/h4&gt;
+
+&lt;p&gt;Puppet&amp;#26159;&amp;#19968;&amp;#20010;&amp;#37319;&amp;#29992;Ruby&amp;#32534;&amp;#20889;&amp;#30340;&amp;#24320;&amp;#28304;IT&amp;#31649;&amp;#29702;&amp;#24037;&amp;#20855;&amp;#65292;&amp;#22312;Google&amp;#65292;Twitter&amp;#21644;&amp;#32445;&amp;#20132;&amp;#25152;&amp;#31561;&amp;#24456;&amp;#22810;&amp;#20844;&amp;#21496;&amp;#20013;&amp;#20316;&amp;#20026;&amp;#25968;&amp;#25454;&amp;#20013;&amp;#24515;&amp;#33258;&amp;#21160;&amp;#21270;&amp;#21644;&amp;#26381;&amp;#21153;&amp;#22120;&amp;#31649;&amp;#29702;&amp;#24037;&amp;#20855;&amp;#20351;&amp;#29992;&amp;#12290;&amp;#23427;&amp;#20027;&amp;#35201;&amp;#30001;&amp;#21019;&amp;#24314;&amp;#27492;&amp;#39033;&amp;#30446;&amp;#30340;Puppet Labs&amp;#32500;&amp;#25252;&amp;#12290;&amp;#30001;&amp;#19968;&amp;#20010;&amp;#25110;&amp;#32773;&amp;#25968;&amp;#30334;&amp;#31995;&amp;#32479;&amp;#31649;&amp;#29702;&amp;#21592;&amp;#25805;&amp;#20316;&amp;#30340;Puppet&amp;#33021;&amp;#22815;&amp;#31649;&amp;#29702;&amp;#23567;&amp;#33267;2&amp;#21488;&amp;#22823;&amp;#33267;50000&amp;#21488;&amp;#36825;&amp;#26679;&amp;#22823;&amp;#35268;&amp;#27169;&amp;#30340;&amp;#26426;&amp;#22120;&amp;#38598;&amp;#32676;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;Puppet&amp;#26159;&amp;#19968;&amp;#20010;&amp;#37197;&amp;#32622;&amp;#24182;&amp;#32500;&amp;#25252;&amp;#20320;&amp;#30340;&amp;#35745;&amp;#31639;&amp;#26426;&amp;#30340;&amp;#24037;&amp;#20855;&amp;#65307;&amp;#20351;&amp;#29992;&amp;#23427;&amp;#31616;&amp;#21333;&amp;#30340;&amp;#37197;&amp;#32622;&amp;#35821;&amp;#35328;&amp;#65292;&amp;#20320;&amp;#21521;Puppet&amp;#35299;&amp;#37322;&amp;#20320;&amp;#25152;&amp;#24076;&amp;#26395;&amp;#30340;&amp;#26426;&amp;#22120;&amp;#37197;&amp;#32622;&amp;#21442;&amp;#25968;&amp;#65292;&amp;#28982;&amp;#21518;&amp;#23427;&amp;#23558;&amp;#26681;&amp;#25454;&amp;#38656;&amp;#35201;&amp;#26356;&amp;#25913;&amp;#37197;&amp;#32622;&amp;#26469;&amp;#21305;&amp;#37197;&amp;#20320;&amp;#30340;&amp;#35201;&amp;#27714;&amp;#12290;&amp;#22914;&amp;#26524;&amp;#20320;&amp;#30340;&amp;#35268;&amp;#26684;&amp;#26377;&amp;#25152;&amp;#21464;&amp;#21270;&amp;#65292;&amp;#27604;&amp;#22914;&amp;#21253;&amp;#26356;&amp;#26032;&amp;#65292;&amp;#28155;&amp;#21152;&amp;#26032;&amp;#29992;&amp;#25143;&amp;#25110;&amp;#32773;&amp;#26356;&amp;#26032;&amp;#37197;&amp;#32622;-Puppet&amp;#23558;&amp;#33258;&amp;#21160;&amp;#26356;&amp;#26032;&amp;#20320;&amp;#30340;&amp;#26426;&amp;#22120;&amp;#26469;&amp;#21305;&amp;#37197;&amp;#12290;&amp;#22914;&amp;#26524;&amp;#20182;&amp;#20204;&amp;#24050;&amp;#32463;&amp;#25353;&amp;#29031;&amp;#38656;&amp;#35201;&amp;#37197;&amp;#32622;&amp;#65292;&amp;#37027;&amp;#20040;Puppet&amp;#23601;&amp;#20250;&amp;#20160;&amp;#20040;&amp;#20063;&amp;#19981;&amp;#20570;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#36890;&amp;#24120;&amp;#24773;&amp;#20917;&amp;#19979;&amp;#65292;Puppet&amp;#23558;&amp;#20250;&amp;#20805;&amp;#20998;&amp;#21033;&amp;#29992;&amp;#24050;&amp;#26377;&amp;#30340;&amp;#31995;&amp;#32479;&amp;#29305;&amp;#24615;&amp;#26469;&amp;#23436;&amp;#25104;&amp;#23427;&amp;#30340;&amp;#24037;&amp;#20316;&amp;#65307;&amp;#27604;&amp;#22914;&amp;#65292;&amp;#22312;Red Hat&amp;#19978;&amp;#23427;&amp;#23558;&amp;#20250;&amp;#29992;yum&amp;#36827;&amp;#34892;&amp;#21253;&amp;#31649;&amp;#29702;&amp;#32780;&amp;#29992;init.d&amp;#36827;&amp;#34892;&amp;#26381;&amp;#21153;&amp;#31649;&amp;#29702;&amp;#65292;&amp;#20294;&amp;#26159;&amp;#22312;OS X&amp;#19978;&amp;#23427;&amp;#20250;&amp;#20351;&amp;#29992;dmg&amp;#36827;&amp;#34892;&amp;#21253;&amp;#31649;&amp;#29702;&amp;#32780;&amp;#29992;launchd&amp;#36827;&amp;#34892;&amp;#26381;&amp;#21153;&amp;#31649;&amp;#29702;&amp;#12290;Puppet&amp;#30340;&amp;#25351;&amp;#23548;&amp;#30446;&amp;#26631;&amp;#20043;&amp;#19968;&amp;#23601;&amp;#26159;&amp;#35753;&amp;#20320;&amp;#26080;&amp;#35770;&amp;#22312;&amp;#26597;&amp;#30475;Puppet&amp;#20195;&amp;#30721;&amp;#25110;&amp;#32773;&amp;#26159;&amp;#31995;&amp;#32479;&amp;#26412;&amp;#36523;&amp;#26102;&amp;#37117;&amp;#35753;&amp;#23427;&amp;#30340;&amp;#24037;&amp;#20316;&amp;#26377;&amp;#24847;&amp;#20041;&amp;#65292;&amp;#22240;&amp;#27492;&amp;#31526;&amp;#21512;&amp;#31995;&amp;#32479;&amp;#26631;&amp;#20934;&amp;#33267;&amp;#20851;&amp;#37325;&amp;#35201;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;Puppet&amp;#26469;&amp;#28304;&amp;#20110;&amp;#20854;&amp;#20182;&amp;#22810;&amp;#20010;&amp;#20256;&amp;#32479;&amp;#24037;&amp;#20855;&amp;#12290;&amp;#22312;&amp;#24320;&amp;#28304;&amp;#19990;&amp;#30028;&amp;#37324;&amp;#65292;&amp;#23427;&amp;#21463;&amp;#21040;CFEngine&amp;#20197;&amp;#21450;ISconf&amp;#24433;&amp;#21709;&amp;#26368;&amp;#22810;&amp;#12290;&amp;#21069;&amp;#32773;&amp;#26159;&amp;#31532;&amp;#19968;&amp;#20010;&amp;#24320;&amp;#28304;&amp;#36890;&amp;#29992;&amp;#37197;&amp;#32622;&amp;#24037;&amp;#20855;&amp;#65292;&amp;#21518;&amp;#32773;&amp;#20351;&amp;#29992;make&amp;#26469;&amp;#20570;&amp;#19968;&amp;#20999;&amp;#24037;&amp;#20316;&amp;#65292;&amp;#32780;&amp;#36825;&amp;#40723;&amp;#21169;&amp;#20154;&amp;#20204;&amp;#20851;&amp;#27880;&amp;#25972;&amp;#20010;&amp;#31995;&amp;#32479;&amp;#20013;&amp;#26126;&amp;#30830;&amp;#30340;&amp;#20381;&amp;#36182;&amp;#20851;&amp;#31995;&amp;#12290;&amp;#22312;&amp;#21830;&amp;#19994;&amp;#19990;&amp;#30028;&amp;#37324;&amp;#65292;Puppet&amp;#26159;&amp;#23545;Bladelogic&amp;#21644;Opsware&amp;#65288;&amp;#20043;&amp;#21518;&amp;#37117;&amp;#34987;&amp;#22823;&amp;#20844;&amp;#21496;&amp;#25910;&amp;#36141;&amp;#65289;&amp;#30340;&amp;#22238;&amp;#24212;&amp;#65292;&amp;#23427;&amp;#20204;&amp;#22312;Puppet&amp;#35806;&amp;#29983;&amp;#20043;&amp;#26102;&amp;#23601;&amp;#24050;&amp;#32463;&amp;#38750;&amp;#24120;&amp;#25104;&amp;#21151;&amp;#65292;&amp;#20294;&amp;#26159;&amp;#23427;&amp;#20204;&amp;#37117;&amp;#19987;&amp;#27880;&amp;#20110;&amp;#21334;&amp;#32473;&amp;#22823;&amp;#20844;&amp;#21496;&amp;#30340;&amp;#31649;&amp;#29702;&amp;#23618;&amp;#32780;&amp;#19981;&amp;#26159;&amp;#30452;&amp;#25509;&amp;#20026;&amp;#31995;&amp;#32479;&amp;#31649;&amp;#29702;&amp;#21592;&amp;#25552;&amp;#20379;&amp;#20255;&amp;#22823;&amp;#30340;&amp;#24037;&amp;#20855;&amp;#12290;Puppet&amp;#26159;&amp;#20026;&amp;#20102;&amp;#35299;&amp;#20915;&amp;#36825;&amp;#20123;&amp;#24037;&amp;#20855;&amp;#31867;&amp;#20284;&amp;#30340;&amp;#38382;&amp;#39064;&amp;#65292;&amp;#20294;&amp;#26159;&amp;#21364;&amp;#19987;&amp;#27880;&amp;#20110;&amp;#19982;&amp;#21069;&amp;#20108;&amp;#32773;&amp;#23436;&amp;#20840;&amp;#19981;&amp;#21516;&amp;#30340;&amp;#29992;&amp;#25143;&amp;#12290;&lt;/p&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/puppet/introduction-to-puppet" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="post"&gt;
+  &lt;h2 class="title"&gt;&lt;a href="/mcollective/puppet-commander"&gt;Puppet Commander&lt;/a&gt; &lt;span class="date pull-right"&gt;2013-06-15&lt;/span&gt;&lt;/h2&gt;
+
+  &lt;div class="summary ellipsis"&gt;
+&lt;h2 id="toc_0"&gt;Puppet Commander&amp;#31616;&amp;#20171;&lt;/h2&gt;
+
+&lt;p&gt;Puppet Commander&amp;#35299;&amp;#20915;&amp;#20102;&amp;#21363;&amp;#20351;&amp;#22312;&amp;#20351;&amp;#29992;splay&amp;#26102;&amp;#65292;&amp;#26377;&amp;#26102;&amp;#20505;&amp;#20063;&amp;#20250;&amp;#26377;&amp;#22823;&amp;#37327;&amp;#30340;checkins&amp;#26469;hitting&amp;#20320;&amp;#30340;master&amp;#24182;&amp;#21487;&amp;#33021;overwhelming&amp;#23427;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#29702;&amp;#35770;&amp;#23601;&amp;#26159;&amp;#36890;&amp;#36807;&amp;#20351;&amp;#29992;&amp;#25511;&amp;#21046;puppetd&amp;#20195;&amp;#29702;&amp;#30340;&amp;#25191;&amp;#34892;&amp;#24773;&amp;#20917;&amp;#12290;Puppetd Agent&amp;#20195;&amp;#29702;&amp;#33021;&amp;#22815;&amp;#30693;&amp;#36947;&amp;#26377;&amp;#22810;&amp;#23569;&amp;#27491;&amp;#22312;&amp;#22312;&amp;#36816;&amp;#34892;&amp;#30340;&amp;#26426;&amp;#22120;&amp;#24182;&amp;#19988;&amp;#33021;&amp;#22815;&amp;#35843;&amp;#24230;&amp;#23433;&amp;#25490;&amp;#36825;&amp;#20123;&amp;#36816;&amp;#34892;&amp;#65292;&amp;#22240;&amp;#27492;&amp;#33021;&amp;#22815;&amp;#30830;&amp;#20445;&amp;#22312;&amp;#20219;&amp;#20309;&amp;#25351;&amp;#23450;&amp;#30340;&amp;#26102;&amp;#38388;&amp;#21487;&amp;#20197;&amp;#35843;&amp;#24230;&amp;#36816;&amp;#34892;&amp;#24403;&amp;#21069;&amp;#32473;&amp;#23450;&amp;#25968;&amp;#37327;&amp;#30340;&amp;#26426;&amp;#22120;&amp;#65292;&amp;#36825;&amp;#22312;&amp;#19968;&amp;#23450;&amp;#31243;&amp;#24230;&amp;#19978; &amp;#20250;&amp;#25552;&amp;#39640;&amp;#35745;&amp;#21010;master&amp;#30340;&amp;#24615;&amp;#33021;&amp;#12290;&amp;#20294;&amp;#26159;&amp;#36825;&amp;#22312;&amp;#25191;&amp;#34892;puppetd(test run&amp;#25110;&amp;#32773;&amp;#20854;&amp;#20182;&amp;#35268;&amp;#23450;&amp;#30340;&amp;#25191;&amp;#34892;)&amp;#24456;&amp;#32321;&amp;#24537;&amp;#26102;&amp;#20250;&amp;#26377;&amp;#21103;&amp;#20316;&amp;#29992;&amp;#12290;&amp;#32780;puppet commander&amp;#36825;&amp;#26102;&amp;#23601;&amp;#20250;&amp;#19981;&amp;#21435;&amp;#35843;&amp;#24230;&amp;#36825;&amp;#20123;&amp;#26426;&amp;#22120;&amp;#26469;&amp;#36816;&amp;#34892;&amp;#65292;&amp;#25511;&amp;#21046;&amp;#24182;&amp;#21457;&amp;#25191;&amp;#34892;&amp;#25968;&amp;#37327;&amp;#65292;&amp;#20351;&amp;#20320;master&amp;#30340;&amp;#36164;&amp;#28304;&amp;#31354;&amp;#38386;&amp;#20197;&amp;#20379;&amp;#21035;&amp;#30340;&amp;#20351;&amp;#29992;&amp;#12290;&lt;/p&gt;
+
+&lt;p&gt;&amp;#36825;&amp;#26159;&amp;#19968;&amp;#20010;&amp;#35843;&amp;#29992;puppetd&amp;#20195;&amp;#29702;&amp;#30340;&amp;#24037;&amp;#20855;&amp;#12290;&amp;#22312;puppetd&amp;#30340;&amp;#22522;&amp;#30784;&amp;#19978;&amp;#65292;&amp;#23427;&amp;#20027;&amp;#35201;&amp;#23454;&amp;#29616;&amp;#20102;&amp;#20004;&amp;#20010;&amp;#21151;&amp;#33021;&amp;#65306;-i/--interval,&amp;#35774;&amp;#32622;mcollective server&amp;#30340;puppetd&amp;#25191;&amp;#34892;&amp;#38388;&amp;#38548; -m &amp;#20801;&amp;#35768;&amp;#26368;&amp;#22823;&amp;#24182;&amp;#21457;&amp;#25191;&amp;#34892;&amp;#26426;&amp;#22120;&amp;#25968;&amp;#37327;&amp;#12290;&amp;#24403;&amp;#28982;&amp;#23427;&amp;#20063;&amp;#25903;&amp;#25345;MCO&amp;#24037;&amp;#20855;&amp;#25152;&amp;#26377;&amp;#21151;&amp;#33021;&amp;#65292;&amp;#27604;&amp;#22914;&amp;#25209;&amp;#37327;&amp;#25191;&amp;#34892;/&amp;#25209;&amp;#37327;&amp;#30561;&amp;#30496;&amp;#12289;&amp;#36807;&amp;#28388;&amp;#26426;&amp;#21046;&amp;#31561;&amp;#36825;&amp;#20123;&amp;#21151;&amp;#33021;&amp;#12290;&amp;#35813;&amp;#24037;&amp;#20855;&amp;#21629;&amp;#20196;&amp;#20351;&amp;#29992;&amp;#21069;&amp;#38656;&amp;#35201;&amp;#20572;&amp;#27490;&amp;#25152;&amp;#26377;mcolletive server&amp;#30340;puppet daemon&amp;#65292;&amp;#24182;start puppetmaster&amp;#12290;&lt;/p&gt;
+
+&lt;hr&gt;
+&lt;h4 id="toc_1"&gt;&amp;#23433;&amp;#35013;&lt;/h4&gt;
+
+&lt;p&gt;&amp;#26377;&amp;#20004;&amp;#31181;&amp;#23433;&amp;#35013;&amp;#26041;&amp;#24335;&amp;#65292;&amp;#20316;&amp;#20026;MCollective&amp;#23458;&amp;#25143;&amp;#31471;&amp;#20351;&amp;#29992; &amp;#21644;&amp;#20316;&amp;#20026;Daemon&amp;#20351;&amp;#29992;&amp;#12290;&amp;#23448;&amp;#32593;&amp;#19978;&amp;#20171;&amp;#32461;&amp;#26159;&amp;#20316;&amp;#20026;Daemon(puppetcommanderd)&amp;#20351;&amp;#29992;&amp;#65292;&amp;#25105;&amp;#23581;&amp;#35797;&amp;#20316;&amp;#20026;&amp;#23458;&amp;#25143;&amp;#31471;&amp;#31243;&amp;#24207;&amp;#20351;&amp;#29992;&amp;#27809;&amp;#26377;&amp;#38382;&amp;#39064;&amp;#65292;&amp;#38656;&amp;#35201;&amp;#36827;&amp;#19968;&amp;#27493;&amp;#23553;&amp;#35013;&amp;#12290;&lt;/p&gt;
+&lt;/div&gt;
+
+  &lt;div class="more"&gt;
+    &lt;a href="/mcollective/puppet-commander" class="btn btn-small"&gt;read more..&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="pagination"&gt;
+  &lt;ul&gt;
+      &lt;li class="active"&gt;&lt;a href="/"&gt;1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/2"&gt;2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/3"&gt;3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/4"&gt;4&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/5"&gt;5&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/6"&gt;6&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/7"&gt;7&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="/posts/index/8"&gt;8&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+  </channel>
+</rss>

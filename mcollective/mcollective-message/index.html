@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mcollective Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Mcollective Message </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-01-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h3 id="toc_0">消息流</h3>
+
+<ul>
+<li>消息流程</li>
+</ul>
+
+<p>下图展示了MCollective系统的基本消息流。MCollective通过广播范式进行请求分配。客户端发送消息然后广播给整个广播域的节点。</p>
+
+<p><img src="/assets/media/mcollective/mcollective-message.png" alt="图片"></p>
+
+<p>整个流程如下：</p>
+
+<p>步骤及描述</p>
+
+<pre><code>中间件收到由管理员工作站发送的请求消息。请求消息附带有过滤器指明符合具有内容为cluster=c的fact的机器应该执行请求消息中的操作
+中间件网络将该消息广播给所有节点。中间件网络可以是有位于多个地点、网络和数据中心的多台服务器
+每个节点收到该消息然后验证过滤器
+只有符合条件cluster=c的机器才会执行请求消息的操作并发送回复消息，根据中间件最后只有开始发送请求消息的工作站会收到回复消息
+</code></pre>
+
+<hr>
+
+<h3 id="toc_1">消息格式</h3>
+
+<p>中间件获取的消息试图包括所有mcollective作用需要的信息，并且也避免了中间件中可能的特殊功能。这使为其他中间件创建连接插件(connector plugins)变得更容易。</p>
+
+<p>目前消息编码和解码的功能由MCollective::Security::*中的类实现。将编码从安全插件中抽象出来的一个目标就是重构，这样在实现安全插件的时候只需要符合下面结构就可以。</p>
+
+<p>通常情况下，这些对于开发者是隐藏的，特别是使用SimpleRPC，如果想实现自己的安全或序列化插件就需要准确知道这些是怎样结合在一起。</p>
+
+<p><strong>发送给代理的请求</strong></p>
+
+<p><img src="/assets/media/mcollective/mcollective-request.png" alt="图片"></p>
+
+<ul>
+<li>:filter</li>
+</ul>
+
+<p>除非通过消息将节点信息发送给代理，否则过滤器会被所有节点用于过滤。所有类型的过滤器定义在MCollection::Optionparser类中。</p>
+
+<p>每个过滤器是个数组，而且你可已有多个过滤器，每种类型之间将是and的关系。</p>
+
+<pre><code>CF Class
+
+这将会应用配置管理系统中classes/recipes/cookbooks/roles内容并匹配。
+
+filter[&quot;cf_class&quot;] = [&quot;common::linux&quot;]
+
+Agent
+
+这将会匹配已有Agents列表
+
+filter[&quot;agents&quot;]=[&quot;packages&quot;]
+
+Facts
+
+因为facts都是key-value的形式，与前两种稍不同。这里需要创建嵌套的哈希
+
+filter[&quot;fact&quot;]=[{:fact=&gt;&quot;country&quot;,:value=&gt;&quot;/uk/&quot;}]
+
+1.1.0版本后支持更多的比较操作符：==，=～，&lt;=,&gt;=,&gt;&lt;和！=
+
+filter[&quot;fact&quot;] = [{:fact =&gt; &quot;country&quot;, :value =&gt; &quot;uk&quot;, :operator =&gt; &quot;==&quot;}]
+
+但是需要注意如果使用正则表达式匹配比较操作符同之前版本==一样，因为混合使用会有兼容性问题。
+
+Identity
+
+identity是守护进程server端配置文件中的配置选项，此选项是过滤server节点。许多主机可以有相同的identity,这仅仅是另一种过滤器而不是像hostname一样唯一标识主机。
+
+filter[&quot;idenity&quot;]=[&quot;foo.bar.com&quot;]
+</code></pre>
+
+<ul>
+<li>:senderid</li>
+</ul>
+
+<p>配置文件中配置选项identity的值，这应该是客户端配置文件的配置选项。表示发送请求的客户端。</p>
+
+<ul>
+<li>:msgtarget</li>
+</ul>
+
+<p>发送给中间件的消息的topic或者channel。这个在1.3.1版本之后不再包括在消息中了。</p>
+
+<ul>
+<li>:body</li>
+</ul>
+
+<p>body的内容随着选择来实现的安全提供者的不同而不同，PSK安全提供者将body编码为序列化的形式等待传输。</p>
+
+<p>这确保了端到端传输的多样化类型。其他安全提供者可能使用JSON,最后的解码依然由安全提供者实现所以这完全由提供者决定。</p>
+
+<p>就SimpleRPC而言，整个RPC请求和回复都会被放在消息的body部分。</p>
+
+<ul>
+<li>:hash</li>
+</ul>
+
+<p>这仅用于PSK提供者来，来指定安全提供者，所以是可选的。</p>
+
+<ul>
+<li>:msgtime</li>
+</ul>
+
+<p>消息发送时间，unix时间戳</p>
+
+<ul>
+<li>:ttl</li>
+</ul>
+
+<p>每个请求都会有TTL，消息超过这个时间就会被放弃</p>
+
+<ul>
+<li>:requestid</li>
+</ul>
+
+<p>每个发送的消息的唯一标识，回复消息会附加同样的ID用于验证</p>
+
+<p><strong>从代理的回复</strong></p>
+
+<p>回复同请求很类似，只有很少不同。</p>
+
+<p><img src="/assets/media/mcollective/mcollective-response.png" alt="图片"></p>
+
+<p>一旦改回复消息被创建，安全插件就会序列化该回复然后将其发送给connector，如果是使用PSK安全插件这通常会使用Marshal或Yaml这样的工具来序列化，当然这取决于你的安全插件。</p>
+
+<ul>
+<li>:senderagent</li>
+</ul>
+
+<p>发送回复的代理的名字</p>
+
+<ul>
+<li>:requestid</li>
+</ul>
+
+<p>这是请求中的需要回复的ID。代理一般不生成消息仅仅回复，所以它总是被提供。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/introduction-to-mcollective-doc" title="Introduction To MCollective Doc">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/use-subcollective" title="Use SubCollective">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

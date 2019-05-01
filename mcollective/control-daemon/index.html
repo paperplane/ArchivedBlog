@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Control Daemon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MCollective">
+    <meta name="description" content="DevOps">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Control Daemon </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-15</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+      <li>
+        <a href="/categories#Daemon-ref">Daemon <span>1</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">控制守护进程</h2>
+
+<p>在每个节点运行的守护进程保持着内部状态并且支持重新加载所有的代理，这些功能由工具mco controller提供。它负责在客户端与任意运行的守护进程交互。</p>
+
+<p>如果想重新加载所有代理而不重启守护进程，可以向该进程发送USR1信号。</p>
+
+<p>也可以发送USR2信号来循环日志级别的DEBUG到TATAL，仅仅不停发送信号然后查看日志。</p>
+
+<h4 id="toc_1">统计</h4>
+
+<p>这可以显示守护进程的基本统计数据</p>
+
+<pre><code>[root@master mcollective]# mco controller stats
+Determining the amount of hosts matching filter for 2 seconds .... 3
+                      master.example.com&gt; total=30, replies=29, valid=30, invalid=0, filtered=0, passed=30
+                      puppet.example.com&gt; total=8, replies=7, valid=8, invalid=0, filtered=0, passed=8
+                         web.example.com&gt; total=8, replies=7, valid=8, invalid=0, filtered=0, passed=8
+Finished processing 3 / 3 hosts in 66.16 ms
+</code></pre>
+
+<p>每个字段的含义分别如下：</p>
+
+<pre><code>统计    含义
+total   从中间件接收的消息总数
+replies 返回的回复
+valid   消息通过有效性检查
+invalid 消息未通过验证
+filtered    消息接收但因为过滤器而未回复数目
+</code></pre>
+
+<h4 id="toc_2">重新加载特定代理</h4>
+
+<p>这种情况时想加载某个代理而不重启整个守护进程，经常用于新添加某个代理。</p>
+
+<pre><code>[root@master mcollective]# mco controller reload_agent --arg rpcutil
+Determining the amount of hosts matching filter for 2 seconds .... 3
+
+                         web.example.com&gt; reloaded rpcutil agent
+                      puppet.example.com&gt; reloaded rpcutil agent
+                      master.example.com&gt; reloaded rpcutil agent
+
+Finished processing 3 / 3 hosts in 77.21 ms
+</code></pre>
+
+<h4 id="toc_3">重新加载所有代理</h4>
+
+<p>像之前一样，针对所有代理重新加载。这与向进程发送USR1信号一样</p>
+
+<pre><code>[root@master mcollective]# mco controller reload_agents
+Determining the amount of hosts matching filter for 2 seconds .... 3
+
+                         web.example.com&gt; reloaded all agents
+                      puppet.example.com&gt; reloaded all agents
+                      master.example.com&gt; reloaded all agents
+
+Finished processing 3 / 3 hosts in 181.20 ms
+</code></pre>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/write-simplerpc-agent" title="Write SimpleRPC Agent">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/use-mcollective-cli" title="Use MCollective CLI">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

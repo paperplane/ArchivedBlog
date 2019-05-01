@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Puppet CA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Puppet CA </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-24</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Puppet-ref">Puppet <span>5</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Puppet-ref">Puppet <span>7</span></a>
+      </li>
+      <li>
+        <a href="/tags#DevOps-ref">DevOps <span>5</span></a>
+      </li>
+      <li>
+        <a href="/tags#Python-ref">Python <span>3</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h4 id="toc_0">概述</h4>
+
+<p>puppet尽量依靠标准。就安全而言，它使用标准的SSL证书用于client和master的认证。这意味着客户端验证它与正确的server通信而且server验证它与正确的客户端通信。</p>
+
+<p>由于为每个client颁发签名证书和管理自己认证权限复杂性的代价，puppet包括了它自己的认证授权（CA）。puppet并对使用这个认证授权进行了优化而且它也可被用于其他用途的生成证书。puppet证书管理主要目标是保持简单,并尽可能不让其更加明显。</p>
+
+<p>puppetca是用于管理puppet认证授权的应用程序。它允许生成，撤销、签名、删除证书和显示签名请求列表。默认情况下，puppetmastered有认证授权中心功能。</p>
+
+<p><strong>证书</strong></p>
+
+<p>在puppetd或者puppetmasterde第一次执行时client和master自动生成证书，分别地，puppetd(client端puppet)，第一次连接master时会接受master证书并且保存。至此之后就会验证从master处获得证书的唯一性。</p>
+
+<p>也可以通过手动将master证书通过安全通道复制到client端，需要注意中间人攻击。</p>
+
+<hr>
+
+<p><strong>客户端证书生成</strong></p>
+
+<p>没有签名证书的客户端会自动生成密钥对和证书请求，并在连接服务器端时一并提交给服务器端。如果服务器端开启自动认证，那么自动认证配置文件会检查客户端域名与其内容是否匹配。这个文件会在每次签名请求时被加载，所以任何更改会被很快应用。</p>
+
+<p><strong>服务器端证书管理</strong></p>
+
+<p>在通常情况下，证书的自动认证会被禁用。这样的情况下，证书必须通过使用puppetca工具进行签名。在1.0版之前，证书等待签名时会有邮件提醒，而现在可以通过日志或者puppetca --list来查看等待认证的请求列表。</p>
+
+<p>一旦请求到达，使用puppetca --sign<hostname>来签名请求，增加--all标志会签名所有请求。所有已由puppet ca认证处理的证书列表在文件$cadir/inventory.txt中。</p>
+
+<p>特定主机的所有认证文件可通过使用puppet ca --clean<hostname>来移除。这在某些情况下比如重装时会使用。
+证书签名后可通过puppet revoke进行撤销，服务器端会在每次客户端建立连接时查看证书撤销列表（CRL）。对于每一次撤销的生效必须重启服务器端进程。</p>
+
+<hr>
+
+<p><strong>服务器端 客户端证书生成</strong></p>
+
+<p>通过使用puppetca -generate<hostname>可以在服务器端生成客户端证书，并且签名新生成的证书。这经常使用在自动化没有puppet管理的服务器端的puppet会话（应该是standalone安装方式），可以通过脚本将生成的公钥复制到客户端相应的位置，安装puppet并且执行puppetd来进行客户端配置。使用该命令会生成三个文件，$signeddir/hostname.pem, $certdir/hostname.pem and $privatekeydir/hostname.pem.需要将相应的文件拷贝到客户端相应的位置。</p>
+
+<p><strong>服务器端 客户端证书撤销</strong></p>
+
+<p>如果客客户端证书或者私钥受到破坏，可以撤销该客户端证书。</p>
+
+<p>当客户端证书被撤销，它的序列号会被添加到当前的证书撤销列表（CRL），如果一个撤销的客户端连接puppetmaster来检查它的配置时会被拒绝连接，如果仅用于撤销客户端证书，CRL文件只需在puppetmaster上。</p>
+
+<p><strong>Python实现清除认证</strong></p>
+
+<p>下面实现使用web.py实现一个简单的清除认证接口</p>
+
+<pre><code>import web
+import subprocess
+import logging
+import time
+import os
+
+urls = (
+    &#39;/&#39;, &#39;index&#39;,
+    &#39;/execution/([\w\W]*)&#39;, &#39;Exec&#39;,
+)
+
+class _AttributeString(str):
+    @property
+    def stdout(self):
+        return str(self)
+
+class index:
+    &#39;&#39;&#39;
+    test page
+    &#39;&#39;&#39;
+    def GET(self):
+        return &quot;Hello, world!&quot;
+
+class Exec:
+    &#39;&#39;&#39;
+    clean auth
+    &#39;&#39;&#39;
+    def POST(self,name):
+    # command
+    cmd = [&#39;puppet&#39;,&#39;cert&#39;,&#39;clean&#39;]
+    cmd.append(name)
+    cmd = &#39; &#39;.join(cmd)
+
+    # exec
+    p = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    (stdout,stderr) = p.communicate()
+    out = _AttributeString(stdout)
+
+    # result
+    out.failed = False
+    out.returncode = p.returncode
+    out.err = stderr
+    if out.returncode not in [0]:
+        out.failed = True
+    out.succeeded = not out.failed
+
+    # logging
+    logging.basicConfig(filename = os.path.join(os.getcwd(), &#39;log.txt&#39;), level = logging.INFO)
+    log = logging.getLogger(&#39;root&#39;)
+    currtime = time.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;,time.localtime(time.time()))
+    if out.failed:
+        log.error(&#39;[&#39;+currtime+&#39;] Error!\nreturn code: &#39; + str(out.returncode) + &#39;\n&#39; + &#39;stderr: &#39; + out.err)
+    else:
+        log.info(&#39;[&#39;+currtime+&#39;] Succeed!\n&#39; + &#39;stdout: &#39; + out)
+
+    # delete puppet reports and facts
+    report_root = &#39;/var/lib/puppet/reports/&#39;
+    facts_root = &#39;/var/lib/puppet/yaml/facts/&#39;
+    facts_file = name + &#39;.yaml&#39;
+    try:
+        import shutil
+        shutil.rmtree(os.path.join(report_root,name))
+        os.remove(os.path.join(facts_root,facts_file))
+    except (IOError, OSError):
+        message = &#39;file or directory not exits&#39;
+        currtime = time.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;,time.localtime(time.time()))
+        log.error(&#39;[&#39;+currtime+&#39;] Error!\n&#39; + &#39;Error: &#39; + message)
+        return out
+
+if __name__ == &quot;__main__&quot;:
+    app = web.application(urls, globals())
+    app.run()
+</code></pre>
+
+<hr>
+
+<h4 id="toc_1">认证过程举例</h4>
+
+<p>客户端：</p>
+
+<pre><code>$ puppetd --waitforcert 30 --server puppetserver.domain.net -v
+</code></pre>
+
+<p>服务器端：</p>
+
+<pre><code>$ puppetca --list
+$ puppetca --sign puppetclient-37.domain.net
+</code></pre>
+
+<p><strong>Puppet实现自动认证</strong></p>
+
+<p>1.puppetmaster给客户端签名,虽然方便了我们,但必须要注意安全,如果某个主机,正好请求到puppetmaster,你又自动签名,而它又执行了你默认的类,而类里有些秘密数据,那可就麻烦了.</p>
+
+<p>2.实现puppet 客户端自动签名,需要两个步骤.</p>
+
+<p>a. vim /etc/puppet/puppet.conf    2.6 版本为[master],2.7 版本为[main] 段,添加如下两行.</p>
+
+<pre><code>autosign=true
+autosign = /etc/puppet/autosign.conf
+</code></pre>
+
+<p>b./etc/puppet/autosign.conf </p>
+
+<pre><code>*.test.com    # 域名
+192.168.1.0/24  #IP段
+</code></pre>
+
+<p>完成以上步骤即可实现自动给客户端ssl签名.</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/remote-interaction" title="Remote Interaction">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/deploy-mcollective-in-production-environment" title="Deploy MCollective in Production Environment">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

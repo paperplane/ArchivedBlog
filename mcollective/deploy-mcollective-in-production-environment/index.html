@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Deploy MCollective in Production Environment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Deploy MCollective in Production Environment </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-24</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#MCollective-ref">MCollective <span>28</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#MCollective-ref">MCollective <span>27</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">MCollective生产环境安装部署思路</h2>
+
+<p>MCollective(后面简称mco)生产环境安装需要考虑到单个client/server节点的安装、ActiveMQ集群、Subcollectives的划分和实际环境等问题，需要分阶段分内容安装部署。这里我把需要安装的节点简单分为三类，具体表示请见图。</p>
+
+<p><img src="/assets/media/mcollective/mco-deploy.png" alt="图片"></p>
+
+<p>1.Client节点：运行MCollective Client Code。管理员操作中心，它可以直接就是ActiveMQ节点。</p>
+
+<p>2.Sub-collectives主节点：ActiveMQ 节点(Client可选)，每个区域（数据中心）都有一个ActiveMQ实例。区域节点只能与本地其他节点通过该中间件通信。这里需要注意main-collective也是一种Sub-collective。</p>
+
+<p>3.ActiveMQ实例间通过使用OpenWire协议通信。可运行在IPSec之上，也支持SSL。</p>
+
+<p>4.Server节点：被管理的服务器，运行MCollective Server Code。不需要与控制中心直接通信。</p>
+
+<p><strong>需要注意的是，一个节点可有多个功能，比如ActiveMQ 节点一般也会是Server 节点,当然它也可以安装Client，成为Client 及节点，根据需求而定。</p>
+
+<p>对于这种安装，每个ActiveMQ 节点可同时为Puppet Master/Nagios实例和其他任何共享的基础设施组件。</strong></p>
+
+<hr>
+
+<h4 id="toc_1">软件及版本</h4>
+
+<p>Ruby、Rubygems、 ActiveMQ 5.5 =&gt; Tanukiwrapper =&gt; java(1.6+)、 MCollective 2.0</p>
+
+<p>注：=&gt;表示依赖</p>
+
+<p>基本安装环境</p>
+
+<p>ruby/rubygems</p>
+
+<p>根据功能确定软件</p>
+
+<p>Server节点  MCollective-Server</p>
+
+<p>ActiveMQ节点  ActiveMQ</p>
+
+<p>Client节点 MCollective-Client</p>
+
+<p>基本环境配置好之后，其余所有软件通过相应RPM包安装</p>
+
+<hr>
+
+<h4 id="toc_2">ActiveMQ配置</h4>
+
+<p>安装完必需的软件之后，就是对中间件的配置。对于ActiveMQ的配置，只需对/etc/activimq/activemq.xml文件几个地方进行修改即可使用。这部分不包括进行读写权限的粒度控制和SSL/TLS等安全配置。对于上图所示的控制中心和数据中心的ActiveMQ节点在配置上基本相同，只是控制中心ActiveMQ还承担着联系其他ActiveMQ的任务，所以需多做一步配置。当然，最终结果除了以上所以的星状，也可以配置为环状之类。</p>
+
+<p><strong>数据中心ActiveMQ节点配置</strong></p>
+
+<p>这里只是指出几处需要修改的地方：</p>
+
+<p>1.broker</p>
+
+<pre><code>&lt;broker xmlns=&quot;http://activemq.apache.org/schema/core&quot; brokerName=&quot;puppet-broker&quot; dataDirectory=&quot;${activemq.base}/data&quot; destroyApplicationContextOnStop=&quot;true&quot;&gt;
+brokerName需要唯一，默认localhost要修改
+</code></pre>
+
+<p>2.user</p>
+
+<pre><code>&lt;users&gt; 
+&lt;authenticationUser username=&quot;${activemq.username}&quot; password=&quot;${activemq.password}&quot; groups=&quot;admins,everyone&quot;/&gt;
+&lt;authenticationUser username=&quot;mcollective&quot; password=&quot;secret&quot; groups=&quot;mcollective,admins,everyone&quot;/&gt;
+&lt;/users&gt;
+</code></pre>
+
+<p>这里的username，password需与server/client配置文件对应。对于用户和组的设置可多样化。</p>
+
+<p>3.authorizationMap</p>
+
+<pre><code>&lt;authorizationMap&gt;
+&lt;authorizationEntries&gt;
+        &lt;authorizationEntry queue=&quot;&gt;&quot; write=&quot;admins&quot; read=&quot;admins&quot; admin=&quot;admins&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;&gt;&quot; write=&quot;admins&quot; read=&quot;admins&quot; admin=&quot;admins&quot; /&gt;
+&lt;authorizationEntry topic=&quot;mcollective.&gt;&quot; write=&quot;mcollective&quot; read=&quot;mcollective&quot; admin=&quot;mcollective&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;mcollective.&gt;&quot; write=&quot;mcollective&quot; read=&quot;mcollective&quot; admin=&quot;mcollective&quot; /&gt;
+        &lt;authorizationEntry topic=&quot;ActiveMQ.Advisory.&gt;&quot; read=&quot;everyone&quot; write=&quot;everyone&quot; admin=&quot;everyone&quot;/&gt;
+&lt;/authorizationEntries&gt;
+&lt;/authorizationMap&gt;
+</code></pre>
+
+<p>这部分是对权限进行细粒度控制部分，一般保持默认即可。更多细粒度权限控制和注册信息可参考ActiveMQ安全。</p>
+
+<p>4.transportConnectors</p>
+
+<pre><code>&lt;transportConnectors&gt;
+&lt;transportConnector name=&quot;openwire&quot; uri=&quot;tcp://0.0.0.0:6166&quot;/&gt;
+   &lt;transportConnector name=&quot;stomp&quot; uri=&quot;stomp://0.0.0.0:6163&quot;/&gt;
+&lt;/transportConnectors&gt;
+</code></pre>
+
+<p>这里的两个端口需要注意修改，还有transportconnector name需要注意，如果有openssl设置会在这里增加。</p>
+
+<p><strong>控制中心ActiveMQ节点配置</strong></p>
+
+<p>控制中心只需要增加关于networkConnector信息。</p>
+
+<pre><code>&lt;networkConnectors&gt;
+&lt;networkConnector
+name=&quot;master-puppet&quot;        uri=&quot;static:(tcp://master.example.com:6166,tcp://puppet.example.com:6166)&quot; 
+    userName=&quot;mcollective&quot; 
+    password=&quot;secret&quot; 
+    duplex=&quot;true&quot; /&gt;
+    &lt;networkConnector 
+name=&quot;master-client&quot;         uri=&quot;static:(tcp://master.example.com:6166,tcp://client.example.com:6166)&quot; 
+    userName=&quot;mcollective&quot; 
+    password=&quot;secret&quot; 
+    duplex=&quot;true&quot; /&gt;
+&lt;/networkConnectors&gt;
+</code></pre>
+
+<p>视所选择连接方式和使用ActiveMQ数量，这部分内容不同。还可设置关于ExcludeDestinations信息。</p>
+
+<hr>
+
+<h4 id="toc_3">MCollective配置</h4>
+
+<p>SubCollective的划分体现在MCollective的配置文件中。使用SubCollectives不仅是网络分流、出于安全的考虑，也为过滤选择主机群时提供强大的-T选项。通过-T可以指定只在某个SubCollective上执行。</p>
+
+<p><strong>cliet.cfg （Client端配置文件）</strong></p>
+
+<pre><code>topicprefix = /topic/
+main_collective = mcollective
+#指定该客户端所通信的SubCollectives，一般若是数据中心的Client，只与该数据中心SubCollective和main_collective，而控制中心Client,则能够操作所有的SubCollectives。
+collectives = mcollective,local,puppet,web 
+#默认存放代理客户端等文件的路径
+libdir = /usr/libexec/mcollective
+logger_type = console
+loglevel = warn
+# 以后内容最好是作为Shell环境变量
+securityprovider = psk
+plugin.psk = unset
+#关于stomp的信息
+connector = stomp
+plugin.stomp.host = master.example.com #ActiveMQ所在节点
+#端口用户名密码与ActiveMQ配置文件对应
+plugin.stomp.port = 6163
+plugin.stomp.user = mcollective
+plugin.stomp.password = secret
+# 指定Facts源
+factsource = facter
+plugin.yaml = /etc/mcollective/facts.yaml
+</code></pre>
+
+<p><strong>server.cfg（Server端配置文件）</strong></p>
+
+<p>与client端类似，有些相同的配置项所指含义有所区别。</p>
+
+<p>collectives指的是该节点所属哪些SubCollectives</p>
+
+<p>plugin.stomp.host指的是该节点所连接的ActiveMQ节点</p>
+
+<p>注：这里仅包含基本配置，并未覆盖详细配置。</p>
+
+<h4 id="toc_4">初期代理/应用程序安装</h4>
+
+<p>根据初期需求，安装代理：runcommand,puppetd,puppetca,puppetral,service,package</p>
+
+<p>代理Ruby存放在Server端配置文件中指定相应路径的agent目录下。DDL文件可直接只放在Client的Agent目录下。应用程序只需在Client端放置在相应路径下。最后使用mco controller reload_agents重新加载所有代理，应用程序需重启服务。</p>
+
+<p>对于一般的代理会有四个文件(以package作为名称为例)：</p>
+
+<pre><code>代理的ruby文件---libdir/mcollective/agent/package.rb
+DDL文件---libdir/mcollective/agent/package.ddl
+客户端脚本—libdir/mcollective/application/package.rb
+Utility classes—libdir/mcollective/util
+</code></pre>
+
+<p>从Github上下载源码，按照安装方法，将相应文件放到指定目录下，重启mcollective。最后测试安装成功。</p>
+
+<hr>
+
+<h4 id="toc_5">故障转移部署</h4>
+
+<p><strong>ActiveMQ 配置故障转移池</strong></p>
+
+<pre><code>connector = activemq
+plugin.activemq.pool.size = 2
+plugin.activemq.pool.1.host = stomp1
+plugin.activemq.pool.1.port = 6163
+plugin.activemq.pool.1.user = me
+plugin.activemq.pool.1.password = secret
+
+plugin.activemq.pool.2.host = stomp2
+plugin.activemq.pool.2.port = 6163
+plugin.activemq.pool.2.user = me
+plugin.activemq.pool.2.password = secret
+</code></pre>
+
+<p>这样stomp1挂掉了之后会使用stomp2作为故障转移。</p>
+
+<p><strong>ActiveMQ 节点安装Client</strong></p>
+
+<p>按照最初的设想，ActiveMQ节点所连接区域同时是一个SubCollective也是一个数据中心。这样的设置，当某个数据中心出现故障，不会蔓延到其他数据中心。若该数据中心ActiveMQ节点正常，受影响的就只是该Server节点。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/puppet/puppet-ca" title="Puppet CA">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/puppet/puppet-internals" title="Puppet Internals">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

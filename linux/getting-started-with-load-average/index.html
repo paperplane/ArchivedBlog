@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Started With Load Average</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Getting Started With Load Average </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2014-06-15</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Linux-ref">Linux <span>3</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Linux-ref">Linux <span>2</span></a>
+      </li>
+      <li>
+        <a href="/tags#loadavg-ref">loadavg <span>1</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h3 id="toc_0">what</h3>
+
+<ul>
+<li><p>什么是Load Average</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Load_(computing)">Load是计算机工作量的度量</a>。Load Average就是一段时间内(1分钟，5分钟，15分钟)系统Load的平均值。简单来说，就是一段时间内(1分钟，5分钟，15分钟)运行队列里等待的进程数加上当前正在执行的进程数。</p>
+
+<p>可以通过uptime命令查看。</p>
+
+<pre><code>uptime
+
+21:45  up 22:37, 3 users, load averages: 1.81 1.79 1.58
+</code></pre></li>
+<li><p>哪些进程被统计在内</p>
+
+<p>一个空闲的计算机load值为0，每一个使用或者等待CPU的进程使Load值增1。大多数UNIX系统仅仅计算处于正在运行或者等待运行(running or runnable)状态的进程。但是Linux同样包括处于不可中断(uniterruptible)状态的进程(通常是等待I/O)，如果系统上有许多进程因为I/O繁忙被阻塞会导致不同的结果。这样的情况下Load Average会很高，但不能反应CPU实际使用增加(可能CPU使用率会很低，但是依然反应出用户需要等待多长时间)。</p></li>
+<li><p>是统计进程还是线程</p>
+
+<p>在现代操作系统中，对线程的不同实现导致Load Average计算的不同。这实际是跟不同线程模型相关的。为了计算Load一些系统视线程为进程：那么每个等待的线程都会使Load值增1。但是其他系统可能不同，尤其是对于实现M:N这种线程模型的系统通常使用不同的策略，对于Load计算有的是按照每个进程恰好一次(无论线程数量)，有的是仅仅计算用户线程调度器暴露给内核的线程数(这可能取决于处理器的并发量)。Linux系统应该是每个线程单独Load增1。</p></li>
+<li><p>一个类比</p>
+
+<p>明白上述两点就知道了Load计算的实体是什么，关键是针对不同的系统有不同的实现。对于Load的理解，在<a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">这篇文章</a>中有个通俗的解释。</p>
+
+<p>一只单核的处理器可以比喻成一条单车道。设想你是这条道路的交警，你来规划车辆怎么通过。如果前面没有车辆在等待，那么你可以告诉后面的司机通过。 如果车辆众多，那么需要告诉他们稍等一会。</p>
+
+<p>于是，对于车流情况有特定的描述，例如：</p>
+
+<p>0.00 表示目前道路上没有任何的车流。 实际上这种情况与 0.00 到 1.00 之间是相同的，很通畅，过往的车辆可以丝毫不用等待的通过。</p>
+
+<p>1.00 表示刚好是在这条道路的承受范围内。 这种情况不算糟糕，只是车流会有些堵，不过这种情况可能会造成交通越来越慢。</p>
+
+<p>超过 1.00，那么说明这条道路已经超出负荷，交通严重的拥堵。 那么情况有多糟糕？ 例如 2.00 的情况说明车流已经超出了桥所能承受的一倍，那么将有多余过桥一倍的车辆正在焦急的等待。3.00 的话情况就更不妙了，说明这条道路基本上已经快承受不了，还有超出道路负载两倍多的车辆正在等待通过。</p></li>
+<li><p>两个比较</p>
+
+<p>Load Average是系统负荷的重要度量指标，另一个同样经常被使用的则是CPU使用率。这里简单的进行比较。</p>
+
+<ul>
+<li>Load Average度量的是CPU使用的趋势，而不像CPU使用率那样是瞬时快照</li>
+<li>Load Average包含了所有对CPU的需求，而不仅仅是度量时间点的活跃程度</li>
+</ul>
+
+<p>对于均衡负载来说，基于CPU队列长度的CPU Load信息会比CPU使用率更好。原因大概是对于Load很高的主机，CPU使用率可能接近100%，这时的利用率不能反应负载的级别。相反，CPU队列长度能直接反应这个CPU的负载总量。一个简单的例子就是：对于两个不同的系统，一个有3个进程在等待队列一个有6个进程在队列，它们的CPU利用率都可能接近100%。</p>
+
+<p>对于CPU利用率和CPU Load Average的结果来判断性能问题。首先低CPU利用率不表明CPU不是瓶颈，竞争CPU的队列长期保持较长也是CPU超负荷的一种表现。对于应用来说可能会去花时间在I/O,Socket等方面，那么可以考虑是否后这些硬件的速度影响了整体的效率。</p>
+
+<hr></li>
+</ul>
+
+<h3 id="toc_1">when</h3>
+
+<ul>
+<li><p>什么时候注意Load Average</p>
+
+<p>什么样的负载是理想负载, 1.00就很理想吗。有经验的管理员把理想负载设在0.7。于是有了单核处理器三个准则。对于多核(多处理器、多核数)需要用Load来除以总核数。然后按照单核的标准来看。</p>
+
+<ul>
+<li><p>单核</p>
+
+<ul>
+<li>当系统负荷持续大于0.7，你必须开始调查了，问题出在哪里，防止情况恶化。</li>
+<li>当系统负荷持续大于1.0，你必须动手寻找解决办法，把这个值降下来。</li>
+<li>当系统负荷达到5.0，就表明你的系统有很严重的问题，长时间没有响应，或者接近死机了。你不应该让系统达到这个值。</li>
+</ul></li>
+<li><p>多核</p>
+
+<ul>
+<li>多核CPU与多CPU效果类似，所以考虑系统负荷的时候，必须考虑这台电脑有几个CPU、每个CPU有几个核心。然后，把系统负荷除以总的核心数，只要每个核心的负荷不超过1.0，就表明电脑正常运行。</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<hr>
+
+<h3 id="toc_2">where</h3>
+
+<ul>
+<li><p>哪些地方有Load Average</p>
+
+<ul>
+<li>w</li>
+<li>uptime</li>
+<li>top</li>
+<li>htop</li>
+<li>iftop</li>
+<li>vmstat</li>
+<li>iostat</li>
+<li>mpstat</li>
+<li>netstat</li>
+<li>dstat</li>
+<li>xload</li>
+<li>tload</li>
+<li>/proc/loadavg</li>
+</ul></li>
+</ul>
+
+<hr>
+
+<h3 id="toc_3">refenerce</h3>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Load_(computing)">http://en.wikipedia.org/wiki/Load_(computing)</a></li>
+<li><a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages</a></li>
+<li><a href="http://www.linuxjournal.com/article/9001">http://www.linuxjournal.com/article/9001</a></li>
+<li><a href="http://www.teamquest.com/pdfs/whitepaper/ldavg1.pdf">http://www.teamquest.com/pdfs/whitepaper/ldavg1.pdf</a></li>
+</ul>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/devops/getting-started-with-vagrant-coreos-docker" title="Getting Started With Vagrant/Coreos/Docker">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next disabled"><a>Next &rarr;</a>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction To HTTP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Introduction To HTTP </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2012-11-23</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Notes-ref">Notes <span>17</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#HTTP-ref">HTTP <span>17</span></a>
+      </li>
+      <li>
+        <a href="/tags#Note-ref">Note <span>17</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h3 id="toc_0">HTTP简介</h3>
+
+<ul>
+<li>HTTP是万维网背后的协议，是每个成功WEB事务的幕后推手。每次对WEB文档或者图像的请求、每次对超链接的点击、每次对表格的提交等这些背后都是HTTP协议。</li>
+<li>HTTP协议实现互联网中信息的分发与交互，它为计算机之间相互通信提供了标准方式。HTTP协议指定客户端怎样请求数据以及服务器如何响应这些请求。</li>
+<li>HTTP是一个属于应用层的面向对象的协议，适用于分布式多媒体信息系统。HTTP协议是因特网的多媒体信使，并且使用可靠地数据传输协议，确保数据在传输过程中不会被损坏或产生混乱。</li>
+<li>HTTP协议历经了HTTP/0.9、HTTP/1.0、HTTP/1.0+、HTTP/1.1的版本变化，现在HTTP-NG原型建议已经提出。1.0和1.1是广泛使用的两个版本。主要围绕特性调整、结构设计、性能优化等方面改进。</li>
+</ul>
+
+<hr>
+
+<h3 id="toc_1">HTTP特点</h3>
+
+<ul>
+<li><strong>客户端/服务器模式</strong>：最基本的通信模式。</li>
+<li><strong>简单迅速灵活</strong>：客户端请求时，只需指定请求方法和路径比较简单;HTTP服务器的程序规模小，通信迅速;HTTP允许传输任意类型数据对象，比较灵活。</li>
+<li><strong>【非】持续连接</strong>：既支持持续连接（1.1版本默认），也支持非持续连接（1.0版本默认）。</li>
+<li><strong>无状态</strong>：无状态即对事务的处理没有记忆能力。缺少状态意味着后续处理相同的信息，必须重传。</li>
+</ul>
+
+<p>注：最简单的HTTP服务器实现估计是：python -m SimpleHTTPServer。</p>
+
+<hr>
+
+<h3 id="toc_2">HTTP举例</h3>
+
+<p><img src="/assets/media/HTTP.png" alt="图片"></p>
+
+<p>上述过程简单理解为一个人给另一个人打电话询问某个信息</p>
+
+<p>询问者和被询问者是<strong>客户端</strong>和<strong>服务器</strong>，客户端向服务器请求信息，服务器响应客户端请求。</p>
+
+<p>电话则相当于<strong>WEB浏览器</strong>，是客户端请求的一种媒介。</p>
+
+<p>询问的过程就是<strong>HTTP事务</strong>（假设被询问是有问必答），包括请求过程和响应过程。</p>
+
+<p>对话的内容则是<strong>HTTP报文</strong>（双方定义好对话的法则），请求和相应都有相应规定。</p>
+
+<p>询问的信息便是<strong>WEB资源</strong>，这里是关于名为/的文档，资源既有类型也有相应名称。</p>
+
+<p>再使用tcpdump查看报文内容，看看具体的电话内容：
+<img src="/assets/media/tcpdump_http.png" alt="tcpdump抓包"></p>
+
+<hr>
+
+<h3 id="toc_3">基本术语</h3>
+
+<ul>
+<li><p>WEB结构组件/应用程序</p>
+
+<p>1 基本组件----客户端和服务器</p>
+
+<p>HTTP客户端和HTTP服务器构成了万维网的基本组件，WEB浏览器是最常见的客户端，客户端与服务器请求、响应的&quot;对话方式&quot;。</p>
+
+<p>2 常用组件</p>
+
+<p>在因特网中，要与很多WEB应用程序进行交互（不仅仅是WEB浏览器和WEB服务器），也就是说HTTP事务并不完全是像开始描述的仅仅是客户端服务器交互，多个WEB应用程序参与进来就会有不同的交互模式，但基本模式是这种客户端服务器模式。这里简单地做一些概括性汇总，详细比较分析后面有专门部分介绍。
+<table class="table table-bordered table-striped table-condensed">
+<tr>
+    <td>名称</td>
+    <td>作用</td>
+    <td>举例</td>
+</tr>
+<tr>
+    <td>代理</td>
+    <td>安全、应用集成以及性能优化重要组件，常见有透明代理、反向代理、正向代理</td>
+    <td>客户端和服务器之间转发流量</td>
+</tr>
+<tr>
+    <td>缓存</td>
+    <td>将源站资源备份以备下次相同请求直接使用副本</td>
+    <td>保存常用文档本地副本以提高性能</td>
+</tr>
+<tr>
+    <td>网关</td>
+    <td>用于将HTTP流量转化成其他协议，就像自己是源端服务器一样接受请求，对客户端透明</td>
+    <td>HTTP/FTP网关</td>
+</tr>
+<tr>
+    <td>隧道</td>
+    <td>建立起来之后，就会在两条连接之间对原始数据进行盲转发，可转发非HTTP数据，且不会窥探数据</td>
+    <td>HTTP连接承载加密的安全套接字层</td>
+</tr>
+<tr>
+    <td>Agent代理</td>
+    <td>代表用户发起HTTP请求。所有发布WEB请求的应用程序都是HTTP Agent 代理</td>
+    <td>网络爬虫、浏览器等</td>
+</tr>
+</table></p></li>
+<li><p>WEB资源</p>
+
+<p>1 资源概述：所有能够提供WEB内容的东西都是WEB资源</p>
+
+<p>WEB服务器是WEB资源的宿主,而WEB资源是WEB内容的源头</p>
+
+<p>静态资源：静态文件等,动态资源：根据需要生成的软件程序</p>
+
+<p>2 资源名称：URI与URL/URN</p>
+
+<p>1.名称含义</p>
+
+<pre><code>URI 统一资源表示符 Uniform Resource Identifier
+URL 统一资源定位符 Uniform Resource Location
+URN 统一资源名       Uniform Resource Name
+</code></pre>
+
+<p>2.关系：服务器资源名称称为URI，URI的两种实现形式，分别是URL(最常见)和URN（实验阶段）</p>
+
+<p>URL描述了一台特定服务器上某资源的特定位置，明确定义了如何从一个精确、固定的位置获取资源。与位置相关</p>
+
+<p>URN作为特定内容的唯一名称，与资源所在地无关。使用这些位置无关资源可以将资源四处搬移。使用统一名称来访问，需要一个支撑架构来解析资源的位置</p>
+
+<p>3.URL格式：三部分（协议、服务器和本地资源）</p>
+
+<p>方案：指明访问资源所使用的协议类型 HTTP://等</p>
+
+<p>服务器的因特网地址: <a href="http://www.baidu.com%E3%80%81">www.baidu.com、</a> 192.168.0.1等</p>
+
+<p>其余指定WEB服务器上的某个资源: /、/z/shibada/zhuanti.html等</p>
+
+<p>3 资源类型：WEB传输对象的MIME类型</p>
+
+<p>MIME（Miltipurpose Internet Mail Extension, 多用途因特网邮件扩展）最初解决不同电子邮件系统之间转移报文时存在的问题</p>
+
+<p>HTTP采纳MIME用以描述并标记多媒体内容，WEB服务器为所有的HTTP对象附加一个MIME类型(content-type)</p>
+
+<p>MIME类型是一种文本标记，表示一种主要的对象类型和一个特定的子类型，中间由一条斜杠来分隔</p>
+
+<p>常见类型</p>
+
+<pre><code>HTML格式文本文件  text/html
+普通ASCII文本文件  text/plain
+JPEG版本图片文件   image/jpeg
+GIF格式的图片文件  image/gif
+APPLE的Quicktime电影 video/quicktime
+微软PPT演示文件     application/vnd.ms-powerpoint
+</code></pre></li>
+<li><p>HTTP事务</p>
+
+<p>1 HTTP事务 一个HTTP事务是由一条请求命令（从客户端发往服务器端）和一个响应结果（从服务器端发往客户端）组成的</p>
+
+<p>2 方法：请求命令称为HTTP方法。告诉服务器要执行什么动作</p>
+
+<p>3 状态码：HTTP报文返回携带一个状态码，告知客户端执行结果</p>
+
+<p>4 常见方法： </p>
+
+<pre><code>GET         请求服务器向客户端发送命名资源
+PUT         将来自客户端的数据存储到一个命名的服务器资源中去
+POST        将客户端数据发送到一个服务器网关应用程序
+HEAD        仅发送命名响应中的HTTP资源
+TRACE       对可能经过代理服务器传送到服务器上的报文进行追踪
+DELETE      从服务器中删除命名资源
+OPTIONS     决定可以在服务器上执行哪些方法
+</code></pre>
+
+<p>5 常见状态码（状态码 原因短语 含义）</p>
+
+<pre><code>1XX 信息性状态码
+2XX 成功状态码
+3XX 重定向状态码
+4XX 客户端错误状态码
+5XX 服务器错误状态码
+
+100 Continue
+200 OK 
+302 Found
+304 Not Modified
+403 Forbidden
+404 Not Found
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable
+</code></pre>
+
+<p>6 WEB页面可以包含多个对象，一个页面通常不是单个资源，而是一组资源的集合。复合WEB页面要为每个嵌入式资源使用以一个单独的HTTP事务</p></li>
+<li><p>HTTP报文</p>
+
+<p>1 通用报文格式：请求报文和响应报文</p>
+
+<p>起始行：报文的第一行就是起始行，请求报文中说明要做什么，响应报文中说明出现了什么情况</p>
+
+<p>请求报文起始行：包含一个方法和一个请求URL。方法描述了服务器应该执行的操作，请求URL描述了要对哪个资源执行这个方法。请求行还包含HTTP版本号。</p>
+
+<p>响应报文起始行：包含了响应报文使用的HTTP版本、数字状态码、以及描述操作状态的文本形式的原因短语。</p>
+
+<p>首部字段：起始行后面有零个或多个首部字段。每个首部字段都包含一个名字一个值（Key-Value形式），以冒号隔开。首部以空行结束，添加一个首部字段和添加新行一样简单。</p>
+
+<p>主体：空行之后就是主体，包含了所有类型的数据。请求主体包括了发给WEB服务器的数据，响应主体装载了要返回给客户端的数据。起始行和首部都是文本形式且都是格式化的，而主体则可以是任意类型。</p>
+
+<p>2 首部字段与方法配合工作，决定了客户端和服务器能做什么事情。格式前面已经指明，首部字段域的名字与大小写无关。在请求和响应的报文中都可以用首部来提供信息。可以将首部分为五个主要类型。</p>
+
+<p>普通首部：客户端和服务器都可以使用的通用首部</p>
+
+<p>举例：Connection,Date,MIME-Version,Trailer,Transfor-Encoding,Update,Via,<strong>Cache-Control</strong>,Pragma</p>
+
+<p>请求首部：只在请求报文中有意义，用于说明是谁或什么在发送请求、请求原子何处、或者客户端喜好及能力。</p>
+
+<p>举例：Host,From,Accept,Accept-<em>,Except,If-Match,If-</em>,<strong>If-Modified-Since,Cookie</strong>,Max-Forward</p>
+
+<p>响应首部：响应首部为客户端发送额外信息，比如是谁在发送响应、响应者的功能，甚至与响应相关的一些特殊指令。</p>
+
+<p>举例：Age,Server,<strong>Set-Cookie</strong>,Title,Warning,Vary,Accept-Ranges,WWW-Authenticate</p>
+
+<p>实体首部：用来描述HTTP报文的负荷，它可以告知报文接收者它在对什么进行处理。请求和响应报文中都可能出现。</p>
+
+<p>举例：Allow,Location,Content-Type,Content-Encoding,Content-*,<strong>Expries,Etag,Last-Modified</strong></p>
+
+<p>扩展首部：非标准首部，开发者自建。</p>
+
+<p>注：具体报文可以对比前面TCPdump抓包结果。具体后面有文章详细剖析。</p></li>
+</ul>
+
+<hr>
+
+<h3 id="toc_4">参考资料</h3>
+
+<ul>
+<li><a href="http://book.douban.com/subject/10746113/">HTTP权威指南</a></li>
+<li><a href="http://vdisk.weibo.com/s/bh3V-">HTTP协议详解</a></li>
+</ul>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/host-list" title="Host List">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/notes/%E7%BD%91%E5%85%B3" title="网关">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

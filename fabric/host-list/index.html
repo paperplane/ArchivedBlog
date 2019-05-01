@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Host List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Host List </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2012-11-08</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">主机列表--Host List</h2>
+
+<p>Fabric 最重要的功能就是在一个/多个主机上执行一个/多个任务，那么如何指定多个主机就显得基础和关键，前面的 ENV 变量中也多次提到 host/host,role/roles, user/host/port 等概念，这些就是在指定主机时需要的信息。在下一部分介绍如何定义 fabric 中另一重要部分--任务(task).</p>
+
+<p>Fabric 指定主机的方式有很多，随着作用域由全局到具体任务也不尽相同，这些方式在必要的时候也可以结合使用。在此之前需要先了解两个概念：Hosts：这里指的是 env.host_string，它的一般形式：username@hostname:port，分别是 env.user,    env.host,    env.port，执行任务时，fabric 分别相应部分并存入相应 ENV 变量。这里 user 和 port 一般使用默认值。Roles：即分组的 hosts。字典类型，key 为分组名，value 为分组主机列表。一般在有需要分组的情况下才会使用。如果需要制定一系列主机而又不分组可直接使用 env.hosts。</p>
+
+<pre><code>from fabric.api import env
+
+env.roledefs = {    
+    &#39;web&#39;: [&#39;www.buaa.edu.cn&#39;],    
+
+    &#39;dns&#39;: [&#39;ns1.buaa.edu.cn&#39;, &#39;ns2.buaa.edu.cn&#39;]
+}
+</code></pre>
+
+<p>还可以是这样：</p>
+
+<pre><code>env.roledefs = [&#39;ns1.buaa.edu.cn&#39;,&#39;ns2.buaa.edu.cn&#39;]
+</code></pre>
+
+<p>这类似: </p>
+
+<pre><code>env.hosts = [&#39;ns1.buaa.deu.cn&#39;,&#39;ns2.buaa.edu.cn&#39;]
+</code></pre>
+
+<p>下面是 fabric 中指定主机列表方式：</p>
+
+<ul>
+<li>指定主机</li>
+</ul>
+
+<p>1.全局 host 通过 env 环境变量</p>
+
+<pre><code>from fabric.api import env, run 
+
+env.hosts = [&#39;host1&#39;, &#39;host2&#39;]
+
+def mytask():    
+    run(&#39;ls /var/www&#39;)
+</code></pre>
+
+<p>这时</p>
+
+<pre><code>$fab mytask
+</code></pre>
+
+<p>或者定义函数设定主机</p>
+
+<pre><code>from fabric.api import env, run
+
+def mytask():
+    run(&#39;ls /var/www&#39;)
+
+def set_hosts():    
+    env.hosts = [&#39;host1&#39;, &#39;host2&#39;]
+</code></pre>
+
+<p>只需</p>
+
+<pre><code>$fab set_hosts mytask
+</code></pre>
+
+<p>2.全局 host  通过 fab 命令行工具</p>
+
+<pre><code>$fab -H host1,host2 mytask
+</code></pre>
+
+<p>3.单个任务 通过 fab 命令行工具</p>
+
+<pre><code>$fab mytask:hosts=&quot;host1;host2&quot;
+</code></pre>
+
+<p>4.单个任务 听过装饰器 decorators</p>
+
+<pre><code>from fabric.api import hosts, run
+
+@hosts(&#39;host1&#39;, &#39;host2&#39;)
+def mytask():    
+    run(&#39;ls /var/www&#39;)
+</code></pre>
+
+<p>需要注意的是它们之间的优先级、执行顺序很重要，很可能会一个设置覆盖另一个设置。需要注意就是：</p>
+
+<pre><code>A.命令行切换会在 fabfile 加载之前解释，单个任务命令行参数覆盖 fabfile 设置，在 fabfile 中赋值的 env.hosts 和 env.roles 会覆盖命令行全局参数；
+
+B.单个任务参数会覆盖全局设置，而单个任务装饰器并不覆盖命令行单个任务的 host 参数。
+</code></pre>
+
+<p>所以，一般会有如下顺序：</p>
+
+<pre><code>1.单个任务，命令行主机列表(fab mytask:host=host1)会覆盖其他一切设置    
+
+2.单个任务，装饰器指定主机列表 (@hosts(&#39;host1&#39;))会覆盖 env 设置    
+
+3.Fabfile 中全局 ENV 变量设置 (env.hosts = [&#39;host1&#39;]) 会覆盖命令行全局指定主机列表    
+
+4.命令行全局指定主机列表 (--hosts=host1)仅初始化 ENV 变量，在其他三种情况都没有设置的话，使用它指定的值。
+</code></pre>
+
+<ul>
+<li>合并列表</li>
+</ul>
+
+<p>对于既指定host又指定role，或者指定多个host或者role时，相同主机在最终列表时可以实现合并：</p>
+
+<pre><code>from fabric.api import env, hosts, roles, run
+
+env.roledefs = {&#39;role1&#39;: [&#39;b&#39;, &#39;c&#39;]}
+
+@hosts(&#39;a&#39;, &#39;b&#39;)
+@roles(&#39;role1&#39;)
+
+def mytask():    
+    run(&#39;ls /var/www&#39;)
+</code></pre>
+
+<p>最终主机列表就会是[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]，所有在列表中重复的主机只会执行一次。相当于现根据 hosts, roles 生成一张主机列表，而不是先根据 hosts，再根据 roles 执行。也即这时候它们的优先级相同，未出现覆盖情况。</p>
+
+<ul>
+<li>排除主机</li>
+</ul>
+
+<p>对于某些单独主机，也可以实现从列表中删除</p>
+
+<pre><code>$fab -R myrole -x host2,host5 mytask  
+
+&lt;==&gt;  
+
+$fab mytask:roles=myrole,exclude_hosts=&quot;host2;host5&quot; 
+
+（同样可以用装饰器@exclude_hosts，或全局 ENV 变量指定）
+</code></pre>
+
+<p>若 myrole = [&#39;host1&#39;,&#39;host2&#39;,&#39;host5&#39;],结果主机列表就会是[&#39;host1&#39;]，用这些参数并没有改变 env.hosts,env.roles 等这些值，只是改变最终需要执行的主机列表。</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/mcollective/introduction-to-mcollective" title="Introduction To MCollective">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/notes/introduction-to-http" title="Introduction To HTTP">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>

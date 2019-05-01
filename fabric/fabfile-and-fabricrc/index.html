@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fabfile and Fabricrc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="JunQi Lee">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<link href='/assets/stylesheets/bootstrap.min-30be35ab0566bd194da62326a55f8d13.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google-bootstrap-33a7ebf0bfd40ac114b783fe555cae02.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/style-b4f131633849898bd48a8945cb312a52.css' type='text/css' rel='stylesheet' media='all'>
+<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">紙飛機</a>
+          <ul class="nav pull-left">
+            <li class="divider-vertical"></li>
+              
+                <li><a href="/archive">Archive</a></li>
+              
+              
+                <li><a href="/tools">Tools</a></li>
+              
+              
+                <li><a href="/notes">Notes</a></li>
+              
+              
+                <li><a href="/linux">linux</a></li>
+              
+              
+                <li><a href="/git">Git</a></li>
+              
+              
+                <li><a href="/python">Python</a></li>
+              
+              
+                <li><a href="/tags">Tags</a></li>
+              
+              
+                <li><a href="/categories">Categories</a></li>
+              
+              
+                <li><a href="/about">About Me</a></li>
+              
+            <li class="divider-vertical"></li>
+            <li><a href="http://wiki.junqili.com">WIKI</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 70px;" class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Fabfile and Fabricrc </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2013-03-16</strong>
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#Fabric-ref">Fabric <span>12</span></a>
+      </li>
+      <li>
+        <a href="/categories#DevOps-ref">DevOps <span>42</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#Fabric-ref">Fabric <span>13</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="content">
+      <h2 id="toc_0">两个文件--Fabfile &amp; Fabricrc</h2>
+
+<h4 id="toc_1">Fabfile</h4>
+
+<p>之前已经说过很多次fabfile, 也提到过这是一个python模块，但是也不去对。这需要知道fabric执行原理。fabric能够加载python模块（如fabfile.py）或者包（比如fabfile/目录下包含<strong>init</strong>.py）。默认情况下，它会寻找名叫fabfile或fabfile.py的东西。</p>
+
+<p>Fabfile的搜索算法是需找用户当前活动目录，或者它的父目录。因此一般在一个项目中，把fabfile放在该项目源代码的根路径则在程序中任何地方都能使用fab命令。</p>
+
+<p>Fabric现在是纯python,所以可以随时可以以任何方式import它的组件，为了封装与方便，现在所有7类核心API都被包括在模块fabril.api下。所有只需在fabfile开头中：</p>
+
+<pre><code>from fabric.api import *
+</code></pre>
+
+<p>当然普通API(Contrib API)需要另外导入。在写fabfile时，本着实用和简便的原则，选择是使用from fabric.api import * 还是 from fabric.api import abort, cd, env, get 具体情况具体分析。</p>
+
+<hr>
+
+<h4 id="toc_2">Fabricrc</h4>
+
+<p>我们之前一直说fabfile, 如果有人不想用fabfile这个名字怎么办，因为他想用一个他自己喜欢的名字，或者处于其他目的。这个时候同样有办法，那就是在fabric本地配置文件fabricrc中修改，添加如下条目：</p>
+
+<pre><code>fabfile=anything you want
+</code></pre>
+
+<p>默认情况下fab命令都会遵循一定原则去找fabfile或fabfile.py，但若通过fabricrc文件里面增加：fabfile=task.py，fab命令就会直接去寻找task.py，而不是fabfile了。</p>
+
+<p>Fabricrc是fabric简单的用户配置文件，它会包含一些key-value形式的内容，一条信息一行，每行类似于：user = ssh<em>user</em>name这种形式。</p>
+
+<p>一般不需要该配置文件，默认路径在env.fabfile中指定有：~/.fabricrc，这个配置会被fab -c命令选项覆盖。对于一些固定不变的env变量通过fabricrc设置可能比较方便。需要注意的是fabricrc中指定的fabfile文件名会直接影响到fab命令查找fabfile的文件名，正因为它的优先级在fabfile之上，所以该文件中key-value的形式将直接改变env中的值。</p>
+
+<p>使用举例：</p>
+
+<p>如果你的SSH LOGIN 用户名不同于你的工作间用户名，而你又不想在项目的fabfile中改变env.user的值（也许你想方便其他用户），这是你可以使用如下设置：</p>
+
+<pre><code>user = ssh_user_name
+</code></pre>
+
+<p>这个当你运行fab时，你的fabfile会将env.user设置为’ssh<em>user</em>name’</p>
+
+    </div>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/fabric/task-list" title="Task List">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/mcollective/mcollective-with-puppet" title="MCollective With Puppet">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'junqili'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; JunQi Lee 2013-2014
+          use <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">Ruhoh</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44115336-1']);
+  _gaq.push(['_trackPageview']);
+  
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script src='/assets/javascripts/jquery-b11ced65f32fedbe9bf81ef9db0f3c94.js'></script>
+<script src='/assets/javascripts/bootstrap.min-2b5027918a32f806ce202a2ad6ce707f.js'></script>
+<script src='/assets/javascripts/application-af42fe98add4a8da12087f4f3501fba9.js'></script>  </body>
+</html>
